@@ -1,4 +1,4 @@
-#TRAVIS BADGE
+[![Build Status](https://travis-ci.org/RedTent/HHSKwkl.svg?branch=master)](https://travis-ci.org/RedTent/HHSKwkl)
 
 # Package HHSKwkl
 
