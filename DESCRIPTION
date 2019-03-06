@@ -1,0 +1,32 @@
+Package: HHSKwkl
+Type: Package
+Title: Functies HHSK Waterkwaliteit
+Version: 0.1.0
+Author: Johan van Tent
+Maintainer: Johan van Tent <j.van.tent@hhsk.nl>
+Description: Functies voor waterkwaliteit.
+    Deze functies worden gebruikt voor rapportage en anlyse van waterkwaliteit bij HHSK.
+    Gemaakt: Maart 2019.
+Depends: R (>= 2.10)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Roxygen: list(markdown = TRUE)
+Imports: 
+    dplyr,
+    tidyr,
+    readr,
+    leaflet,
+    lubridate,
+    ggplot2,
+    scales,
+    rlang,
+    purrr,
+    packcircles,
+    sp,
+    rgdal,
+    tibble,
+    stringr,
+    forcats
+Suggests: testthat

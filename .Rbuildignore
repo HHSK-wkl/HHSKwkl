@@ -1,0 +1,7 @@
+^LICENSE\.md$
+^.*\.Rproj$
+^\.Rproj\.user$
+^MIJNTEST
+^DEV
+^\.travis\.yml$
+^data-raw$
