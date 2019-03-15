@@ -5,3 +5,4 @@
 ^DEV
 ^\.travis\.yml$
 ^data-raw$
+^docs

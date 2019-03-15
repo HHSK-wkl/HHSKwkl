@@ -1,0 +1,50 @@
+mp;datum;taxatype;methode;naam;nednaam;waarde;stadium;stadiumwaarde;eenheid;taxniv
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Keratella cochlearis; ;0,4;GEEN;0,4;n/l;28
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Keratella tecta; ;0,4;GEEN;0,4;n/l;28
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Keratella quadrata; ;0,4;GEEN;0,4;n/l;28
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Lecane; ;1,2;GEEN;1,2;n/l;24
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Lepadella; ;0,4;GEEN;0,4;n/l;24
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Polyarthra; ;28;GEEN;28;n/l;24
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Synchaeta; ;0,4;GEEN;0,4;n/l;24
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Testudinella patina; ;1,6;GEEN;1,6;n/l;28
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Acroperus harpae; ;0,1;<1mm;0,1;n/l;28
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Alona; ;0,1;<1mm;0,1;n/l;24
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Ceriodaphnia; ;15,3;<1mm;15,3;n/l;24
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Ceriodaphnia pulchella; ;1,2;<1mm;1,2;n/l;28
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Diaphanosoma; ;1;<1mm;1;n/l;24
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Diaphanosoma brachyurum; ;0,2;>1mm;0,2;n/l;28
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Pleuroxus; ;0,1;<1mm;0,1;n/l;24
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Pleuroxus denticulatus; ;0,1;<1mm;0,1;n/l;28
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Sididae; ;0,6;<1mm;0,6;n/l;20
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Simocephalus vetulus; ;0,3;>1mm;0,1;n/l;28
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Simocephalus vetulus; ;0,3;<1mm;0,2;n/l;28
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Calanoida; ;21;CO;20,4;n/l;14
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Calanoida; ;21;>1mm;0,6;n/l;14
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Cyclopoida; ;20,2;CO;17,4;n/l;14
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Cyclopoida; ;20,2;>1mm;0,2;n/l;14
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Cyclopoida; ;20,2;<1mm;2,6;n/l;14
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Eudiaptomus; ;0,6;>1mm;0,6;n/l;24
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Eudiaptomus gracilis; ;0,2;>1mm;0,2;n/l;28
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Thermocyclops oithonoides; ;0,8;<1mm;0,8;n/l;28
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Daphnia; ;0,2;JU;0,2;n/l;24
+10008;26-9-2018 0:00:00;ZOOPT;ZOOPN;Copepoda; ;121,6;NA;121,6;n/l;34
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Bidens cernua;Knikkend tandzaad;0,5;;;%;28
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Bidens tripartita;Veerdelig tandzaad;0,5;;;%;28
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Butomus umbellatus;Zwanenbloem;0,5;;;%;28
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Carex paniculata;Pluimzegge;0,5;;;%;28
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Ceratophyllum demersum;Grof hoornblad;1;;;%;28
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Epilobium hirsutum;Harig wilgenroosje;0,5;;;%;28
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Glyceria maxima;Liesgras;0,5;;;%;28
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Hydrocharis morsus-ranae;Kikkerbeet;0,5;;;%;28
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Iris pseudacorus;Gele lis;0,5;;;%;28
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Lemna turionifera;Knopkroos;3;;;%;28
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Mentha aquatica;Watermunt;0,5;;;%;28
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Myosotis scorpioides ssp. scorpioides;Moerasvergeet-mij-nietje;0,5;;;%;30
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Persicaria maculosa;Perzikkruid;0,5;;;%;28
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Phragmites australis;Riet;0,5;;;%;28
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Rumex hydrolapathum;Waterzuring;0,5;;;%;28
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Solanum dulcamara;Bitterzoet;0,5;;;%;28
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Sparganium erectum;Grote egelskop;1;;;%;28
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Spirodela polyrhiza;Veelwortelig kroos;4;;;%;28
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Urtica dioica;Grote brandnetel;0,5;;;%;28
+KRW 198;1-8-2018 0:00:00;MACFT;VEG%;Wolffia columbiana;Colombiaanse wolffia;3;;;%;28

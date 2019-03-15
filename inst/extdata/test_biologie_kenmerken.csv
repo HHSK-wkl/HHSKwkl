@@ -1,0 +1,17 @@
+mp;datum;taxatype;methode;kenmerkcode;kenmerknaam;waarde;waarde_tekst;waarde_klasse;waarde_klassenaam
+00205;30-7-2013 0:00:00;MACFT;VEG%;BDKDRIJFBLAD;Bedekking drijfbladvegetatie [%];0; ;0;
+00205;30-7-2013 0:00:00;MACFT;VEG%;BDKEMERS;Bedekking emerse laag vegetatie [%];2; ;0;
+00205;30-7-2013 0:00:00;MACFT;VEG%;BDKKROOS;Bedekking kroos of kroosvaren [%];0; ;0;
+00205;30-7-2013 0:00:00;MACFT;VEG%;BDKOEVER;Bedekking oevervegetatie tov totale opp [%];0; ;0;
+00205;30-7-2013 0:00:00;MACFT;VEG%;BDKSUBMERS;Bedekking submerse laag vegetatie [%];0; ;0;
+00205;30-7-2013 0:00:00;MACFT;VEG%;BREEDTE;Waterbreedte in m;150; ;0;
+00205;30-7-2013 0:00:00;MACFT;VEG%;LANDSPLKLGG;Landschappelijke ligging;0;HALFNATUUR;0;
+00205;30-7-2013 0:00:00;MACFT;VEG%;TALUDHOEK;Taludhoek in graden;50; ;0;
+00205;30-7-2013 0:00:00;MACFT;VEG%;WATDTEWK+025;Waterdiepte in m op 25 cm van de waterkant;0,4; ;0;
+00205;30-7-2013 0:00:00;MACFT;VEG%;WATDTEWK+050;Waterdiepte in m op 50 cm van de waterkant;0,7; ;0;
+00205;30-7-2013 0:00:00;MACFT;VEG%;WATDTEWK+075;Waterdiepte in m op 75 cm van de waterkant;0,92; ;0;
+00205;30-7-2013 0:00:00;MACFT;VEG%;WATDTEWK+100;Waterdiepte in m op 100 cm van de waterkant;1,03; ;0;
+00205;30-7-2013 0:00:00;MACFT;VEG%;WATDTEWK+150;Waterdiepte in m op 150 cm van de waterkant;1,48; ;0;
+00205;30-7-2013 0:00:00;MACFT;VEG%;WATDTEWK+200;Waterdiepte in m op 200 cm van de waterkant;1,8; ;0;
+00205;30-7-2013 0:00:00;MACFT;VEG%;WATDTEWK+250;Waterdiepte in m op 250 cm van de waterkant;4,85; ;0;
+00205;30-7-2013 0:00:00;MACFT;VEG%;ZICHT;Doorzicht in m;2; ;0;
