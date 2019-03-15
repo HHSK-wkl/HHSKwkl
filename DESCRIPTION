@@ -29,4 +29,8 @@ Imports:
     tibble,
     stringr,
     forcats
-Suggests: testthat
+Suggests: 
+    testthat,
+    covr
+URL: https://github.com/RedTent/HHSKwkl
+BugReports: https://github.com/RedTent/HHSKwkl/issues

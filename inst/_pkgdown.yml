@@ -1,0 +1,45 @@
+title: "Package voor waterkwaliteit - HHSKwkl"
+
+reference:
+  - title: Importfuncties
+    desc: Functies o
+    contents:
+      - '`import_biologie`'
+      - '`import_biologische_kenmerken`'
+      - '`import_fys_chem`'
+      - '`import_meetpunten`'
+      - '`import_normen_rivm`'
+      - '`import_parameters`'
+  - title: Dataframe Utilities
+    desc: ~
+    contents:
+      - '`add_jaar_maand`'
+      - '`add_jaar`'
+      - '`add_maand`'
+      - '`add_maandnaam`'
+      - '`add_lat_long`'
+  - title: Grafieken functies
+    desc: ~
+    contents:
+      - '`hhskthema`'
+      - '`grafiek_basis`'
+      - '`boxplot_basis`'
+      - '`grafieken_internet`'
+      - '`norm_lijnen`'
+      - '`opzoeken_waarde`'
+      - '`titelpagina_internet`'
+      - '`hhskblauw`'
+      - '`hhskgroen`'
+      - '`logo`'
+      - '`schonevoeten`'
+  - title: Analyse
+    desc: ~
+    contents:
+      - '`toetsing_gbm`'
+  - title: Overig
+    desc: ~
+    contents:
+      - '`coordinate_conversion`'
+      - '`maand_namen`'
+      - '`my_c`'
+      - '`randomize`'
