@@ -7,9 +7,9 @@
 toetsing_gbm(data, normen, factor_detectiegrens = 0.5)
 }
 \arguments{
-\item{data}{Een dataframe met data zoals wordt gemaakt met \code{\link{import_fys_chem}}}
+\item{data}{Een dataframe met data zoals wordt gemaakt met \code{\link[=import_fys_chem]{import_fys_chem()}}}
 
-\item{normen}{Een dataframe met normen zoals wordt gemaakt met \code{\link{import_normen_rivm}}}
+\item{normen}{Een dataframe met normen zoals wordt gemaakt met \code{\link[=import_normen_rivm]{import_normen_rivm()}}}
 
 \item{factor_detectiegrens}{Te gebruiken factor voor detectiegrenswaarden. Default is 0.5.}
 }

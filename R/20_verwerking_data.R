@@ -2,8 +2,8 @@
 #'
 #' Deze functie toetst per jaar per gewasbeschermingsmiddel of er een overschrijding is en hoe groot deze is.
 #'
-#' @param data Een dataframe met data zoals wordt gemaakt met \code{\link{import_fys_chem}}
-#' @param normen Een dataframe met normen zoals wordt gemaakt met \code{\link{import_normen_rivm}}
+#' @param data Een dataframe met data zoals wordt gemaakt met [import_fys_chem()]
+#' @param normen Een dataframe met normen zoals wordt gemaakt met [import_normen_rivm()]
 #' @param factor_detectiegrens Te gebruiken factor voor detectiegrenswaarden. Default is 0.5.
 #'
 #' @return Een dataframe met per meetpunt, parameter en jaar een toetsing. De toetsing bestaat uit:
