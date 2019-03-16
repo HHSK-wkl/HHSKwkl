@@ -24,11 +24,10 @@ Imports:
     rlang,
     purrr,
     packcircles,
-    sp,
-    rgdal,
     tibble,
     stringr,
-    forcats
+    forcats,
+    sf
 Suggests: 
     testthat,
     covr
