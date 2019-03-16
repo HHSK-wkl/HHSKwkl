@@ -205,12 +205,12 @@ import_biologie_stadia <- function(biologie_csv = "data/biologie.csv"){
 #' @examples
 #' \dontrun{
 #' 
-#' biologische_kenmerken <- import_biologische_kenmerken(kenmerken_csv = "data/biologie_kenmerken.csv")
+#' biologie_kenmerken <- import_biologie_kenmerken(kenmerken_csv = "data/biologie_kenmerken.csv")
 #' 
 #' }
 #' 
 #' 
-import_biologische_kenmerken <- function(kenmerken_csv = "data/biologie_kenmerken.csv"){
+import_biologie_kenmerken <- function(kenmerken_csv = "data/biologie_kenmerken.csv"){
   
   bio_km_df <- readr::read_csv2(kenmerken_csv,col_types = readr::cols(datum = readr::col_date(format = "%d-%m-%Y %H:%M:%S")))
   bio_km_df
@@ -243,7 +243,7 @@ import_normen_rivm <- function(normen = "data/normen.txt", parameterdf = import_
 
   koppeling <- c("Aquo-code" = "aquo_parcode", "Eenheid" = "aquo_eenheid", "Compartiment.code" = "aquo_compartiment")
   
-  normen <- readr::read_tsv(normen, col_types = readr::cols(Waarde = "n"), locale = readr::locale(decimal_mark = ",")) %>% 
+  normen <- suppressWarnings(readr::read_tsv(normen, col_types = readr::cols(Waarde = "n"), locale = readr::locale(decimal_mark = ","))) %>% 
     dplyr::mutate(Eenheid = dplyr::case_when(Eenheid == "\u00B5g/l" ~ "ug/l", TRUE ~ Eenheid )) %>% 
     dplyr::filter(!is.na(Eenheid), !is.na(`Aquo-code`), !is.na(Compartiment), !(Norm.code %in% c("AC","Kp","VR")) ) %>% 
     dplyr::left_join(parameterdf, by = koppeling) %>%
