@@ -47,67 +47,46 @@ hhskthema <- function(){
 
 #' Tijdreeksgrafiek
 #'
-#' Deze functie plot een tijdreeksgrafiek van 1 meetpunt van 1 parameter.
+#' Deze functie maakt een tijdreeksgrafiek van 1 meetpunt van 1 parameter.
 #'
-#' @param data Een dataframe met de gegevens van 1 tijdreeks, dus van 1 meetpunt en 1 parameter. Kolommen zoals beschreven in \code{\link{import_fys_chem}}.
-#' 
-#' @param meetpuntendf dataframe. Een opzoektabel voor de locatie-omschrijving. Kolommen zoals beschreven in \code{\link{import_meetpunten}}.
-#' Probeert default ook met deze functie een meetpuntendf te maken.#' 
-#' 
-#' @param parameterdf dataframe. Een opzoektabel voor de uitgebreide parameternaam en eenheid. Kolommen zoals beschreven in \code{\link{import_parameters}}.
-#' Probeert default ook met deze functie een parameterdf te maken.
-#' 
-#' @param mp character. Optioneel, Meetpuntcode van het betreffende meetpunt. Neemt anders het eerste meetpunt uit \code{data}
-#' 
-#' @param parnr character. Optioneel,Parameternummer van het betrffende meetpunt. Neemt anders het eerste parameternummer uit \code{data}
-#' 
-#' @param plot_loess logical. Wel of niet plotten van een LOESS-curve. Default is TRUE
-#' 
+#' @param data Een dataframe met de gegevens van 1 tijdreeks, dus van 1 meetpunt en 1 parameter. 
+#' Kolommen zoals beschreven in [import_fys_chem()]. 
+#' @param mp Code van het meetpunt. Deze wordt gebruikt in de titel
+#' @param mpomsch Omschrijving van het meetpunt. Deze wordt gebruikt in de titel
+#' @param parnaam Naam van de parameter. Deze wordt gebruikt in de ondertitel
+#' @param eenheid Eenheid van de parameter. Deze wordt gebruikt als titel van de Y-as
+#' @param plot_loess Wel of niet plotten van een LOESS-curve. Default is TRUE
+#'
 #' @return Een ggplot grafiek. Het is mogelijk om achteraf andere ggplot objecten toe te voegen met `+`
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' 
-#' basisgrafiek <- grafiek_basis(data = chloride_myplace, 
-#'                     parameterdf, meetpuntendf, plot_loess = FALSE) 
-#' }
-grafiek_basis <- function(data, 
-                          meetpuntendf = import_meetpunten(),
-                          parameterdf = import_parameters(),
-                          mp = NULL,
-                          parnr = NULL,
-                          plot_loess = TRUE){
-  # het is de vraag of de grafiektitel, subtitel en astitels intern gedefinieerd moeten worden of toch liever daarbuiten
-
-  if (is.null(mp)) {mp <- data[[1,"mp"]]}
-  mpomsch <- opzoeken_waarde(df = meetpuntendf, sleutel = mp, attribuut =  "mpomsch", sleutelkolom = "mp")
-
-  if (is.null(parnr)) {parnr <- data[[1,"parnr"]]}
-  parameternaam <- opzoeken_waarde(df = parameterdf, sleutel = parnr, attribuut = "parnaamlang", sleutelkolom = "parnr")
-  eenheid <- opzoeken_waarde(df = parameterdf, sleutel = parnr, attribuut = "eenheid")
-
+grafiek_basis <- function(data, mp = NULL, mpomsch = NULL, parnaam = NULL, eenheid = NULL, plot_loess = TRUE){
+  
+  #limieten
   range_y <- range(data$waarde, na.rm = TRUE)
   ylimieten <- range_y * c(0, 1.1)
+  
   if (range_y[1] * 2 > range_y[2] & range_y[1] != range_y[2]) {ylimieten <- range_y * c(0.95, 1.05)}
   
+  #grafiek
   grafiek <- ggplot2::ggplot(data, ggplot2::aes(x = datum, y = waarde)) +
     ggplot2::geom_line(col = hhskblauw) +
     ggplot2::geom_point(col = hhskblauw) +
     ggplot2::geom_point(data = dplyr::filter(data, detectiegrens == "<"), pch = 21, col = hhskblauw, fill = "white") + # detectiegrenswaarden
     
-    ggplot2::labs(x = "", 
-                  y = eenheid, 
-                  title = paste("Meetpunt:", mp,"-", mpomsch), 
-                  subtitle = paste("Parameter:", parameternaam)) +
+    ggplot2::labs(title = paste0("Meetpunt: ", mp," - ", mpomsch), 
+                  subtitle = paste0("Parameter: ", parnaam),
+                  x = "", 
+                  y = eenheid) +
     ggplot2::scale_y_continuous(limits = ylimieten, expand = c(0,0), oob = scales::rescale_none ) +
     ggplot2::scale_x_date(date_breaks = "years", labels = lubridate::year) + 
     hhskthema()
   
   if (plot_loess) {
     grafiek <- grafiek + 
-    ggplot2::geom_smooth(se = TRUE, col = hhskgroen, linetype = "dashed", fill = hhskblauw, alpha = 0.08, fullrange = TRUE)
-    }
+      ggplot2::geom_smooth(se = TRUE, col = hhskgroen, linetype = "dashed", fill = hhskblauw, alpha = 0.08, fullrange = TRUE)
+  }
   
   grafiek
   
@@ -317,19 +296,20 @@ add_norm_lijnen <- function(plot, parnr, normen){
 
 #' Maak grafieken voor het internet
 #'
-#' Deze functie maakt per meetpunt een pdf-document met een grafiek, met de functie \code{\link{grafiek_basis}}, voor elke parameter.
+#' Deze functie maakt per meetpunt een pdf-document met een grafiek voor elke parameter.
 #'
-#' @param data Een dataframe met ruwe gegevens om grafieken van te maken. Deze moet tenminste de kolommen mp, parnr, datum, 
-#' detectiegrens en waarde hebben.
-#' @param meetpuntendf Een dataframe met mp en mpomsch voor de titel van de grafiek. Zie ook \code{\link{import_meetpunten}}
-#' @param parameterdf Een dataframe met parnr eenheid en parnaamlang voor de titel van de grafiek. Zie ook \code{\link{import_parameters}}
-#' @param normen Een dataframe met de normen. Zie ook \code{\link{import_normen_rivm}}
+#' @param data Een dataframe met ruwe gegevens om grafieken van te maken. Deze moet tenminste de kolommen 
+#' mp, parnr, datum, detectiegrens en waarde hebben.
+#' @param meetpuntendf Een dataframe met mp en mpomsch voor de titel van de grafiek. Zie ook [import_meetpunten()]
+#' @param parameterdf Een dataframe met parnr eenheid en parnaamlang voor de titel van de grafiek. 
+#' Zie ook [import_parameters()]
+#' @param normen Een dataframe met de normen. Zie ook [import_normen_rivm()]
 #' @param plot_normen Logical. Switch om wel geen normen te plotten. Default is \code{TRUE}
 #' @param export_pad String. Locatie waar de pdf's geplaatst worden
 #' @param lijst_parnrs Een optionele vector met parameternummers die meegenomen worden.
 #' @param min_aantal_waarden Het minimale aantal waarnemingen wat vereist is voor een grafiek
 #' @param grafiekenfunctie Het is mogelijk om een alternatieve functie op te geven om de grafieken te maken. 
-#' De default is \code{\link{grafiek_basis}}
+#' De default is [grafiek_basis()]
 #'
 #' @return Per meetpunt in \code{data} een pdf-document met per parameter een grafiek
 #' 
@@ -341,31 +321,36 @@ add_norm_lijnen <- function(plot, parnr, normen){
 #' grafieken_internet(data, meetpuntendf, parameterdf, normen, export_pad = "TEST/GRAF")
 #' 
 #' }
-#' 
 grafieken_internet <- function(data, 
-                               meetpuntendf = import_meetpunten(),
-                               parameterdf = import_parameters(),
-                               normen = import_normen_rivm(),
+                               meetpuntendf,
+                               parameterdf,
+                               normen,
                                plot_normen = TRUE,
                                export_pad = "export/grafieken",
                                lijst_parnrs = NULL,
                                min_aantal_waarden = 12,
-                               grafiekenfunctie = grafiek_basis){
+                               grafieken_functie = grafiek_basis){
   
-  if (is.null(lijst_parnrs)) {lijst_parnrs <- c(1:99,107,200:401,403:505,507:899,1000:2999)}
+  if (is.null(lijst_parnrs)) {lijst_parnrs <- c(1:99, 107, 200:401, 403:505, 507:899, 1000:2999)}
   
+  # nadenken welke info df's verplicht moeten zijn
+  
+  f_mpomsch <- maak_opzoeker(meetpuntendf, mp, mpomsch)
+  f_eenheid <- maak_opzoeker(parameterdf, parnr, eenheid)
+  f_parnaam <- maak_opzoeker(parameterdf, parnr, parnaamlang)
+  
+  # overbodige parameters en kolommen verwijderen
   data <- data %>% 
-    # overbodige parameters en kolommen verwijderen
     dplyr::filter(parnr %in% lijst_parnrs) %>% 
     dplyr::group_by(mp, parnr) %>% 
     dplyr::mutate(aantal = n(), 
-           min_is_max = min(waarde, na.rm = TRUE) == max(waarde, na.rm = TRUE),
-           aantal_detectiegrens = sum(detectiegrens == "<", na.rm = TRUE),
-           alleen_detectiegrens = aantal == aantal_detectiegrens) %>%  
+                  min_is_max = min(waarde, na.rm = TRUE) == max(waarde, na.rm = TRUE),
+                  aantal_detectiegrens = sum(detectiegrens == "<", na.rm = TRUE),
+                  alleen_detectiegrens = aantal == aantal_detectiegrens) %>%  
     dplyr::filter(aantal >= min_aantal_waarden, !min_is_max, !alleen_detectiegrens) %>% 
     dplyr::select(mp, parnr, datum, detectiegrens, waarde) %>%
     dplyr::ungroup()
-    
+  
   # loops om grafieken te maken
   for (meetpunt in sort(unique(data$mp))) {
     print(meetpunt)
@@ -373,23 +358,27 @@ grafieken_internet <- function(data,
     
     filename <- paste0(export_pad, "/", meetpunt, ".pdf")
     grDevices::pdf(file = filename, width = 16, height = 8)
-    #aantalplots <- 0 #om lege plots later te verwijderen
+    
     titelpagina_internet(inclusief_normen = plot_normen)    
     
     for (parameternr in sort(unique(data_mp$parnr))) {
       
       grafiek <- dplyr::filter(data_mp, parnr == parameternr) %>% 
-        grafiekenfunctie(mp = meetpunt, parnr = parameternr, meetpuntendf = meetpuntendf, parameterdf = parameterdf, plot_loess = parameternr < 1000) %>% 
-        {if (parameternr >= 1000 & plot_normen) {add_norm_lijnen(., parameternr, normen)} else {.} }
+        grafieken_functie(mp = meetpunt, 
+                          mpomsch = f_mpomsch(meetpunt),
+                          parnaam = f_parnaam(parameternr),
+                          eenheid = f_eenheid(parameternr),
+                          plot_loess = parameternr < 1000)
+      
+      if (parameternr >= 1000 & plot_normen) grafiek <- add_norm_lijnen(grafiek, parameternr, normen)
       
       suppressMessages(print(grafiek))
-      #aantalplots <- aantalplots + 1
+      
     }# einde parameterloop
     
     grDevices::dev.off()
-    #if (aantalplots == 0) {file.remove(filename)}#verwijdert lege plots
+    
   }#einde meetpuntloop
-    
-    
+  
 }
 
