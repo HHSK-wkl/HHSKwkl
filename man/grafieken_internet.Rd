@@ -4,21 +4,21 @@
 \alias{grafieken_internet}
 \title{Maak grafieken voor het internet}
 \usage{
-grafieken_internet(data, meetpuntendf = import_meetpunten(),
-  parameterdf = import_parameters(), normen = import_normen_rivm(),
+grafieken_internet(data, meetpuntendf, parameterdf, normen,
   plot_normen = TRUE, export_pad = "export/grafieken",
   lijst_parnrs = NULL, min_aantal_waarden = 12,
   grafiekenfunctie = grafiek_basis)
 }
 \arguments{
-\item{data}{Een dataframe met ruwe gegevens om grafieken van te maken. Deze moet tenminste de kolommen mp, parnr, datum,
-detectiegrens en waarde hebben.}
+\item{data}{Een dataframe met ruwe gegevens om grafieken van te maken. Deze moet tenminste de kolommen
+mp, parnr, datum, detectiegrens en waarde hebben.}
 
-\item{meetpuntendf}{Een dataframe met mp en mpomsch voor de titel van de grafiek. Zie ook \code{\link{import_meetpunten}}}
+\item{meetpuntendf}{Een dataframe met mp en mpomsch voor de titel van de grafiek. Zie ook \code{\link[=import_meetpunten]{import_meetpunten()}}}
 
-\item{parameterdf}{Een dataframe met parnr eenheid en parnaamlang voor de titel van de grafiek. Zie ook \code{\link{import_parameters}}}
+\item{parameterdf}{Een dataframe met parnr eenheid en parnaamlang voor de titel van de grafiek.
+Zie ook \code{\link[=import_parameters]{import_parameters()}}}
 
-\item{normen}{Een dataframe met de normen. Zie ook \code{\link{import_normen_rivm}}}
+\item{normen}{Een dataframe met de normen. Zie ook \code{\link[=import_normen_rivm]{import_normen_rivm()}}}
 
 \item{plot_normen}{Logical. Switch om wel geen normen te plotten. Default is \code{TRUE}}
 
@@ -29,13 +29,13 @@ detectiegrens en waarde hebben.}
 \item{min_aantal_waarden}{Het minimale aantal waarnemingen wat vereist is voor een grafiek}
 
 \item{grafiekenfunctie}{Het is mogelijk om een alternatieve functie op te geven om de grafieken te maken.
-De default is \code{\link{grafiek_basis}}}
+De default is \code{\link[=grafiek_basis]{grafiek_basis()}}}
 }
 \value{
 Per meetpunt in \code{data} een pdf-document met per parameter een grafiek
 }
 \description{
-Deze functie maakt per meetpunt een pdf-document met een grafiek, met de functie \code{\link{grafiek_basis}}, voor elke parameter.
+Deze functie maakt per meetpunt een pdf-document met een grafiek voor elke parameter.
 }
 \examples{
 \dontrun{
@@ -43,5 +43,4 @@ Deze functie maakt per meetpunt een pdf-document met een grafiek, met de functie
 grafieken_internet(data, meetpuntendf, parameterdf, normen, export_pad = "TEST/GRAF")
 
 }
-
 }

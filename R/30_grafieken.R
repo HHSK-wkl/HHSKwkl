@@ -329,7 +329,7 @@ grafieken_internet <- function(data,
                                export_pad = "export/grafieken",
                                lijst_parnrs = NULL,
                                min_aantal_waarden = 12,
-                               grafieken_functie = grafiek_basis){
+                               grafiekenfunctie = grafiek_basis){
   
   if (is.null(lijst_parnrs)) {lijst_parnrs <- c(1:99, 107, 200:401, 403:505, 507:899, 1000:2999)}
   
@@ -364,7 +364,7 @@ grafieken_internet <- function(data,
     for (parameternr in sort(unique(data_mp$parnr))) {
       
       grafiek <- dplyr::filter(data_mp, parnr == parameternr) %>% 
-        grafieken_functie(mp = meetpunt, 
+        grafiekenfunctie(mp = meetpunt, 
                           mpomsch = f_mpomsch(meetpunt),
                           parnaam = f_parnaam(parameternr),
                           eenheid = f_eenheid(parameternr),
