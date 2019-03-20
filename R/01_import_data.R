@@ -7,9 +7,6 @@
 #' csv-formaat zijn met \code{;} als scheidingsteken en \code{,} als scheidingsteken. Default is \code{"data/fys_chem.csv"}. 
 #' Het is ook mogelijk om een zip-bestand in te lezen waar het csv-bestand in zit.
 #'
-#' @import readr
-#' @import dplyr
-#'
 #' @return Een dataframe met fysisch-chemische meetgegevens.
 #' 
 #' @details Er is enige vrijheid t.a.v. de inhoud van het bestand. De functie verwacht ten minste een kolom 
@@ -39,7 +36,7 @@ import_fys_chem <- function(fys_chem_csv = "data/fys_chem.csv"){
   df <- dplyr::filter(df, !is.na(waarde)) # alle metingen moeten een meetwaarde hebben
   
   #info zodat je weet wat je importeert
-  print(paste("Laatste meetdatum is",max(df$datum)))
+  print(paste("Laatste meetdatum is",max(df$datum, na.rm = TRUE)))
   df
 }
 
@@ -51,9 +48,6 @@ import_fys_chem <- function(fys_chem_csv = "data/fys_chem.csv"){
 #' csv-formaat zijn met \code{;} als scheidingsteken en \code{,} als scheidingsteken. Default is \code{"data/meetpunten.csv"}. 
 #' Het is ook mogelijk om een zip-bestand in te lezen waar het csv-bestand in zit.
 #'
-#' @import readr
-#' @import dplyr
-#' 
 #' @return Een dataframe met meetpuntinformatie
 #' 
 #' @details De functie zet alle kolomkoppen om in lowercase. Er is enige vrijheid t.a.v. de inhoud van het bestand. Een standaard bestand heeft minimaal de kolommen:
@@ -88,8 +82,6 @@ import_meetpunten <- function(meetpunten_csv = "data/meetpunten.csv"){
 #' csv-formaat zijn met \code{;} als scheidingsteken en \code{,} als scheidingsteken. Default is \code{"data/parameters.csv"}. 
 #' Het is ook mogelijk om een zip-bestand in te lezen waar het csv-bestand in zit.
 #'
-#' @import readr
-#' 
 #' @return Een dataframe met parameterinformatie
 #' 
 #' #' @details Er is enige vrijheid t.a.v. de inhoud van het bestand. Een standaard bestand heeft minimaal 
@@ -141,9 +133,6 @@ import_parameters <- function(parameter_csv = "data/parameters.csv"){
 #' @describeIn import_biologie Importeer biologische meetwaarden zonder stadiumwaarden
 #'
 #' @return Een dataframe met biologische meetwaarden.
-#' 
-#' @import readr
-#' @import dplyr
 #' 
 #' @export
 #'

@@ -63,10 +63,6 @@ hhskthema <- function(){
 #' 
 #' @param plot_loess logical. Wel of niet plotten van een LOESS-curve. Default is TRUE
 #' 
-#' @import dplyr
-#' @importFrom lubridate year
-#' @importFrom  scales rescale_none
-#'
 #' @return Een ggplot grafiek. Het is mogelijk om achteraf andere ggplot objecten toe te voegen met `+`
 #' @export
 #'
@@ -187,7 +183,6 @@ boxplot_basis <- function(data,
 
 
 
-
 # titelpagina_internet ----------------------------------------------------
 
 #' Titelpagina voor de grafieken op internet
@@ -196,7 +191,7 @@ boxplot_basis <- function(data,
 #'
 #' @param inclusief_normen logical Bepaald of de lijnen met normen op de titelpagina worden weergegeven. Default is `TRUE`
 #'
-#' @import grid
+#' @importFrom  grid grid.raster grid.polygon grid.lines grid.points grid.text gpar unit
 #'
 #' @return Een titelpagina voor de grafieken
 #' @export
@@ -212,7 +207,7 @@ boxplot_basis <- function(data,
 titelpagina_internet <- function(inclusief_normen = TRUE){
 
   # Plaatjes ----
-  grid.raster(image = logo, x = 0.05, y = 0.87, width =0.3, just = "left")
+  grid.raster(image = logo, x = 0.05, y = 0.87, width = 0.3, just = "left")
   grid.raster(image = schonevoeten, x = 0.5, y = 0.08, width = 0.2)
   
   # Intro ----
@@ -231,7 +226,7 @@ titelpagina_internet <- function(inclusief_normen = TRUE){
   
   # Trendlijn ----
   grid.lines(x = c(0.1,0.2),y = c(0.49,0.49), gp = gpar(lty = 2, col = hhskgroen, lwd = 3))
-  grid.polygon(x = c(0.1,0.2,0.2,0.1), y = c(0.47,0.47,0.51,0.51), gp = gpar(fill =hhskblauw, alpha = 0.08))
+  grid.polygon(x = c(0.1,0.2,0.2,0.1), y = c(0.47,0.47,0.51,0.51), gp = gpar(fill = hhskblauw, alpha = 0.08))
   grid.text("Trendlijn d.m.v. locale regressie (LOESS). De blauwe band geeft de onzekerheid van de trendlijn weer.\nN.B. De trendlijn geeft het algemene verloop van de getoonde periode weer. De trendlijn heeft geen voorspellende waarde.", x = 0.22, y = 0.49, just = c("left"))
   #grid.text("N.B. De trendlijn geeft het algemene verloop van de getoonde periode weer.De trendlijn heeft geen voorspellende waarde.", x = 0.22, y = 0.47, just = c("left"))
   
@@ -241,15 +236,15 @@ titelpagina_internet <- function(inclusief_normen = TRUE){
   grid.text(x = 0.1, y = 0.40, just = "left", "Normering gewasbeschermingsmiddelen  -  Bron: www.rivm.nl/rvs")
   
   # MAC-norm ----
-  grid.lines(x = c(0.1,0.2),y = c(0.36,0.36), gp = gpar(lty = 1, col = "red", lwd = 2, alpha =0.5))
+  grid.lines(x = c(0.1,0.2),y = c(0.36,0.36), gp = gpar(lty = 1, col = "red", lwd = 2, alpha = 0.5))
   grid.text("Normwaarde - Maximaal aanvaardbare concentratie", x = 0.22, y = 0.36, just = c("left"))
   
   # P90 norm ----
-  grid.lines(x = c(0.1,0.2),y = c(0.32,0.32), gp = gpar(lty = 5, col = "red", lwd = 2, alpha =0.5))
+  grid.lines(x = c(0.1,0.2),y = c(0.32,0.32), gp = gpar(lty = 5, col = "red", lwd = 2, alpha = 0.5))
   grid.text("Normwaarde - 90-percentielwaarde", x = 0.22, y = 0.32, just = c("left"))
   
   # JGM norm ----
-  grid.lines(x = c(0.1,0.2),y = c(0.28,0.28), gp = gpar(lty = 2, col = "red", lwd = 2, alpha =0.5))
+  grid.lines(x = c(0.1,0.2),y = c(0.28,0.28), gp = gpar(lty = 2, col = "red", lwd = 2, alpha = 0.5))
   grid.text("Normwaarde - Jaargemiddelde waarde", x = 0.22, y = 0.28, just = c("left"))
   
   
@@ -272,8 +267,6 @@ titelpagina_internet <- function(inclusief_normen = TRUE){
 #' @return een geom-object met normen dat toegevoegd kan worden aan een plot, of een plot waar deze aan toegevoegd zijn.
 #' 
 #' @describeIn norm_lijnen Creeer normlijnen die aan een plot toegevoegd kunnen worden
-#' 
-#' @importFrom rlang !!
 #' 
 #' @export
 #'
@@ -337,8 +330,6 @@ add_norm_lijnen <- function(plot, parnr, normen){
 #' @param min_aantal_waarden Het minimale aantal waarnemingen wat vereist is voor een grafiek
 #' @param grafiekenfunctie Het is mogelijk om een alternatieve functie op te geven om de grafieken te maken. 
 #' De default is \code{\link{grafiek_basis}}
-#'
-#' @import dplyr
 #'
 #' @return Per meetpunt in \code{data} een pdf-document met per parameter een grafiek
 #' 
