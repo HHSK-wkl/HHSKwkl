@@ -9,8 +9,6 @@
 #'
 #' @return De dataframe met een extra kolom \code{jaar} en/of \code{maand}. Beide kolommen zijn integers.
 #' 
-#' @importFrom lubridate year month
-#' 
 #' @export
 #'
 #' @describeIn add_jaar_maand Voeg twee kolommen toe met het jaar en de maand.
@@ -77,7 +75,38 @@ add_maandnaam <- function(df, datum = "datum", titlecase = FALSE) {
 }
   
 
-# Opzoektabel -------------------------------------------------------------
+# Opzoeken -------------------------------------------------------------
+
+#' Maak een opzoekfunctie
+#'
+#' Deze functie maakt opzoekfuncties waarmee een waarde op basis van een sleutel opgezocht kan worden.
+#'
+#' @param df Een dataframe met de opzoekwaarden.
+#' @param key De sleutelkolom om een waarde op te zoeken. Default is de eerste kolom.
+#' @param value De kolom met waarden die opgezocht moeten worden. Default is de tweede kolom
+#'
+#' @return Een functie die gebruikt kan worden voor het opzoeken van waarden.
+#' @export
+#'
+#' @examples
+#' 
+#' x <- USArrests
+#' x$names <- rownames(x)
+#' 
+#' urbanpop_state <- maak_opzoeker(x, key = names, value = UrbanPop)
+#' urbanpop_state("Texas")
+#' urbanpop_state("Vermont")
+#' 
+maak_opzoeker <- function(df, key = 1, value = 2){
+  key <- dplyr::enquo(key)
+  value <- dplyr::enquo(value)
+  opzoektabel <- dplyr::select(df, !!key, !!value) %>% dplyr::distinct() %>% tibble::deframe()
+  
+  function(key){
+    unname(opzoektabel[as.character(key)])
+  }
+  
+}
 
 
 #' Zoek een waarde op in een opzoektabel
@@ -93,8 +122,6 @@ add_maandnaam <- function(df, datum = "datum", titlecase = FALSE) {
 #' @return De waarde die te vinden is op de betreffende rij of kolom
 #' @export
 #' 
-#' @import dplyr
-#'
 #' @examples
 #' \dontrun{
 #' 
