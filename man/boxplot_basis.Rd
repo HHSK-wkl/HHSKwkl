@@ -4,24 +4,20 @@
 \alias{boxplot_basis}
 \title{Boxplots per jaar}
 \usage{
-boxplot_basis(data, meetpuntendf = import_meetpunten(),
-  parameterdf = import_parameters(), mp = NULL, parnr = NULL, ...)
+boxplot_basis(data, mp = NULL, mpomsch = NULL, parnaam = NULL,
+  eenheid = NULL, ...)
 }
 \arguments{
 \item{data}{Een dataframe met de gegevens van 1 tijdreeks, dus van 1 meetpunt en 1 parameter.
-Kolommen zoals beschreven in \code{\link{import_fys_chem}}.}
+Kolommen zoals beschreven in \code{\link[=import_fys_chem]{import_fys_chem()}}.}
 
-\item{meetpuntendf}{dataframe. Een opzoektabel voor de locatie-omschrijving.
-Kolommen zoals beschreven in \code{\link{import_meetpunten}}.
-Probeert default ook met deze functie een meetpuntendf te maken.}
+\item{mp}{Code van het meetpunt. Deze wordt gebruikt in de titel}
 
-\item{parameterdf}{dataframe. Een opzoektabel voor de uitgebreide parameternaam en eenheid.
-Kolommen zoals beschreven in \code{\link{import_parameters}}.
-Probeert default ook met deze functie een parameterdf te maken.}
+\item{mpomsch}{Omschrijving van het meetpunt. Deze wordt gebruikt in de titel}
 
-\item{mp}{character. Optioneel, Meetpuntcode van het betreffende meetpunt. Neemt anders het eerste meetpunt uit \code{data}}
+\item{parnaam}{Naam van de parameter. Deze wordt gebruikt in de ondertitel}
 
-\item{parnr}{character. Optioneel,Parameternummer van het betrffende meetpunt. Neemt anders het eerste parameternummer uit \code{data}}
+\item{eenheid}{Eenheid van de parameter. Deze wordt gebruikt als titel van de Y-as}
 
 \item{...}{Heeft geen functie, maar kan gebruikt worden om overbodige parameters te negeren}
 }
@@ -29,12 +25,13 @@ Probeert default ook met deze functie een parameterdf te maken.}
 Een ggplot boxplot grafiek. Het is mogelijk om achteraf andere ggplot objecten toe te voegen met \code{+}
 }
 \description{
-Deze functie plot een boxplot per jaar van 1 meetpunt van 1 parameter. De functie dient eigenlijk alleen met complete meetjaren te worden gebruikt.
+Deze functie plot een boxplot per jaar van 1 meetpunt van 1 parameter.
+De functie dient eigenlijk alleen met complete meetjaren te worden gebruikt.
 }
 \examples{
 \dontrun{
 
-basis_boxplot_grafiek <- boxplot_basis(data = chloride_myplace, 
-                    parameterdf, meetpuntendf) 
+## ERROR
+
 }
 }

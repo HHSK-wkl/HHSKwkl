@@ -59,8 +59,12 @@ hhskthema <- function(){
 #'
 #' @return Een ggplot grafiek. Het is mogelijk om achteraf andere ggplot objecten toe te voegen met `+`
 #' @export
-#'
-#' @examples
+#' @examples 
+#' \dontrun{
+#' 
+#' ## ERROR
+#' 
+#' }
 grafiek_basis <- function(data, mp = NULL, mpomsch = NULL, parnaam = NULL, eenheid = NULL, plot_loess = TRUE){
   
   #limieten
@@ -97,23 +101,15 @@ grafiek_basis <- function(data, mp = NULL, mpomsch = NULL, parnaam = NULL, eenhe
 
 #' Boxplots per jaar
 #' 
-#' Deze functie plot een boxplot per jaar van 1 meetpunt van 1 parameter. De functie dient eigenlijk alleen met complete meetjaren te worden gebruikt.
+#' Deze functie plot een boxplot per jaar van 1 meetpunt van 1 parameter. 
+#' De functie dient eigenlijk alleen met complete meetjaren te worden gebruikt.
 #'
 #' @param data Een dataframe met de gegevens van 1 tijdreeks, dus van 1 meetpunt en 1 parameter. 
-#' Kolommen zoals beschreven in \code{\link{import_fys_chem}}.
-#' 
-#' @param meetpuntendf dataframe. Een opzoektabel voor de locatie-omschrijving. 
-#' Kolommen zoals beschreven in \code{\link{import_meetpunten}}.
-#' Probeert default ook met deze functie een meetpuntendf te maken.
-#' 
-#' @param parameterdf dataframe. Een opzoektabel voor de uitgebreide parameternaam en eenheid. 
-#' Kolommen zoals beschreven in \code{\link{import_parameters}}.
-#' Probeert default ook met deze functie een parameterdf te maken.
-#' 
-#' @param mp character. Optioneel, Meetpuntcode van het betreffende meetpunt. Neemt anders het eerste meetpunt uit `data`
-#' 
-#' @param parnr character. Optioneel,Parameternummer van het betrffende meetpunt. Neemt anders het eerste parameternummer uit `data`
-#' 
+#' Kolommen zoals beschreven in [import_fys_chem()]. 
+#' @param mp Code van het meetpunt. Deze wordt gebruikt in de titel
+#' @param mpomsch Omschrijving van het meetpunt. Deze wordt gebruikt in de titel
+#' @param parnaam Naam van de parameter. Deze wordt gebruikt in de ondertitel
+#' @param eenheid Eenheid van de parameter. Deze wordt gebruikt als titel van de Y-as
 #' @param ... Heeft geen functie, maar kan gebruikt worden om overbodige parameters te negeren
 #'
 #' @return Een ggplot boxplot grafiek. Het is mogelijk om achteraf andere ggplot objecten toe te voegen met `+`
@@ -122,43 +118,35 @@ grafiek_basis <- function(data, mp = NULL, mpomsch = NULL, parnaam = NULL, eenhe
 #' @examples
 #' \dontrun{
 #' 
-#' basis_boxplot_grafiek <- boxplot_basis(data = chloride_myplace, 
-#'                     parameterdf, meetpuntendf) 
+#' ## ERROR
+#' 
 #' }
-boxplot_basis <- function(data, 
-                         
-                          meetpuntendf = import_meetpunten(),
-                          parameterdf = import_parameters(),
-                          mp = NULL,
-                          parnr = NULL,
-                          ...){
-
-  if (is.null(mp)) {mp <- data[[1,"mp"]]}
-  mpomsch <- opzoeken_waarde(df = meetpuntendf, sleutel = mp, attribuut =  "mpomsch", sleutelkolom = "mp")
+boxplot_basis <- function(data, mp = NULL, mpomsch = NULL, parnaam = NULL, eenheid = NULL, ...){
   
-  if (is.null(parnr)) {parnr <- data[[1,"parnr"]]}
-  parameternaam <- opzoeken_waarde(df = parameterdf, sleutel = parnr, attribuut = "parnaamlang", sleutelkolom = "parnr")
-  eenheid <- opzoeken_waarde(df = parameterdf, sleutel = parnr, attribuut = "eenheid")
+  data <- data %>% add_jaar()
+  xlabels <- data %>% select(jaar) %>% distinct() %>% my_c()
   
-  min_y <- min(data$waarde)
-  max_y <- max(data$waarde)
-  if (min_y == max_y) { ylimieten <- c(0, max_y * 1.1)} else if (min_y / (max_y - min_y) > 1) {ylimieten <- c(min_y * 0.95, max_y * 1.05)} else {ylimieten <- c(0, max_y * 1.1)}
-  xlabels <- data %>% add_jaar() %>% select(jaar) %>% distinct() %>% my_c()
+  #limieten
+  range_y <- range(data$waarde, na.rm = TRUE)
+  ylimieten <- range_y * c(0, 1.1)
   
-  grafiek <- data %>% add_jaar %>% 
+  if (range_y[1] * 2 > range_y[2] & range_y[1] != range_y[2]) {ylimieten <- range_y * c(0.95, 1.05)}
+  
+  grafiek <- data %>% 
     ggplot2::ggplot(ggplot2::aes(x = jaar, y = waarde, group = jaar)) +
     ggplot2::geom_boxplot(col = hhskblauw, fill = hhskgroen) +
-    ggplot2::labs(title = paste("Meetpunt:", mp,"-", mpomsch), subtitle = paste("Parameter:", parameternaam)) +
-    ggplot2::ylab(eenheid) +
+    ggplot2::labs(title = paste0("Meetpunt: ", mp," - ", mpomsch), 
+                  subtitle = paste0("Parameter: ", parnaam),
+                  x = "",
+                  y = eenheid) +
     ggplot2::scale_y_continuous(limits = ylimieten, expand = c(0,0), oob = scales::rescale_none ) +
-    ggplot2::xlab("") +
     ggplot2::scale_x_continuous(breaks = xlabels) + 
     hhskthema() +
     ggplot2::theme(panel.grid.minor.x = ggplot2::element_blank())
   
   grafiek
   
-}# end of function
+}
 
 
 

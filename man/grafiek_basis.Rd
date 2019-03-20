@@ -27,3 +27,10 @@ Een ggplot grafiek. Het is mogelijk om achteraf andere ggplot objecten toe te vo
 \description{
 Deze functie maakt een tijdreeksgrafiek van 1 meetpunt van 1 parameter.
 }
+\examples{
+\dontrun{
+
+## ERROR
+
+}
+}
