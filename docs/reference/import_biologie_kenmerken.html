@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Maak grafieken voor het internet — grafieken_internet • Package voor waterkwaliteit - HHSKwkl</title>
+<title>Importeer biologische monsterkenmerken — import_biologie_kenmerken • Package voor waterkwaliteit - HHSKwkl</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,10 @@
 
 
 
-<meta property="og:title" content="Maak grafieken voor het internet — grafieken_internet" />
+<meta property="og:title" content="Importeer biologische monsterkenmerken — import_biologie_kenmerken" />
 
-<meta property="og:description" content="Deze functie maakt per meetpunt een pdf-document met een grafiek voor elke parameter." />
+<meta property="og:description" content="De functie helpt bij het importeren van biologische monsterkenmerken. De functie leest de kolom datum als Date.
+Verder wordt er een kolom monster_id toegevoegd op basis van meetpunt, datum en methode." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -99,76 +100,58 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Maak grafieken voor het internet</h1>
-    <small class="dont-index">Source: <a href='https://github.com/RedTent/HHSKwkl/blob/master/R/30_grafieken.R'><code>R/30_grafieken.R</code></a></small>
-    <div class="hidden name"><code>grafieken_internet.Rd</code></div>
+    <h1>Importeer biologische monsterkenmerken</h1>
+    <small class="dont-index">Source: <a href='https://github.com/RedTent/HHSKwkl/blob/master/R/01_import_data.R'><code>R/01_import_data.R</code></a></small>
+    <div class="hidden name"><code>import_biologie_kenmerken.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Deze functie maakt per meetpunt een pdf-document met een grafiek voor elke parameter.</p>
+    <p>De functie helpt bij het importeren van biologische monsterkenmerken. De functie leest de kolom <code>datum</code> als <code>Date</code>.
+Verder wordt er een kolom <code>monster_id</code> toegevoegd op basis van meetpunt, datum en methode.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>grafieken_internet</span>(<span class='no'>data</span>, <span class='no'>meetpuntendf</span>, <span class='no'>parameterdf</span>, <span class='no'>normen</span>,
-  <span class='kw'>plot_normen</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>export_pad</span> <span class='kw'>=</span> <span class='st'>"export/grafieken"</span>,
-  <span class='kw'>lijst_parnrs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>min_aantal_waarden</span> <span class='kw'>=</span> <span class='fl'>12</span>,
-  <span class='kw'>grafiekenfunctie</span> <span class='kw'>=</span> <span class='no'>grafiek_basis</span>)</pre>
+    <pre class="usage"><span class='fu'>import_biologie_kenmerken</span>(<span class='kw'>kenmerken_csv</span> <span class='kw'>=</span> <span class='st'>"data/biologie_kenmerken.csv"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>data</th>
-      <td><p>Een dataframe met ruwe gegevens om grafieken van te maken. Deze moet tenminste de kolommen
-mp, parnr, datum, detectiegrens en waarde hebben.</p></td>
-    </tr>
-    <tr>
-      <th>meetpuntendf</th>
-      <td><p>Een dataframe met mp en mpomsch voor de titel van de grafiek. Zie ook <code>import_meetpunten()</code></p></td>
-    </tr>
-    <tr>
-      <th>parameterdf</th>
-      <td><p>Een dataframe met parnr eenheid en parnaamlang voor de titel van de grafiek.
-Zie ook <code>import_parameters()</code></p></td>
-    </tr>
-    <tr>
-      <th>normen</th>
-      <td><p>Een dataframe met de normen. Zie ook <code>import_normen_rivm()</code></p></td>
-    </tr>
-    <tr>
-      <th>plot_normen</th>
-      <td><p>Logical. Switch om wel geen normen te plotten. Default is <code>TRUE</code></p></td>
-    </tr>
-    <tr>
-      <th>export_pad</th>
-      <td><p>String. Locatie waar de pdf's geplaatst worden</p></td>
-    </tr>
-    <tr>
-      <th>lijst_parnrs</th>
-      <td><p>Een optionele vector met parameternummers die meegenomen worden.</p></td>
-    </tr>
-    <tr>
-      <th>min_aantal_waarden</th>
-      <td><p>Het minimale aantal waarnemingen wat vereist is voor een grafiek</p></td>
-    </tr>
-    <tr>
-      <th>grafiekenfunctie</th>
-      <td><p>Het is mogelijk om een alternatieve functie op te geven om de grafieken te maken.
-De default is <code>grafiek_basis()</code></p></td>
+      <th>kenmerken_csv</th>
+      <td><p>Een characterstring met het pad naar het te importeren bestand. Het bestand moet in
+csv-formaat zijn met <code>;</code> als scheidingsteken en <code>,</code> als scheidingsteken. Default is <code>"data/biologie_kenmerken.csv"</code>.
+Het is ook mogelijk om een zip-bestand in te lezen waar het csv-bestand in zit.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Per meetpunt in <code>data</code> een pdf-document met per parameter een grafiek</p>
+    <p>Een dataframe met biologische kenmerken</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Er is enige vrijheid t.a.v. de inhoud van het bestand. De functie verwacht ten minste een kolom <code>datum</code>.
+Een standaard bestand heeft gewoonlijk de kolommen:</p><ul>
+<li><p><code>mp</code> Code met de aanduiding van het meetpunt</p></li>
+<li><p><code>datum</code> Datum in het format dd-mm-yyyy hh:mm:ss</p></li>
+<li><p><code>taxatype</code> Type taxon cf. aquo</p></li>
+<li><p><code>kenmerkcode</code> Code van het biologische kenmerk</p></li>
+<li><p><code>kenmerknaam</code> Beschrijving van het biologische kenmerk</p></li>
+<li><p><code>waarde</code> De numerieke waarde van het kenmerk. Is 0 voor tekstwaarden en klassewaarden</p></li>
+<li><p><code>waarde_tekst</code> De tekstwaarde van het kenmerk indien het een tekstkenmerk betreft</p></li>
+<li><p><code>waarde_klasse</code> De numerieke klasse-aanduiding</p></li>
+<li><p><code>waarde_klassenaam</code> De beschrijving van de klasse</p></li>
+</ul>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'>grafieken_internet</span>(<span class='no'>data</span>, <span class='no'>meetpuntendf</span>, <span class='no'>parameterdf</span>, <span class='no'>normen</span>, <span class='kw'>export_pad</span> <span class='kw'>=</span> <span class='st'>"TEST/GRAF"</span>)
+<span class='no'>biologie_kenmerken</span> <span class='kw'>&lt;-</span> <span class='fu'>import_biologie_kenmerken</span>(<span class='kw'>kenmerken_csv</span> <span class='kw'>=</span> <span class='st'>"data/biologie_kenmerken.csv"</span>)
 
-<span class='co'># }</span></pre>
+<span class='co'># }</span><div class='input'>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -176,6 +159,8 @@ De default is <code>grafiek_basis()</code></p></td>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

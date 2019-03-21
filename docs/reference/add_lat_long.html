@@ -32,8 +32,8 @@
 
 <meta property="og:title" content="Toevoegen van latidute en longitude — add_lat_long" />
 
-<meta property="og:description" content="De functie voegt de latitude en longitude aan een dataframe op basis van coordinaten. Default is
-van RD-stelsel naar WGS84" />
+<meta property="og:description" content="De functie voegt de latitude (Y) en longitude (X) aan een dataframe op basis van coordinaten. Default is
+van RD-stelsel (EPSG = 28992) naar WGS84 (EPSG = 4326)" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -107,13 +107,13 @@ van RD-stelsel naar WGS84" />
 
     <div class="ref-description">
     
-    <p>De functie voegt de latitude en longitude aan een dataframe op basis van coordinaten. Default is
-van RD-stelsel naar WGS84</p>
+    <p>De functie voegt de latitude (Y) en longitude (X) aan een dataframe op basis van coordinaten. Default is
+van RD-stelsel (EPSG = 28992) naar WGS84 (EPSG = 4326)</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>add_lat_long</span>(<span class='no'>df</span>, <span class='kw'>x_coord</span> <span class='kw'>=</span> <span class='st'>"x"</span>, <span class='kw'>y_coord</span> <span class='kw'>=</span> <span class='st'>"y"</span>,
-  <span class='kw'>source_crs</span> <span class='kw'>=</span> <span class='st'>"+init=EPSG:28992"</span>, <span class='kw'>goal_crs</span> <span class='kw'>=</span> <span class='st'>"+init=EPSG:4326"</span>)</pre>
+    <pre class="usage"><span class='fu'>add_lat_long</span>(<span class='no'>df</span>, <span class='kw'>x_coord</span> <span class='kw'>=</span> <span class='st'>"x"</span>, <span class='kw'>y_coord</span> <span class='kw'>=</span> <span class='st'>"y"</span>, <span class='kw'>source_crs</span> <span class='kw'>=</span> <span class='fl'>28992</span>,
+  <span class='kw'>goal_crs</span> <span class='kw'>=</span> <span class='fl'>4326</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -124,19 +124,19 @@ van RD-stelsel naar WGS84</p>
     </tr>
     <tr>
       <th>x_coord</th>
-      <td><p>Character. Kolom met de x-coordinaat</p></td>
+      <td><p>Tekst - Kolom met de x-coordinaat</p></td>
     </tr>
     <tr>
       <th>y_coord</th>
-      <td><p>Character. Kolom met de y-coordinaat</p></td>
+      <td><p>Tekst -  Kolom met de y-coordinaat</p></td>
     </tr>
     <tr>
       <th>source_crs</th>
-      <td><p>Coordinaten Referentie Systeem van de bron coordinaten. Default is RD-stelsel.</p></td>
+      <td><p>Coordinaten Referentie Systeem van de broncoordinaten: als integer met EPSG-code of als proj4string.</p></td>
     </tr>
     <tr>
       <th>goal_crs</th>
-      <td><p>Coordinaten Referentie Systeem van de doelcoordinaten. Default is WGS84.</p></td>
+      <td><p>Coordinaten Referentie Systeem van de doelcoordinaten: als integer met EPSG-code of als proj4string.</p></td>
     </tr>
     </table>
     

@@ -5,7 +5,7 @@ reference:
     desc: Functies om gegevens te importeren
     contents:
       - '`import_biologie`'
-      - '`import_biologische_kenmerken`'
+      - '`import_biologie_kenmerken`'
       - '`import_fys_chem`'
       - '`import_meetpunten`'
       - '`import_normen_rivm`'
@@ -38,8 +38,8 @@ reference:
   - title: Overig
     desc: ~
     contents:
-      - '`coordinate_conversion`'
       - '`maand_namen`'
       - '`my_c`'
       - '`randomize`'
       - '`opzoeken_waarde`'
+      - '`maak_opzoeker`'

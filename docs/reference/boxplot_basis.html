@@ -32,7 +32,8 @@
 
 <meta property="og:title" content="Boxplots per jaar — boxplot_basis" />
 
-<meta property="og:description" content="Deze functie plot een boxplot per jaar van 1 meetpunt van 1 parameter. De functie dient eigenlijk alleen met complete meetjaren te worden gebruikt." />
+<meta property="og:description" content="Deze functie plot een boxplot per jaar van 1 meetpunt van 1 parameter.
+De functie dient eigenlijk alleen met complete meetjaren te worden gebruikt." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -106,12 +107,13 @@
 
     <div class="ref-description">
     
-    <p>Deze functie plot een boxplot per jaar van 1 meetpunt van 1 parameter. De functie dient eigenlijk alleen met complete meetjaren te worden gebruikt.</p>
+    <p>Deze functie plot een boxplot per jaar van 1 meetpunt van 1 parameter.
+De functie dient eigenlijk alleen met complete meetjaren te worden gebruikt.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>boxplot_basis</span>(<span class='no'>data</span>, <span class='kw'>meetpuntendf</span> <span class='kw'>=</span> <span class='fu'>import_meetpunten</span>(),
-  <span class='kw'>parameterdf</span> <span class='kw'>=</span> <span class='fu'>import_parameters</span>(), <span class='kw'>mp</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>parnr</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>boxplot_basis</span>(<span class='no'>data</span>, <span class='kw'>mp</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>mpomsch</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>parnaam</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>eenheid</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -119,27 +121,23 @@
     <tr>
       <th>data</th>
       <td><p>Een dataframe met de gegevens van 1 tijdreeks, dus van 1 meetpunt en 1 parameter.
-Kolommen zoals beschreven in <code>import_fys_chem</code>.</p></td>
-    </tr>
-    <tr>
-      <th>meetpuntendf</th>
-      <td><p>dataframe. Een opzoektabel voor de locatie-omschrijving.
-Kolommen zoals beschreven in <code>import_meetpunten</code>.
-Probeert default ook met deze functie een meetpuntendf te maken.</p></td>
-    </tr>
-    <tr>
-      <th>parameterdf</th>
-      <td><p>dataframe. Een opzoektabel voor de uitgebreide parameternaam en eenheid.
-Kolommen zoals beschreven in <code>import_parameters</code>.
-Probeert default ook met deze functie een parameterdf te maken.</p></td>
+Kolommen zoals beschreven in <code>import_fys_chem()</code>.</p></td>
     </tr>
     <tr>
       <th>mp</th>
-      <td><p>character. Optioneel, Meetpuntcode van het betreffende meetpunt. Neemt anders het eerste meetpunt uit <code>data</code></p></td>
+      <td><p>Code van het meetpunt. Deze wordt gebruikt in de titel</p></td>
     </tr>
     <tr>
-      <th>parnr</th>
-      <td><p>character. Optioneel,Parameternummer van het betrffende meetpunt. Neemt anders het eerste parameternummer uit <code>data</code></p></td>
+      <th>mpomsch</th>
+      <td><p>Omschrijving van het meetpunt. Deze wordt gebruikt in de titel</p></td>
+    </tr>
+    <tr>
+      <th>parnaam</th>
+      <td><p>Naam van de parameter. Deze wordt gebruikt in de ondertitel</p></td>
+    </tr>
+    <tr>
+      <th>eenheid</th>
+      <td><p>Eenheid van de parameter. Deze wordt gebruikt als titel van de Y-as</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -153,10 +151,11 @@ Probeert default ook met deze functie een parameterdf te maken.</p></td>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='no'>basis_boxplot_grafiek</span> <span class='kw'>&lt;-</span> <span class='fu'>boxplot_basis</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chloride_myplace</span>,
-                    <span class='no'>parameterdf</span>, <span class='no'>meetpuntendf</span>)
-<span class='co'># }</span></pre>
+    <pre class="examples"># NOT RUN {
+## ERROR
+
+# }
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

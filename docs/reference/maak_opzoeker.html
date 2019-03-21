@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Maak grafieken voor het internet — grafieken_internet • Package voor waterkwaliteit - HHSKwkl</title>
+<title>Maak een opzoekfunctie — maak_opzoeker • Package voor waterkwaliteit - HHSKwkl</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Maak grafieken voor het internet — grafieken_internet" />
+<meta property="og:title" content="Maak een opzoekfunctie — maak_opzoeker" />
 
-<meta property="og:description" content="Deze functie maakt per meetpunt een pdf-document met een grafiek voor elke parameter." />
+<meta property="og:description" content="Deze functie maakt opzoekfuncties waarmee een waarde op basis van een sleutel opgezocht kan worden." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -99,76 +99,49 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Maak grafieken voor het internet</h1>
-    <small class="dont-index">Source: <a href='https://github.com/RedTent/HHSKwkl/blob/master/R/30_grafieken.R'><code>R/30_grafieken.R</code></a></small>
-    <div class="hidden name"><code>grafieken_internet.Rd</code></div>
+    <h1>Maak een opzoekfunctie</h1>
+    <small class="dont-index">Source: <a href='https://github.com/RedTent/HHSKwkl/blob/master/R/02_dataframe_utils.R'><code>R/02_dataframe_utils.R</code></a></small>
+    <div class="hidden name"><code>maak_opzoeker.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Deze functie maakt per meetpunt een pdf-document met een grafiek voor elke parameter.</p>
+    <p>Deze functie maakt opzoekfuncties waarmee een waarde op basis van een sleutel opgezocht kan worden.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>grafieken_internet</span>(<span class='no'>data</span>, <span class='no'>meetpuntendf</span>, <span class='no'>parameterdf</span>, <span class='no'>normen</span>,
-  <span class='kw'>plot_normen</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>export_pad</span> <span class='kw'>=</span> <span class='st'>"export/grafieken"</span>,
-  <span class='kw'>lijst_parnrs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>min_aantal_waarden</span> <span class='kw'>=</span> <span class='fl'>12</span>,
-  <span class='kw'>grafiekenfunctie</span> <span class='kw'>=</span> <span class='no'>grafiek_basis</span>)</pre>
+    <pre class="usage"><span class='fu'>maak_opzoeker</span>(<span class='no'>df</span>, <span class='kw'>key</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>2</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>data</th>
-      <td><p>Een dataframe met ruwe gegevens om grafieken van te maken. Deze moet tenminste de kolommen
-mp, parnr, datum, detectiegrens en waarde hebben.</p></td>
+      <th>df</th>
+      <td><p>Een dataframe met de opzoekwaarden.</p></td>
     </tr>
     <tr>
-      <th>meetpuntendf</th>
-      <td><p>Een dataframe met mp en mpomsch voor de titel van de grafiek. Zie ook <code>import_meetpunten()</code></p></td>
+      <th>key</th>
+      <td><p>De sleutelkolom om een waarde op te zoeken. Default is de eerste kolom.</p></td>
     </tr>
     <tr>
-      <th>parameterdf</th>
-      <td><p>Een dataframe met parnr eenheid en parnaamlang voor de titel van de grafiek.
-Zie ook <code>import_parameters()</code></p></td>
-    </tr>
-    <tr>
-      <th>normen</th>
-      <td><p>Een dataframe met de normen. Zie ook <code>import_normen_rivm()</code></p></td>
-    </tr>
-    <tr>
-      <th>plot_normen</th>
-      <td><p>Logical. Switch om wel geen normen te plotten. Default is <code>TRUE</code></p></td>
-    </tr>
-    <tr>
-      <th>export_pad</th>
-      <td><p>String. Locatie waar de pdf's geplaatst worden</p></td>
-    </tr>
-    <tr>
-      <th>lijst_parnrs</th>
-      <td><p>Een optionele vector met parameternummers die meegenomen worden.</p></td>
-    </tr>
-    <tr>
-      <th>min_aantal_waarden</th>
-      <td><p>Het minimale aantal waarnemingen wat vereist is voor een grafiek</p></td>
-    </tr>
-    <tr>
-      <th>grafiekenfunctie</th>
-      <td><p>Het is mogelijk om een alternatieve functie op te geven om de grafieken te maken.
-De default is <code>grafiek_basis()</code></p></td>
+      <th>value</th>
+      <td><p>De kolom met waarden die opgezocht moeten worden. Default is de tweede kolom</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Per meetpunt in <code>data</code> een pdf-document met per parameter een grafiek</p>
+    <p>Een functie die gebruikt kan worden voor het opzoeken van waarden.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'>grafieken_internet</span>(<span class='no'>data</span>, <span class='no'>meetpuntendf</span>, <span class='no'>parameterdf</span>, <span class='no'>normen</span>, <span class='kw'>export_pad</span> <span class='kw'>=</span> <span class='st'>"TEST/GRAF"</span>)
+    <pre class="examples"><div class='input'>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='no'>USArrests</span>
+<span class='no'>x</span>$<span class='no'>names</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>rownames</a></span>(<span class='no'>x</span>)
 
-<span class='co'># }</span></pre>
+<span class='no'>urbanpop_state</span> <span class='kw'>&lt;-</span> <span class='fu'>maak_opzoeker</span>(<span class='no'>x</span>, <span class='kw'>key</span> <span class='kw'>=</span> <span class='no'>names</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='no'>UrbanPop</span>)
+<span class='fu'>urbanpop_state</span>(<span class='st'>"Texas"</span>)</div><div class='output co'>#&gt; [1] 80</div><div class='input'><span class='fu'>urbanpop_state</span>(<span class='st'>"Vermont"</span>)</div><div class='output co'>#&gt; [1] 32</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
