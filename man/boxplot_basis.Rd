@@ -9,7 +9,7 @@ boxplot_basis(data, mp = NULL, mpomsch = NULL, parnaam = NULL,
 }
 \arguments{
 \item{data}{Een dataframe met de gegevens van 1 tijdreeks, dus van 1 meetpunt en 1 parameter.
-Kolommen zoals beschreven in \code{\link[=import_fys_chem]{import_fys_chem()}}.}
+\code{data} moet tenminste een kolom \code{datum} en een kolom \code{waarde} hebben.}
 
 \item{mp}{Code van het meetpunt. Deze wordt gebruikt in de titel}
 

@@ -50,7 +50,7 @@ hhskthema <- function(){
 #' Deze functie maakt een tijdreeksgrafiek van 1 meetpunt van 1 parameter.
 #'
 #' @param data Een dataframe met de gegevens van 1 tijdreeks, dus van 1 meetpunt en 1 parameter. 
-#' Kolommen zoals beschreven in [import_fys_chem()]. 
+#' `data` moet tenminste een kolom `datum`, `detectiegrens` en een kolom `waarde` hebben. 
 #' @param mp Code van het meetpunt. Deze wordt gebruikt in de titel
 #' @param mpomsch Omschrijving van het meetpunt. Deze wordt gebruikt in de titel
 #' @param parnaam Naam van de parameter. Deze wordt gebruikt in de ondertitel
@@ -105,7 +105,7 @@ grafiek_basis <- function(data, mp = NULL, mpomsch = NULL, parnaam = NULL, eenhe
 #' De functie dient eigenlijk alleen met complete meetjaren te worden gebruikt.
 #'
 #' @param data Een dataframe met de gegevens van 1 tijdreeks, dus van 1 meetpunt en 1 parameter. 
-#' Kolommen zoals beschreven in [import_fys_chem()]. 
+#' `data` moet tenminste een kolom `datum` en een kolom `waarde` hebben. 
 #' @param mp Code van het meetpunt. Deze wordt gebruikt in de titel
 #' @param mpomsch Omschrijving van het meetpunt. Deze wordt gebruikt in de titel
 #' @param parnaam Naam van de parameter. Deze wordt gebruikt in de ondertitel
