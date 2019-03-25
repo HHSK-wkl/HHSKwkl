@@ -101,7 +101,7 @@ maak_opzoeker <- function(df, key = 1, value = 2){
   key <- dplyr::enquo(key)
   value <- dplyr::enquo(value)
   opzoektabel <- dplyr::select(df, !!key, !!value) %>% dplyr::distinct() %>% tibble::deframe()
-  
+  #rm(df)
   function(key){
     unname(opzoektabel[as.character(key)])
   }
