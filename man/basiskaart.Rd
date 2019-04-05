@@ -7,8 +7,16 @@
 basiskaart(data = NULL)
 }
 \arguments{
-\item{data}{Een optioneel dataframe. Dataframe wordt doorgeleid naar de fucntie \code{\link[leaflet:leaflet]{leaflet::leaflet()}}}
+\item{data}{Een optioneel dataframe. Zie ook het data-argument in de functie \code{\link[leaflet:leaflet]{leaflet::leaflet()}}}
+}
+\value{
+Een leaflet kaart
 }
 \description{
-Leaflet basiskaart met topo en luchtfoto
+Deze functie genereert een basiskaart in leaflet. Aan deze kaart kunnen vervolgens vrij elementen worden toegevoegd
+}
+\examples{
+
+basiskaart()
+
 }

@@ -2,7 +2,7 @@
 #' 
 #' Deze functie genereert een basiskaart in leaflet. Aan deze kaart kunnen vervolgens vrij elementen worden toegevoegd
 #'
-#' @param data Een optioneel dataframe. Dataframe wordt doorgeleid naar de functie [leaflet::leaflet()]
+#' @param data Een optioneel dataframe. Zie ook het data-argument in de functie [leaflet::leaflet()]
 #'
 #' @return Een leaflet kaart
 #' @export
