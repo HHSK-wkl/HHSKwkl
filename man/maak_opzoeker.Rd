@@ -9,15 +9,20 @@ maak_opzoeker(df, key = 1, value = 2)
 \arguments{
 \item{df}{Een dataframe met de opzoekwaarden.}
 
-\item{key}{De sleutelkolom om een waarde op te zoeken. Default is de eerste kolom.}
+\item{key}{De sleutelkolom om een waarde op te zoeken. Default is de eerste
+kolom.}
 
-\item{value}{De kolom met waarden die opgezocht moeten worden. Default is de tweede kolom}
+\item{value}{De kolom met waarden die opgezocht moeten worden. Default is de
+tweede kolom}
 }
 \value{
-Een functie die gebruikt kan worden voor het opzoeken van waarden.
+Een functie die gebruikt kan worden voor het opzoeken van waarden. De
+functie accepteert (een vector) met namen en retourneert (een vector) met
+opgezochte waarden.
 }
 \description{
-Deze functie maakt opzoekfuncties waarmee een waarde op basis van een sleutel opgezocht kan worden.
+Deze functie maakt opzoekfuncties waarmee een waarde op basis van een sleutel
+opgezocht kan worden.
 }
 \examples{
 
@@ -26,6 +31,7 @@ x$names <- rownames(x)
 
 urbanpop_state <- maak_opzoeker(x, key = names, value = UrbanPop)
 urbanpop_state("Texas")
-urbanpop_state("Vermont")
+urbanpop_state(c("Vermont", "Texas"))
+
 
 }
