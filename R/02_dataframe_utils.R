@@ -79,23 +79,29 @@ add_maandnaam <- function(df, datum = "datum", titlecase = FALSE) {
 
 #' Maak een opzoekfunctie
 #'
-#' Deze functie maakt opzoekfuncties waarmee een waarde op basis van een sleutel opgezocht kan worden.
+#' Deze functie maakt opzoekfuncties waarmee een waarde op basis van een sleutel
+#' opgezocht kan worden.
 #'
 #' @param df Een dataframe met de opzoekwaarden.
-#' @param key De sleutelkolom om een waarde op te zoeken. Default is de eerste kolom.
-#' @param value De kolom met waarden die opgezocht moeten worden. Default is de tweede kolom
+#' @param key De sleutelkolom om een waarde op te zoeken. Default is de eerste
+#'   kolom.
+#' @param value De kolom met waarden die opgezocht moeten worden. Default is de
+#'   tweede kolom
 #'
-#' @return Een functie die gebruikt kan worden voor het opzoeken van waarden.
+#' @return Een functie die gebruikt kan worden voor het opzoeken van waarden. De
+#'   functie accepteert (een vector) met namen en retourneert (een vector) met
+#'   opgezochte waarden.
 #' @export
 #'
 #' @examples
-#' 
+#'
 #' x <- USArrests
 #' x$names <- rownames(x)
-#' 
+#'
 #' urbanpop_state <- maak_opzoeker(x, key = names, value = UrbanPop)
 #' urbanpop_state("Texas")
-#' urbanpop_state("Vermont")
+#' urbanpop_state(c("Vermont", "Texas"))
+#' 
 #' 
 maak_opzoeker <- function(df, key = 1, value = 2){
   key <- dplyr::enquo(key)
