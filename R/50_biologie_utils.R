@@ -10,7 +10,7 @@
 #'
 check_autecodata <- function(){
   if (!requireNamespace("autecodata", quietly = TRUE)) {
-    stop("Deze functie werkt alleen als het package autecodata is geïnstalleerd.
+    stop("Deze functie werkt alleen als het package autecodata is geinstalleerd.
          Dit package kan worden gedownload op https://github.com/RedTent/autecodata")}}
 
 
