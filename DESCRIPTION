@@ -30,6 +30,7 @@ Imports:
     sf
 Suggests: 
     testthat,
-    covr
+    covr,
+    autecodata
 URL: https://github.com/RedTent/HHSKwkl
 BugReports: https://github.com/RedTent/HHSKwkl/issues
