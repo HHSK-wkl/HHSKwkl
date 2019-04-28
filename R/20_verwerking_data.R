@@ -36,14 +36,14 @@ toetsing <-
                 waarde_det_half = dplyr::if_else(detectiegrens == "<", waarde * factor_detectiegrens, waarde) ) %>%
   
   dplyr::group_by(mp, parnr, par, jaar) %>%
-  dplyr::summarise(aantal = n(), 
+  dplyr::summarise(aantal = dplyr::n(), 
                    aantal_det = sum(detectiegrens == "<"), 
                    MAX = max(waarde_det_half, na.rm = TRUE), 
                    JGM = mean(waarde_det_half, na.rm = TRUE), 
                    P90 = stats::quantile(waarde_det_half, probs = 0.9, na.rm = TRUE) ) %>%
   
   dplyr::left_join(normen, by = "parnr") %>%
-  dplyr::mutate(aangetroffen = if_else(aantal == aantal_det, FALSE, TRUE), 
+  dplyr::mutate(aangetroffen = dplyr::if_else(aantal == aantal_det, FALSE, TRUE), 
          factor_MAX = MAX / norm_MAX, 
          factor_JGM = JGM / norm_JGM, 
          factor_P90 = P90 / norm_P90 ) %>%
