@@ -51,7 +51,7 @@ toetsing <-
   
   dplyr::mutate(hoogste_overschrijding = dplyr::if_else(aangetroffen, max(factor_MAX, factor_JGM, factor_P90, na.rm = TRUE), 0), 
                 normoverschrijding = dplyr::if_else(hoogste_overschrijding > 1, TRUE, FALSE) ) %>% 
-  ungroup()
+  dplyr::ungroup()
   
 toetsing  
   
