@@ -20,7 +20,7 @@ Een dataframe met daaraan de voorkeurnamen toegevoegd.
 }
 \description{
 Deze functie voegt op basis van de TWN-lijst de voorkeurnamen toe aan een
-dataframe. Deze functie maakt gebruik van de dataset \link[autecodata:twn_lijst]{autecodata::twn_lijst}
+dataframe. Deze functie maakt gebruik van de dataset twn_lijst uit het package autecodata.
 }
 \note{
 Deze functie is afhankelijk van de beschikbaarheid van de package autecodata. Dit kan gedownload worden op \url{https://github.com/RedTent/autecodata}
@@ -30,11 +30,13 @@ Bij een ongeldige TWN-naam geeft deze functie een \code{NA}.
 De namen zijn hoofdlettergevoelig.
 }
 \examples{
-
 \dontrun{
 
 bio \%>\% add_twn_voorkeurnaam(naam_orig = naam, naam_doel = naam_voorkeur)
 
 }
 
+}
+\seealso{
+\link[autecodata:twn_lijst]{autecodata::twn_lijst}
 }
