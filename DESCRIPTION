@@ -1,7 +1,7 @@
 Package: HHSKwkl
 Type: Package
 Title: Functies HHSK Waterkwaliteit
-Version: 0.1.0
+Version: 0.1.0.9000
 Author: Johan van Tent
 Maintainer: Johan van Tent <j.van.tent@hhsk.nl>
 Description: Functies voor waterkwaliteit.
