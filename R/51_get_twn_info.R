@@ -2,6 +2,8 @@
 ## https://github.com/RedTent/autecodata
 
 
+# get_twn_info ------------------------------------------------------------
+
 
 #' Opzoeken van de TWN informatie
 #'
@@ -115,4 +117,23 @@ get_twn_taxonlevel <- function(namen) {
 }
 
 
+
+
+# fun_twn_info ------------------------------------------------------------
+
+fun_twn_status <- function() {
+  check_autecodata()
+  
+  opzoektabel <- autecodata::twn_lijst %>% 
+    dplyr::select(taxonname, status) %>% 
+    dplyr::distinct() %>% 
+    tibble::deframe()
+  
+  opzoekfun <- function(namen) {
+  unname(opzoektabel[as.character(namen)])
+    stop("fun_twn_status")
+  }
+  opzoekfun
+  
+}
 
