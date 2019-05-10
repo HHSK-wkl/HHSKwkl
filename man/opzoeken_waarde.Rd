@@ -17,7 +17,8 @@ opzoeken_waarde(sleutel, df, attribuut, sleutelkolom = 1)
 Standaard staat de eerste kolom als sleutelkolom ingesteld}
 }
 \value{
-De waarde die te vinden is op de betreffende rij of kolom
+De waarde die te vinden is op de betreffende rij of kolom.
+Bij dubbelingen in de sleutel, wordt de eerste waarde geretourneerd.
 }
 \description{
 Deze functie kan waarden opzoeken in een tabel. Het is het alternatief voor een hash table, die R helaas niet heeft.

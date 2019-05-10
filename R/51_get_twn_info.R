@@ -21,7 +21,7 @@
 #'   - `get_twn_localname`: Geeft de Nederlandse naam van het taxon. 
 #'   - `get_twn_taxonlevel`: Geeft het taxonlevel van het taxon.
 #'
-#' @param namen Een vector met taxonnamen
+#' @param namen Een vector met taxonnamen.
 #'
 #' @return Een vector met TWN-informatie. Namen die niet in de TWN worden
 #'   gevonden krijgen `NA`.
@@ -31,7 +31,7 @@
 #'   geretourneerd.
 #'   
 #'   Als een taxon niet de voorkeurnaam is dan ontbreekt er vaak informatie 
-#'   zoals de parent van het taxon
+#'   zoals de parent van het taxon.
 #'
 #' @examples
 #'
@@ -131,8 +131,7 @@ fun_twn_status <- function() {
   
   opzoekfun <- function(namen) {
   unname(opzoektabel[as.character(namen)])
-    stop("fun_twn_status")
-  }
+    }
   opzoekfun
   
 }
