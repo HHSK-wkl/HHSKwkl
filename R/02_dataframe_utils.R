@@ -125,7 +125,9 @@ maak_opzoeker <- function(df, key = 1, value = 2){
 #' @param sleutelkolom Optioneel - de kolom(index) als character of integer. 
 #' Standaard staat de eerste kolom als sleutelkolom ingesteld
 #'
-#' @return De waarde die te vinden is op de betreffende rij of kolom
+#' @return De waarde die te vinden is op de betreffende rij of kolom. 
+#' Bij dubbelingen in de sleutel, wordt de eerste waarde geretourneerd.
+#' 
 #' @export
 #' 
 #' @examples
@@ -135,8 +137,8 @@ maak_opzoeker <- function(df, key = 1, value = 2){
 #' 
 #' }
 opzoeken_waarde <- function(sleutel, df, attribuut, sleutelkolom = 1){
-  df[df[[sleutelkolom]] == sleutel, attribuut] %>% 
-    c(use.names = FALSE, recursive = TRUE)
+  df[df[[sleutelkolom]] == sleutel, attribuut][[1,1]]
+    
 }
 
 

@@ -20,7 +20,7 @@ get_twn_localname(namen)
 get_twn_taxonlevel(namen)
 }
 \arguments{
-\item{namen}{Een vector met taxonnamen}
+\item{namen}{Een vector met taxonnamen.}
 }
 \value{
 Een vector met TWN-informatie. Namen die niet in de TWN worden
@@ -49,7 +49,7 @@ meerdere malen in de lijst. In dat geval wordt het eerste resultaat
 geretourneerd.
 
 Als een taxon niet de voorkeurnaam is dan ontbreekt er vaak informatie
-zoals de parent van het taxon
+zoals de parent van het taxon.
 }
 \examples{
 

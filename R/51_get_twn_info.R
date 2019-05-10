@@ -2,6 +2,8 @@
 ## https://github.com/RedTent/autecodata
 
 
+# get_twn_info ------------------------------------------------------------
+
 
 #' Opzoeken van de TWN informatie
 #'
@@ -19,7 +21,7 @@
 #'   - `get_twn_localname`: Geeft de Nederlandse naam van het taxon. 
 #'   - `get_twn_taxonlevel`: Geeft het taxonlevel van het taxon.
 #'
-#' @param namen Een vector met taxonnamen
+#' @param namen Een vector met taxonnamen.
 #'
 #' @return Een vector met TWN-informatie. Namen die niet in de TWN worden
 #'   gevonden krijgen `NA`.
@@ -29,7 +31,7 @@
 #'   geretourneerd.
 #'   
 #'   Als een taxon niet de voorkeurnaam is dan ontbreekt er vaak informatie 
-#'   zoals de parent van het taxon
+#'   zoals de parent van het taxon.
 #'
 #' @examples
 #'
@@ -115,4 +117,22 @@ get_twn_taxonlevel <- function(namen) {
 }
 
 
+
+
+# fun_twn_info ------------------------------------------------------------
+
+fun_twn_status <- function() {
+  check_autecodata()
+  
+  opzoektabel <- autecodata::twn_lijst %>% 
+    dplyr::select(taxonname, status) %>% 
+    dplyr::distinct() %>% 
+    tibble::deframe()
+  
+  opzoekfun <- function(namen) {
+  unname(opzoektabel[as.character(namen)])
+    }
+  opzoekfun
+  
+}
 
