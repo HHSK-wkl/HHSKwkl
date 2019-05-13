@@ -20,14 +20,19 @@ Een dataframe met daaraan de voorkeurnamen toegevoegd.
 }
 \description{
 Deze functie voegt op basis van de TWN-lijst de voorkeurnamen toe aan een
-dataframe. Deze functie maakt gebruik van de dataset twn_lijst uit het package autecodata.
+dataframe. Deze functie maakt gebruik van de dataset twn_lijst uit het
+package autecodata.
+}
+\details{
+Deze functie maakt gebruik van de functie \link{get_twn_voorkeur} om de
+voorkeurnaam op te zoeken indien deze beschikbaar is.
 }
 \note{
-Deze functie is afhankelijk van de beschikbaarheid van de package autecodata. Dit kan gedownload worden op \url{https://github.com/RedTent/autecodata}
+Deze functie is afhankelijk van de beschikbaarheid van de package autecodata.
+Dit kan gedownload worden op
+\url{https://github.com/RedTent/autecodata}
 
 Bij een ongeldige TWN-naam geeft deze functie een \code{NA}.
-
-De namen zijn hoofdlettergevoelig.
 }
 \examples{
 \dontrun{

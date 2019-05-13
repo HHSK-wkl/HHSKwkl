@@ -11,5 +11,5 @@ Niets of een foutmelding als auteocdata niet is geinstalleerd.
 }
 \description{
 Deze functie checkt of autecodata is geinstalleerd en geeft een foutmelding
-als dat niet zo is
+als dat niet zo is. Dit is een interne functie.
 }
