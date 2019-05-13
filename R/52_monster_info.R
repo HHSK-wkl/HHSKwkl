@@ -48,7 +48,8 @@ mon_summary <- function(df, naam = naam, waarde = waarde) {
   naam <- dplyr::enquo(naam)
   waarde <- dplyr::enquo(waarde)
   
-  get_twn_status <- fun_twn_status() 
+  get_twn_status <- fun_twn_status()
+  get_twn_taxonlevel <- fun_twn_taxonlevel()
 
   dplyr::summarise(
     df, 
@@ -56,7 +57,7 @@ mon_summary <- function(df, naam = naam, waarde = waarde) {
     taxa_missing         = mon_taxa_missing(!!naam),
     taxa_n_uniek         = mon_taxa_n_uniek(!!naam),
     taxa_n_dubbel        = mon_taxa_n_dubbel(!!naam),
-    waarde_tot           = mon_waarde_tot(!!waarde),
+    waarde_som           = mon_waarde_som(!!waarde),
     waarde_max           = mon_waarde_max(!!waarde),
     waarde_missing       = mon_waarde_missing(!!waarde),
     waarde_nul           = mon_waarde_nul(!!waarde),
@@ -64,7 +65,9 @@ mon_summary <- function(df, naam = naam, waarde = waarde) {
     twn_status_afwijkend = mon_twn_status_afwijkend(!!naam, get_twn_status),
     twn_synoniem         = mon_twn_synoniem(!!naam, get_twn_status),
     twn_aggregaat        = mon_twn_aggregaat(!!naam, get_twn_status),
-    twn_fout             = mon_twn_fout(!!naam, get_twn_status)
+    twn_fout             = mon_twn_fout(!!naam, get_twn_status),
+    level_kd_species     = mon_level_kd_species(.data$naam, get_twn_taxonlevel),
+    level_gd_species     = mon_level_gd_species(.data$naam, get_twn_taxonlevel)
   )
 }
 
@@ -95,10 +98,14 @@ mon_summary <- function(df, naam = naam, waarde = waarde) {
 #'   - `mon_waarde_nul`     - Aantal waarden die (kleiner dan) 0 zijn.
 #'   - `mon_waarde_tot`     - Som van alle waarden in het monster.
 #'   - `mon_waarde_max`     - Hoogst voorkomende waarde in het monster.
+#'   
+#'   - `mon_level_kd_species` - Aantal taxa op een lager niveau dan *Species*
+#'   - `mon_level_gd_species` - Aantal taxa op een hoger niveau dan *Species*
 #'
 #' @param naam Een vector met taxonnamen.
 #' @param waarde Een vector met aantallen (per taxon).
 #' @param get_twn_status Een optionele functie die de TWN-status van ieder taxon opzoekt.
+#' @param get_twn_taxonlevel Een optionele functie die het taxonlevel van ieder taxon opzoekt.
 #' 
 #' @note
 #' De functies `get_twn_*`` (o.a. [get_twn_status]) maken bij iedere call een nieuwe 
@@ -128,7 +135,7 @@ mon_summary <- function(df, naam = naam, waarde = waarde) {
 #' 
 #' mon_waarde_missing(c(0, 1, 5, 20, 50, NA, NA))
 #' mon_waarde_nul(c(0, 1, 5, 20, 50, NA, NA))
-#' mon_waarde_tot(c(0, 1, 5, 20, 50, NA, NA))
+#' mon_waarde_som(c(0, 1, 5, 20, 50, NA, NA))
 #' mon_waarde_max(c(0, 1, 5, 20, 50, NA, NA))
 NULL
 
@@ -174,25 +181,25 @@ mon_twn_niet_in_twn <- function(naam) {
 #' @export
 #' @rdname mon_info
 mon_twn_status_afwijkend <- function(naam, get_twn_status = NULL){
-  sum(get_twn_status(naam) != "10", na.rm =TRUE)
+  sum(get_twn_status(naam) != "10", na.rm = TRUE)
 }
 
 #' @export
 #' @rdname mon_info
 mon_twn_synoniem <- function(naam, get_twn_status = NULL){
-  sum(get_twn_status(naam) == "20", na.rm =TRUE)
+  sum(get_twn_status(naam) == "20", na.rm = TRUE)
 }
 
 #' @export
 #' @rdname mon_info
 mon_twn_fout <- function(naam, get_twn_status = NULL){
-  sum(get_twn_status(naam) %in% c("30", "91", "92"), na.rm =TRUE)
+  sum(get_twn_status(naam) %in% c("30", "91", "92"), na.rm = TRUE)
 }
 
 #' @export
 #' @rdname mon_info
 mon_twn_aggregaat <- function(naam, get_twn_status = NULL){
-  sum(get_twn_status(naam) == "80", na.rm =TRUE)
+  sum(get_twn_status(naam) == "80", na.rm = TRUE)
 }
 
 
@@ -212,7 +219,7 @@ mon_waarde_nul <- function(waarde) {
 
 #' @export
 #' @rdname mon_info
-mon_waarde_tot <- function(waarde) {
+mon_waarde_som <- function(waarde) {
     sum(waarde, na.rm = TRUE)
 }
 
@@ -220,5 +227,23 @@ mon_waarde_tot <- function(waarde) {
 #' @rdname mon_info
 mon_waarde_max <- function(waarde) {
   max(waarde, na.rm = TRUE)
+}
+
+
+# Monster taxonlevels -------------------------------------------------------------
+
+#' @export
+#' @rdname mon_info
+mon_level_kd_species <- function(naam, get_twn_taxonlevel = NULL) {
+  # Cultivars, Subspecies, Varietas en Forma
+  sum(get_twn_taxonlevel(naam) < "Species", na.rm = TRUE)
+  #length(get_twn_taxonlevel(.naam))
+}
+
+#' @export
+#' @rdname mon_info
+mon_level_gd_species <- function(naam, get_twn_taxonlevel = NULL) {
+  # Alles behalve Nothospecies, Species, Cultivars, Subspecies, Varietas en Forma
+  sum(get_twn_taxonlevel(naam) >= "Species combi", na.rm = TRUE)
 }
 

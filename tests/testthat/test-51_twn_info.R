@@ -95,7 +95,7 @@ test_that("get_twn_localname works", {
 test_that("fun_twn_taxonlevel works", {
   expect_is(fun_twn_taxonlevel(), "function")
   
-  expect_equal(fun_twn_taxonlevel()(c("Bufo calamita", "Bufo bufo", "Bufo")), c("Species", "Species", "Genus"))
+  expect_equal(as.character(fun_twn_taxonlevel()(c("Bufo calamita", "Bufo bufo", "Bufo"))), c("Species", "Species", "Genus"))
   expect_true(is.na(fun_twn_taxonlevel()(NA)))
   
   expect_true(length(fun_twn_taxonlevel()(NA)) == 1)
@@ -104,7 +104,7 @@ test_that("fun_twn_taxonlevel works", {
 })
 
 test_that("get_twn_taxonlevel works", {
-  expect_equal(get_twn_taxonlevel(c("Bufo calamita", "Bufo bufo", "Bufo")), c("Species", "Species", "Genus"))
+  expect_equal(as.character(get_twn_taxonlevel(c("Bufo calamita", "Bufo bufo", "Bufo"))), c("Species", "Species", "Genus"))
   expect_true(is.na(get_twn_taxonlevel(NA)))
   
   expect_true(length(get_twn_taxonlevel(NA)) == 1)

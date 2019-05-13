@@ -13,8 +13,10 @@
 \alias{mon_twn_aggregaat}
 \alias{mon_waarde_missing}
 \alias{mon_waarde_nul}
-\alias{mon_waarde_tot}
+\alias{mon_waarde_som}
 \alias{mon_waarde_max}
+\alias{mon_level_kd_species}
+\alias{mon_level_gd_species}
 \title{Informatie over de taxa in het monster}
 \usage{
 mon_taxa_n(naam)
@@ -39,9 +41,13 @@ mon_waarde_missing(waarde)
 
 mon_waarde_nul(waarde)
 
-mon_waarde_tot(waarde)
+mon_waarde_som(waarde)
 
 mon_waarde_max(waarde)
+
+mon_level_kd_species(naam, get_twn_taxonlevel = NULL)
+
+mon_level_gd_species(naam, get_twn_taxonlevel = NULL)
 }
 \arguments{
 \item{naam}{Een vector met taxonnamen.}
@@ -49,6 +55,8 @@ mon_waarde_max(waarde)
 \item{get_twn_status}{Een optionele functie die de TWN-status van ieder taxon opzoekt.}
 
 \item{waarde}{Een vector met aantallen (per taxon).}
+
+\item{get_twn_taxonlevel}{Een optionele functie die het taxonlevel van ieder taxon opzoekt.}
 }
 \value{
 Een enkel getal waarmee het betreffende aspect wordt samengevat.
@@ -74,6 +82,8 @@ taxonnamen van het monster.
 \item \code{mon_waarde_nul}     - Aantal waarden die (kleiner dan) 0 zijn.
 \item \code{mon_waarde_tot}     - Som van alle waarden in het monster.
 \item \code{mon_waarde_max}     - Hoogst voorkomende waarde in het monster.
+\item \code{mon_level_kd_species} - Aantal taxa op een lager niveau dan \emph{Species}
+\item \code{mon_level_gd_species} - Aantal taxa op een hoger niveau dan \emph{Species}
 }
 }
 \note{
@@ -100,6 +110,6 @@ mon_twn_fout(c("Bufo calamita", "Bufo", NA, "Bufo", "Denkbeeldig dier"))
 
 mon_waarde_missing(c(0, 1, 5, 20, 50, NA, NA))
 mon_waarde_nul(c(0, 1, 5, 20, 50, NA, NA))
-mon_waarde_tot(c(0, 1, 5, 20, 50, NA, NA))
+mon_waarde_som(c(0, 1, 5, 20, 50, NA, NA))
 mon_waarde_max(c(0, 1, 5, 20, 50, NA, NA))
 }
