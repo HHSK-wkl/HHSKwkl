@@ -13,3 +13,4 @@ Niets of een foutmelding als auteocdata niet is geinstalleerd.
 Deze functie checkt of autecodata is geinstalleerd en geeft een foutmelding
 als dat niet zo is. Dit is een interne functie.
 }
+\keyword{internal}
