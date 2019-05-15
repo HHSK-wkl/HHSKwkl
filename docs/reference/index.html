@@ -60,7 +60,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">Package voor waterkwaliteit - HHSKwkl</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
       </span>
     </div>
 
@@ -74,6 +74,9 @@
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -111,7 +114,7 @@
       <tr>
         <th colspan="2">
           <h2 id="section-importfuncties" class="hasAnchor"><a href="#section-importfuncties" class="anchor"></a>Importfuncties</h2>
-          <p class="section-desc"><p>Functies om gegevens te importeren</p></p>
+          <p class="section-desc"><p>Functies om gegevens te importeren.</p></p>
         </th>
       </tr>
       <tr>
@@ -155,7 +158,7 @@
       <tr>
         <th colspan="2">
           <h2 id="section-dataframe-utilities" class="hasAnchor"><a href="#section-dataframe-utilities" class="anchor"></a>Dataframe Utilities</h2>
-          <p class="section-desc"><p>Diverse functies informatie aan dataframe toe te voegen</p></p>
+          <p class="section-desc"><p>Diverse functies informatie aan dataframe toe te voegen.</p></p>
         </th>
       </tr>
       <tr>
@@ -181,7 +184,7 @@
       <tr>
         <th colspan="2">
           <h2 id="section-grafieken-functies" class="hasAnchor"><a href="#section-grafieken-functies" class="anchor"></a>Grafieken functies</h2>
-          <p class="section-desc"><p>Diverse functies om grafieken te maken</p></p>
+          <p class="section-desc"><p>Diverse functies om grafieken te maken.</p></p>
         </th>
       </tr>
       <tr>
@@ -249,7 +252,7 @@
       <tr>
         <th colspan="2">
           <h2 id="section-analyse" class="hasAnchor"><a href="#section-analyse" class="anchor"></a>Analyse</h2>
-          <p class="section-desc"><p>Functies om analyses uit te voeren</p></p>
+          <p class="section-desc"><p>Functies om analyses uit te voeren.</p></p>
         </th>
       </tr>
       <tr>
@@ -258,6 +261,32 @@
           <p><code><a href="toetsing_gbm.html">toetsing_gbm()</a></code> </p>
         </td>
         <td><p>Toetsing gewasbeschermingsmiddelen</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-biologische-monsters" class="hasAnchor"><a href="#section-biologische-monsters" class="anchor"></a>Biologische monsters</h2>
+          <p class="section-desc"><p>Functies voor de analyse van biologische monsters en data.</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="mon_summary.html">mon_summary()</a></code> </p>
+        </td>
+        <td><p>Samenvatting monster</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mon_info.html">mon_taxa_n()</a></code> <code><a href="mon_info.html">mon_taxa_missing()</a></code> <code><a href="mon_info.html">mon_taxa_n_uniek()</a></code> <code><a href="mon_info.html">mon_taxa_n_dubbel()</a></code> <code><a href="mon_info.html">mon_twn_niet_in_twn()</a></code> <code><a href="mon_info.html">mon_twn_status_afwijkend()</a></code> <code><a href="mon_info.html">mon_twn_synoniem()</a></code> <code><a href="mon_info.html">mon_twn_fout()</a></code> <code><a href="mon_info.html">mon_twn_aggregaat()</a></code> <code><a href="mon_info.html">mon_waarde_missing()</a></code> <code><a href="mon_info.html">mon_waarde_nul()</a></code> <code><a href="mon_info.html">mon_waarde_som()</a></code> <code><a href="mon_info.html">mon_waarde_max()</a></code> <code><a href="mon_info.html">mon_level_kd_species()</a></code> <code><a href="mon_info.html">mon_level_gd_species()</a></code> </p>
+        </td>
+        <td><p>Informatie over de taxa in het monster</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="twn_info.html">fun_twn_voorkeur()</a></code> <code><a href="twn_info.html">fun_twn_parent()</a></code> <code><a href="twn_info.html">fun_twn_status()</a></code> <code><a href="twn_info.html">fun_twn_localname()</a></code> <code><a href="twn_info.html">fun_twn_taxonlevel()</a></code> <code><a href="twn_info.html">get_twn_voorkeur()</a></code> <code><a href="twn_info.html">get_twn_parent()</a></code> <code><a href="twn_info.html">get_twn_status()</a></code> <code><a href="twn_info.html">get_twn_localname()</a></code> <code><a href="twn_info.html">get_twn_taxonlevel()</a></code> </p>
+        </td>
+        <td><p>Opzoeken van de TWN informatie</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -296,6 +325,18 @@
           <p><code><a href="maak_opzoeker.html">maak_opzoeker()</a></code> </p>
         </td>
         <td><p>Maak een opzoekfunctie</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="add_twn_voorkeurnaam.html">add_twn_voorkeurnaam()</a></code> </p>
+        </td>
+        <td><p>Toevoegen TWN-voorkeurnamen</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="basiskaart.html">basiskaart()</a></code> </p>
+        </td>
+        <td><p>Leaflet basiskaart met topo en luchtfoto</p></td>
       </tr>
     </tbody>
     </table>
@@ -308,6 +349,7 @@
       <li><a href="#section-dataframe-utilities">Dataframe Utilities</a></li>
       <li><a href="#section-grafieken-functies">Grafieken functies</a></li>
       <li><a href="#section-analyse">Analyse</a></li>
+      <li><a href="#section-biologische-monsters">Biologische monsters</a></li>
       <li><a href="#section-overig">Overig</a></li>
     </ul>
   </div>

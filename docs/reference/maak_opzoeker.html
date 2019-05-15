@@ -32,7 +32,8 @@
 
 <meta property="og:title" content="Maak een opzoekfunctie — maak_opzoeker" />
 
-<meta property="og:description" content="Deze functie maakt opzoekfuncties waarmee een waarde op basis van een sleutel opgezocht kan worden." />
+<meta property="og:description" content="Deze functie maakt opzoekfuncties waarmee een waarde op basis van een sleutel
+opgezocht kan worden." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -63,7 +64,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">Package voor waterkwaliteit - HHSKwkl</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
       </span>
     </div>
 
@@ -77,6 +78,9 @@
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -106,7 +110,8 @@
 
     <div class="ref-description">
     
-    <p>Deze functie maakt opzoekfuncties waarmee een waarde op basis van een sleutel opgezocht kan worden.</p>
+    <p>Deze functie maakt opzoekfuncties waarmee een waarde op basis van een sleutel
+opgezocht kan worden.</p>
     
     </div>
 
@@ -121,17 +126,21 @@
     </tr>
     <tr>
       <th>key</th>
-      <td><p>De sleutelkolom om een waarde op te zoeken. Default is de eerste kolom.</p></td>
+      <td><p>De sleutelkolom om een waarde op te zoeken. Default is de eerste
+kolom.</p></td>
     </tr>
     <tr>
       <th>value</th>
-      <td><p>De kolom met waarden die opgezocht moeten worden. Default is de tweede kolom</p></td>
+      <td><p>De kolom met waarden die opgezocht moeten worden. Default is de
+tweede kolom</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Een functie die gebruikt kan worden voor het opzoeken van waarden.</p>
+    <p>Een functie die gebruikt kan worden voor het opzoeken van waarden. De
+functie accepteert (een vector) met namen en retourneert (een vector) met
+opgezochte waarden.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -140,7 +149,8 @@
 <span class='no'>x</span>$<span class='no'>names</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>rownames</a></span>(<span class='no'>x</span>)
 
 <span class='no'>urbanpop_state</span> <span class='kw'>&lt;-</span> <span class='fu'>maak_opzoeker</span>(<span class='no'>x</span>, <span class='kw'>key</span> <span class='kw'>=</span> <span class='no'>names</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='no'>UrbanPop</span>)
-<span class='fu'>urbanpop_state</span>(<span class='st'>"Texas"</span>)</div><div class='output co'>#&gt; [1] 80</div><div class='input'><span class='fu'>urbanpop_state</span>(<span class='st'>"Vermont"</span>)</div><div class='output co'>#&gt; [1] 32</div><div class='input'>
+<span class='fu'>urbanpop_state</span>(<span class='st'>"Texas"</span>)</div><div class='output co'>#&gt; [1] 80</div><div class='input'><span class='fu'>urbanpop_state</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Vermont"</span>, <span class='st'>"Texas"</span>))</div><div class='output co'>#&gt; [1] 32 80</div><div class='input'>
+
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

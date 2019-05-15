@@ -64,7 +64,7 @@ De functie dient eigenlijk alleen met complete meetjaren te worden gebruikt." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">Package voor waterkwaliteit - HHSKwkl</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
       </span>
     </div>
 
@@ -78,6 +78,9 @@ De functie dient eigenlijk alleen met complete meetjaren te worden gebruikt." />
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -121,7 +124,7 @@ De functie dient eigenlijk alleen met complete meetjaren te worden gebruikt.</p>
     <tr>
       <th>data</th>
       <td><p>Een dataframe met de gegevens van 1 tijdreeks, dus van 1 meetpunt en 1 parameter.
-Kolommen zoals beschreven in <code>import_fys_chem()</code>.</p></td>
+<code>data</code> moet tenminste een kolom <code>datum</code> en een kolom <code>waarde</code> hebben.</p></td>
     </tr>
     <tr>
       <th>mp</th>
