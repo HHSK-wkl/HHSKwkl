@@ -156,7 +156,7 @@ mon_taxa_missing <- function(naam) {
 #' @export
 #' @rdname mon_info
 mon_taxa_n_uniek <- function(naam) {
-  dplyr::n_distinct(naam)
+  dplyr::n_distinct(naam, na.rm = TRUE)
 }
 
 #' @export
@@ -164,7 +164,7 @@ mon_taxa_n_uniek <- function(naam) {
 mon_taxa_n_dubbel <- function(naam) {
   dplyr::tibble(naam) %>% 
     dplyr::count(naam) %>% 
-    dplyr::filter(n > 1) %>% 
+    dplyr::filter(n > 1, !is.na(naam)) %>% 
     nrow()
 }
 
