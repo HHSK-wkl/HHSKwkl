@@ -144,7 +144,7 @@ NULL
 #' @export
 #' @rdname mon_info
 mon_taxa_n <- function(naam) {
-  length(naam)
+  sum(!is.na(naam))
 }
 
 #' @export
