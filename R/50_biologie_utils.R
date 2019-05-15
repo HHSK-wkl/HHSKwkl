@@ -9,6 +9,7 @@
 #' als dat niet zo is. Dit is een interne functie.
 #'
 #' @return Niets of een foutmelding als auteocdata niet is geinstalleerd.
+#' @keywords internal
 #'
 check_autecodata <- function(){
   if (!requireNamespace("autecodata", quietly = TRUE)) {
