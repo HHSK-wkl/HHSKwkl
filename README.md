@@ -29,3 +29,6 @@ De functies zijn op te delen in verschillende groepen.
 Dit package is voortdurend in ontwikkeling. De code is vrij beschikbaar, maar op dit moment wordt er (nog) geen rekening gehouden met andere gebruikers dan mijzelf. 
 
 Mocht je gebruik willen maken van functies uit dit package dan stel ik het op prijs als je dat aan mij zou willen laten weten.
+
+<img src='man/figures/logo.png' align="right" height="120" />
+
