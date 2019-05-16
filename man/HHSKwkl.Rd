@@ -4,7 +4,7 @@
 \name{HHSKwkl}
 \alias{HHSKwkl}
 \alias{HHSKwkl-package}
-\title{HHSKwkl: A package for computating the notorious bar statistic.}
+\title{HHSKwkl: Een package voor waterkwaliteit}
 \description{
 Functies voor waterkwaliteitsanalyse. Zie verder: \url{https://redtent.github.io/HHSKwkl/}
 }
