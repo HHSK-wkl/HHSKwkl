@@ -2,8 +2,8 @@ Package: HHSKwkl
 Type: Package
 Title: Functies HHSK Waterkwaliteit
 Version: 0.1.0.9000
-Author: Johan van Tent
-Maintainer: Johan van Tent <j.van.tent@hhsk.nl>
+Authors@R: person("Johan", "van Tent", email = "j.van.tent@hhsk.nl", 
+    role = c("aut", "cre"))
 Description: Functies voor waterkwaliteit.
     Deze functies worden gebruikt voor rapportage en anlyse van waterkwaliteit bij HHSK.
     Gemaakt: Maart 2019.
@@ -23,7 +23,6 @@ Imports:
     scales,
     rlang,
     purrr,
-    packcircles,
     tibble,
     stringr,
     forcats,
