@@ -1,0 +1,67 @@
+---
+title: "Rapportage"
+author: "Johan van Tent"
+#date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    css: markdown_JT.css
+    toc: TRUE
+    toc_float:
+      collapsed: FALSE
+    code_folding: "hide"
+
+  
+---
+
+
+\br
+\br
+
+![](logo_website.png)
+
+\br
+\br
+
+
+**Gemaakt op:** `r format(Sys.time(), "%A %e %B %Y")`
+
+```{r setup, include=FALSE}
+# Knit options
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+
+# Libraries
+library(tidyverse)
+library(knitr)
+library(DT)
+library(leaflet)
+library(HHSKwkl)
+library(readxl)
+library(lubridate)
+
+# Other options
+options(DT.options = list(
+  language = list(
+    paginate = list(previous = 'Vorige', `next` = 'Volgende'),
+    search = "Zoeken",
+    decimal = ",",
+    info = 'Rijen _START_ tot _END_ Totaal: _TOTAL_ rijen',
+    lengthMenu = "Toon _MENU_ rijen"
+  )
+))
+
+options(OutDec = ",")
+
+
+# source("R/copy_data.R")
+
+```
+
+```{r load_data, include = FALSE}
+# fys_chem <- import_fys_chem()
+# meetpunten <- import_meetpunten()
+# parameters <- import_parameters()
+# normen <- import_normen_rivm("J:/!R/HHSK/normen_GBM_RIVM_nov_2017.txt", parameterdf)
+```
+
+
+
