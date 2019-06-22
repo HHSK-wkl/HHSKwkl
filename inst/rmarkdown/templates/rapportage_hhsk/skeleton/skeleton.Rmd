@@ -51,6 +51,11 @@ options(DT.options = list(
 
 options(OutDec = ",")
 
+# my_datatable <- function(df, ...) {
+#   DT::datatable(data = df, extensions = 'Buttons', 
+#             options = list(dom = 'lfirtpB', buttons = c('csv', 'excel', 'pdf')), ...)
+# }
+
 
 # source("R/copy_data.R")
 
