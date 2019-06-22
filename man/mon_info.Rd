@@ -29,13 +29,13 @@ mon_taxa_n_dubbel(naam)
 
 mon_twn_niet_in_twn(naam)
 
-mon_twn_status_afwijkend(naam, get_twn_status = NULL)
+mon_twn_status_afwijkend(naam)
 
-mon_twn_synoniem(naam, get_twn_status = NULL)
+mon_twn_synoniem(naam)
 
-mon_twn_fout(naam, get_twn_status = NULL)
+mon_twn_fout(naam)
 
-mon_twn_aggregaat(naam, get_twn_status = NULL)
+mon_twn_aggregaat(naam)
 
 mon_waarde_missing(waarde)
 
@@ -45,18 +45,14 @@ mon_waarde_som(waarde)
 
 mon_waarde_max(waarde)
 
-mon_level_kd_species(naam, get_twn_taxonlevel = NULL)
+mon_level_kd_species(naam)
 
-mon_level_gd_species(naam, get_twn_taxonlevel = NULL)
+mon_level_gd_species(naam)
 }
 \arguments{
 \item{naam}{Een vector met taxonnamen.}
 
-\item{get_twn_status}{Een optionele functie die de TWN-status van ieder taxon opzoekt.}
-
 \item{waarde}{Een vector met aantallen (per taxon).}
-
-\item{get_twn_taxonlevel}{Een optionele functie die het taxonlevel van ieder taxon opzoekt.}
 }
 \value{
 Een enkel getal waarmee het betreffende aspect wordt samengevat.
@@ -87,11 +83,6 @@ taxonnamen van het monster.
 }
 }
 \note{
-De functies `get_twn_*`` (o.a. \link{get_twn_status}) maken bij iedere call een nieuwe
-opzoeklijst, wat niet efficient is. Daarom is het mogelijk om deze opzoekfunctie
-als argument mee te geven zodat de opzoeklijst slechts eenmaal hoeft te worden
-aangemaakt.
-
 Als taxa meerdere keren in het monster voorkomen dan worden deze in de \code{mon_twn_*}-functies
 ook meerdere malen geteld.
 }

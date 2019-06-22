@@ -24,7 +24,7 @@ dataframe. Deze functie maakt gebruik van de dataset twn_lijst uit het
 package autecodata.
 }
 \details{
-Deze functie maakt gebruik van de functie \link{get_twn_voorkeur} om de
+Deze functie maakt gebruik van de functie \link[autecodata:get_twn_voorkeurnaam]{autecodata::get_twn_voorkeurnaam} om de
 voorkeurnaam op te zoeken indien deze beschikbaar is.
 }
 \note{

@@ -1,6 +1,7 @@
 # HHSKwkl (development version)
 
-- `fun_twn_*`- en `get_twn_*`-functies toegevoegd, inclusief tests.
+- rmarkdown-skeleton toegevoegd voor HHSK-rapportages
+- `fun_twn_*`- en `get_twn_*`-functies verplaatst naar package autecodata.
 - Diverse monsterinfo functies gemaakt samen met een overkoepelende summary functie
 
 - Wens voor monsterdiagnostiek

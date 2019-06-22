@@ -26,7 +26,7 @@ check_autecodata <- function(){
 #' dataframe. Deze functie maakt gebruik van de dataset twn_lijst uit het
 #' package autecodata.
 #'
-#' @details Deze functie maakt gebruik van de functie [get_twn_voorkeur] om de
+#' @details Deze functie maakt gebruik van de functie [autecodata::get_twn_voorkeurnaam] om de
 #'   voorkeurnaam op te zoeken indien deze beschikbaar is.
 #'
 #' @param df Een dataframe met biologische data
@@ -56,12 +56,12 @@ check_autecodata <- function(){
 #' }
 #' 
 add_twn_voorkeurnaam <- function(df, naam_orig = naam, naam_doel = naam_voorkeur){
-  #check_autecodata() # zit al in get_twn_voorkeur en is hier overbodig geworden
+  check_autecodata() 
   
   naam_orig <- dplyr::enquo(naam_orig)
   naam_doel <- dplyr::enquo(naam_doel)
   
-  df <- df %>% dplyr::mutate(!!naam_doel := get_twn_voorkeur(!!naam_orig))
+  df <- df %>% dplyr::mutate(!!naam_doel := autecodata::get_twn_voorkeurnaam(!!naam_orig))
   df
 }
 
