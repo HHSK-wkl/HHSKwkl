@@ -1,5 +1,7 @@
 # HHSKwkl (development version)
 
+- Bugfix in de functie import_normen_rivm()
+- Een functie voor Nederlandse DT-labels toegevoegd.
 - rmarkdown-skeleton toegevoegd voor HHSK-rapportages
 - `fun_twn_*`- en `get_twn_*`-functies verplaatst naar package autecodata.
 - Diverse monsterinfo functies gemaakt samen met een overkoepelende summary functie
