@@ -1,6 +1,7 @@
 # HHSKwkl (development version)
 
-- import_fys_chem en import_meetpunten zijn aangepast aan het FME-export formaat.
+- functie `copy_data()` toegevoegd
+- `import_fys_chem` en `import_meetpunten` zijn aangepast aan het FME-export formaat.
 - Bugfix in de functie import_normen_rivm()
 - Een functie voor Nederlandse DT-labels toegevoegd.
 - rmarkdown-skeleton toegevoegd voor HHSK-rapportages
