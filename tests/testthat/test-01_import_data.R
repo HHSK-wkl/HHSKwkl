@@ -3,6 +3,7 @@ context("test-01_import_data")
 
 test_that("import_fys_chem werkt",{
   fys_chem <- import_fys_chem(fys_chem_csv = system.file("extdata", "test_fys_chem.csv", package = "HHSKwkl"))  
+  fys_chem <- dplyr::arrange(fys_chem, mp, parnr, datum)
   
   expect_is(fys_chem, "data.frame")
   expect_is(fys_chem$mp, "character")
@@ -14,7 +15,7 @@ test_that("import_fys_chem werkt",{
   expect_is(fys_chem$detectiegrens, "character")
   
   
-  expect_equal(fys_chem$mp[1], "00007")
+  expect_equal(fys_chem$mp[1], "S_0007")
   expect_equal(fys_chem$datum[1], as.Date("2010-01-19", format = "%Y-%m-%d"))
   
   alle_benodigde_fys_chem_kolommen <- all(c("mp", "parnr", "datum", "waarde", "detectiegrens") %in% names(fys_chem))

@@ -1,26 +1,26 @@
 #' Importeren van fysisch-chemische data
 #' 
-#' De functie helpt bij het importeren van fysische chemische data. De functie leest de kolom \code{datum} als \code{Date}.
-#' Verder worden rijen zonder \code{waarde} verwijderd.
+#' De functie helpt bij het importeren van fysische chemische data. Rijen zonder `waarde` worden verwijderd.
 #' 
-#' @param fys_chem_csv Een characterstring met het pad naar het te importeren bestand. Het bestand moet in 
-#' csv-formaat zijn met \code{;} als scheidingsteken en \code{,} als scheidingsteken. Default is \code{"data/fys_chem.csv"}. 
-#' Het is ook mogelijk om een zip-bestand in te lezen waar het csv-bestand in zit.
+#' @param fys_chem_csv Een characterstring met het pad naar het te importeren bestand. 
+#' Het bestand moet in csv-formaat zijn met `;` als scheidingsteken en `,` als decimaalteken. 
+#' Default is `"data/fys_chem.csv"`. Het is ook mogelijk om een zip-bestand in te lezen 
+#' waar het csv-bestand in zit.
+#' @param datumtijd Logical. Of de kolom datum wordt geimporteerd als datum of als datum-tijd. 
+#' Default is `FALSE`
 #'
 #' @return Een dataframe met fysisch-chemische meetgegevens.
 #' 
-#' @details Er is enige vrijheid t.a.v. de inhoud van het bestand. De functie verwacht ten minste een kolom 
-#' \code{datum} en \code{waarde}. Een standaard bestand heeft gewoonlijk de kolommen:
-#'  \itemize{
-#'  \item \code{mp} Code met de aanduiding van het meetpunt
-#'  \item \code{datum} Datum in het format dd-mm-yyyy hh:mm:ss
-#'  \item \code{parnr} Unieke nummer van de parameter 
-#'  \item \code{par} Parametercode, voor de leesbaarheid
-#'  \item \code{eenheid} Eenheid, voor de leesbaarheid
-#'  \item \code{detectiegrens} Aanduiding als < of >. Bij geen aanduidng krijgt het veld \code{NA}
-#'  \item \code{waarde} Waarde van de meting 
+#' @details Er is enige vrijheid t.a.v. de inhoud van het bestand. De functie verwacht 
+#' ten minste een kolom `datum` en `waarde`. Een standaard bestand heeft gewoonlijk de kolommen:
 #'  
-#'  }
+#'  - `mp` Code met de aanduiding van het meetpunt
+#'  - `datum` Datum in het format yyyy-mm-dd hh:mm
+#'  - `parnr` Unieke nummer van de parameter 
+#'  - `par` Parametercode, voor de leesbaarheid
+#'  - `eenheid` Eenheid, voor de leesbaarheid
+#'  - `detectiegrens` Aanduiding als < of >. Bij geen aanduidng krijgt het veld `NA`
+#'  - `waarde` Waarde van de meting 
 #' 
 #' @export
 #'
@@ -30,10 +30,18 @@
 #' data <- import_fys_chem()
 #' 
 #' }
-import_fys_chem <- function(fys_chem_csv = "data/fys_chem.csv"){
+import_fys_chem <- function(fys_chem_csv = "data/fys_chem.csv", datumtijd = FALSE){
   
-  df <- readr::read_csv2(file = fys_chem_csv, col_types = readr::cols(datum = readr::col_date(format = "%d-%m-%Y %H:%M:%S")))
-  df <- dplyr::filter(df, !is.na(waarde)) # alle metingen moeten een meetwaarde hebben
+  if (datumtijd) {
+    df <- readr::read_csv2(file = fys_chem_csv, locale = readr::locale(tz = "CET"), 
+                           col_types = readr::cols(datum = readr::col_datetime()))
+  } else {
+    df <- readr::read_csv2(file = fys_chem_csv, 
+                           col_types = readr::cols(datum = readr::col_date(format = "%Y-%m-%d %H:%M")))
+  }
+  
+  # alle metingen moeten een meetwaarde hebben
+  df <- dplyr::filter(df, !is.na(waarde)) 
   
   #info zodat je weet wat je importeert
   message(paste("Laatste meetdatum is",max(df$datum, na.rm = TRUE)))
