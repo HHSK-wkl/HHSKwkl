@@ -1,3 +1,5 @@
+# import_fys_chem ---------------------------------------------------------------
+
 #' Importeren van fysisch-chemische data
 #' 
 #' De functie helpt bij het importeren van fysische chemische data. Rijen zonder `waarde` worden verwijderd.
@@ -48,6 +50,8 @@ import_fys_chem <- function(fys_chem_csv = "data/fys_chem.csv", datumtijd = FALS
   df
 }
 
+# import_meetpunten -------------------------------------------------------------
+
 #' Importeren van meetpunten
 #'
 #' De functie helpt bij het importeren van meetpunt-data en bijbehorende meetpuntinformatie. 
@@ -81,6 +85,7 @@ import_meetpunten <- function(meetpunten_csv = "data/meetpunten.csv"){
   meetpuntendf
 }
 
+# import_parameters -------------------------------------------------------------
 
 #' Importeren van parameters
 #'
@@ -113,6 +118,8 @@ import_parameters <- function(parameter_csv = "data/parameters.csv"){
   parameterdf <- readr::read_csv2(parameter_csv, col_types = readr::cols())
   parameterdf
 }
+
+# import_biologie ---------------------------------------------------------------
 
 #' Importeer biologie-meetwaarden
 #' 
@@ -171,6 +178,7 @@ import_biologie_stadia <- function(biologie_csv = "data/biologie.csv"){
   biodf
 }
 
+# import_biologie_kenmerken -----------------------------------------------------
 
 #' Importeer biologische monsterkenmerken
 #' 
@@ -213,6 +221,7 @@ import_biologie_kenmerken <- function(kenmerken_csv = "data/biologie_kenmerken.c
   bio_km_df
 }
 
+# import_normen_rivm ------------------------------------------------------------
 
 #' Importeren RIVM normen
 #' 
