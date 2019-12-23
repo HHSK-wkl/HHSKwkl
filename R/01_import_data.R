@@ -110,19 +110,18 @@ import_meetpunten <- function(meetpunten_csv = "data/meetpunten.csv", wide = TRU
 #' De functie helpt bij het importeren van parameter-data en bijbehorende parameterinformatie. 
 #'
 #' @param parameter_csv Een characterstring met het pad naar het te importeren bestand. Het bestand moet in 
-#' csv-formaat zijn met \code{;} als scheidingsteken en \code{,} als scheidingsteken. Default is \code{"data/parameters.csv"}. 
+#' csv-formaat zijn met `;` als scheidingsteken en `,` als scheidingsteken. Default is `"data/parameters.csv"`. 
 #' Het is ook mogelijk om een zip-bestand in te lezen waar het csv-bestand in zit.
 #'
 #' @return Een dataframe met parameterinformatie
 #' 
 #' #' @details Er is enige vrijheid t.a.v. de inhoud van het bestand. Een standaard bestand heeft minimaal 
 #' de onderstaande kolommen, maar de aquo_kolommen zijn wel wenselijk.
-#'  \itemize{
-#'  \item \code{parnr} Het parameternummer
-#'  \item \code{par} Code voor de parameter, veelal aquo-conform
-#'  \item \code{parnaamlang} Uitgebreide naam van de parameter. Geschikt voor weergave
-#'  \item \code{eenheid} Eenheid van de parameter
-#'  }
+#'
+#'  - `parnr` Het parameternummer
+#'  - `par` Code voor de parameter, veelal aquo-conform
+#'  - `parnaamlang` Uitgebreide naam van de parameter. Geschikt voor weergave
+#'  - `eenheid` Eenheid van de parameter
 #' 
 #' @export
 #'
