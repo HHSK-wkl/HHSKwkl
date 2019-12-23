@@ -57,18 +57,22 @@ import_fys_chem <- function(fys_chem_csv = "data/fys_chem.csv", datumtijd = FALS
 #' De functie helpt bij het importeren van meetpunt-data en bijbehorende meetpuntinformatie. 
 #'
 #' @param meetpunten_csv Een characterstring met het pad naar het te importeren bestand. Het bestand moet in 
-#' csv-formaat zijn met \code{;} als scheidingsteken en \code{,} als scheidingsteken. Default is \code{"data/meetpunten.csv"}. 
+#' csv-formaat zijn met `;` als scheidingsteken en `,` als scheidingsteken. Default is `"data/meetpunten.csv"`. 
 #' Het is ook mogelijk om een zip-bestand in te lezen waar het csv-bestand in zit.
+#' @param wide Logical. Bepaalt of meetpunten in wijd of lang format worden ingelezen. Wide = `TRUE` is default
+#' en resulteert in één regel per meetpunt
+#' @param code Logical. Code of omschrijving gebruiken als kolomnamen.
+#' @param tolower Logical. Bepaald of alle kolomnamen worden omgezet naar lowercase
 #'
 #' @return Een dataframe met meetpuntinformatie
 #' 
-#' @details De functie zet alle kolomkoppen om in lowercase. Er is enige vrijheid t.a.v. de inhoud van het bestand. Een standaard bestand heeft minimaal de kolommen:
-#'  \itemize{
-#'  \item \code{mp} - Code met de aanduiding van het meetpunt
-#'  \item \code{mpomsch} - Omschrijving van het meetpunt
-#'  \item \code{x} - X-coordinaat in het RD-stelsel
-#'  \item \code{y} - Y-coordinaat in het RD-stelsel
-#'  }
+#' @details De functie zet alle kolomkoppen om in lowercase. Er is enige vrijheid t.a.v. de inhoud van het bestand. 
+#' Een standaard bestand heeft minimaal de kolommen:
+#'  
+#'  -  `mp` - Code met de aanduiding van het meetpunt
+#'  -  `mpomsch` - Omschrijving van het meetpunt
+#'  -  `x` - X-coordinaat in het RD-stelsel
+#'  -  `y` - Y-coordinaat in het RD-stelsel
 #' 
 #' @export
 #'
@@ -78,11 +82,25 @@ import_fys_chem <- function(fys_chem_csv = "data/fys_chem.csv", datumtijd = FALS
 #' meetpunten <- import_meetpunten()
 #' 
 #' }
-import_meetpunten <- function(meetpunten_csv = "data/meetpunten.csv"){
+import_meetpunten <- function(meetpunten_csv = "data/meetpunten.csv", wide = TRUE, code = FALSE, tolower = TRUE){
   
-  meetpuntendf <- readr::read_csv2(meetpunten_csv, col_types = readr::cols())
-  names(meetpuntendf) <- tolower(names(meetpuntendf))
-  meetpuntendf
+  kenmerk <- ifelse(code, rlang::sym("kenmerk_code"), rlang::sym("kenmerk_naam"))
+  
+  meetpunten <- readr::read_csv2(meetpunten_csv,
+                                 col_types = readr::cols(),
+                                 locale = readr::locale(decimal_mark = ","))
+  
+  if (wide) {
+    meetpunten <- meetpunten %>%
+      dplyr::mutate(temp_var = paste0(!!kenmerk, "_", kenmerk_type)) %>%
+      dplyr::select(-kenmerk_type, -kenmerk_code, -kenmerk_naam) %>%
+      tidyr::pivot_wider(names_from = temp_var, values_from = kenmerk_waarde) %>%
+      dplyr::mutate_at(dplyr::vars(dplyr::matches("_G$")), as.numeric) %>%
+      dplyr::rename_at(dplyr::vars(dplyr::matches("_.")), ~stringr::str_remove(., "_.$"))
+  }
+  
+  if (tolower) {names(meetpunten) <- tolower(names(meetpunten))}
+  meetpunten
 }
 
 # import_parameters -------------------------------------------------------------
