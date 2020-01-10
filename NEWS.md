@@ -1,5 +1,6 @@
 # HHSKwkl (development version)
 
+- functie `link_grafiek()` toegevoegd
 - functie `copy_data()` toegevoegd
 - `import_fys_chem` en `import_meetpunten` zijn aangepast aan het FME-export formaat.
 - Bugfix in de functie import_normen_rivm()
