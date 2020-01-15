@@ -21,6 +21,8 @@
 #' 
 copy_data <- function(filenames, origin = "P:/Dawaco/FME", destination = "data") {
   
+  dest_trunc <- stringr::str_trunc(destination, width = 50, side = "center")
+  
   copy_fun <- function(filename, origin, destination) {
     
     origin_path <- file.path(origin, filename)
@@ -29,10 +31,12 @@ copy_data <- function(filenames, origin = "P:/Dawaco/FME", destination = "data")
     make_copy <- !file.exists(destination_path) | (file.info(origin_path)$mtime > file.info(destination_path)$mtime)
     
     if (make_copy) {
-      copy_succes <- file.copy(from = origin_path, to = destination_path, overwrite = TRUE)
-      if (!copy_succes) stop(paste("Synchroniseren van", filename, "is niet gelukt"))
-      message(paste0(filename, " gekopieerd naar /", destination))
-    } else {message(paste0(filename, " staat reeds in /", destination)) }
+      
+      copy_success <- file.copy(from = origin_path, to = destination_path, overwrite = TRUE)
+      
+      if (!copy_success) stop(paste("Synchroniseren van", filename, "is niet gelukt"))
+      message(paste0(filename, " gekopieerd naar /", dest_trunc))
+    } else {message(paste0(filename, " staat reeds in /", dest_trunc)) }
     
   }
   
