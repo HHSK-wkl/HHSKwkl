@@ -342,6 +342,8 @@ grafieken_internet <- function(data,
     dplyr::select(mp, parnr, datum, detectiegrens, waarde) %>%
     dplyr::ungroup()
   
+  
+  
   # loops om grafieken te maken
   for (meetpunt in sort(unique(data$mp))) {
     print(meetpunt)
@@ -351,7 +353,8 @@ grafieken_internet <- function(data,
     grDevices::pdf(file = filename, width = 16, height = 8,
                    title = paste("HHSK waterkwaliteit | meetpunt", meetpunt))
     
-    titelpagina_internet(inclusief_normen = plot_normen)    
+    normen_titel <- (plot_normen & any(data_mp$parnr %in% c(1000:1999)))
+    titelpagina_internet(inclusief_normen = normen_titel)    
     
     for (parameternr in sort(unique(data_mp$parnr))) {
       
