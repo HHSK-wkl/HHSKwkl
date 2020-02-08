@@ -345,7 +345,8 @@ grafieken_internet <- function(data,
     data_mp <- data %>% dplyr::filter(mp == meetpunt)
     
     filename <- paste0(export_pad, "/", meetpunt, ".pdf")
-    grDevices::pdf(file = filename, width = 16, height = 8)
+    grDevices::pdf(file = filename, width = 16, height = 8,
+                   title = paste("HHSK waterkwaliteit | meetpunt", meetpunt))
     
     titelpagina_internet(inclusief_normen = plot_normen)    
     
