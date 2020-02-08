@@ -1,6 +1,7 @@
 # HHSKwkl (development version)
 
 ## New features 
+- Thema's en grafiekkleuren aangepast - meer grijs, minder groen.
 - Titel toegevoegd aan pdf in `grafieken_internet()` 
 - functie `link_grafiek()` toegevoegd om makkelijk te verwijzen naar grafieken op de website.
 - functie `copy_data()` toegevoegd.
