@@ -39,15 +39,7 @@ library(readxl)
 library(lubridate)
 
 # Other options
-options(DT.options = list(
-  language = list(
-    paginate = list(previous = 'Vorige', `next` = 'Volgende'),
-    search = "Zoeken",
-    decimal = ",",
-    info = 'Rijen _START_ tot _END_ Totaal: _TOTAL_ rijen',
-    lengthMenu = "Toon _MENU_ rijen"
-  )
-))
+dt_labels_nederlands()
 
 options(OutDec = ",")
 
@@ -57,11 +49,10 @@ options(OutDec = ",")
 # }
 
 
-# source("R/copy_data.R")
-
 ```
 
 ```{r load_data, include = FALSE}
+# copy_data()
 # fys_chem <- import_fys_chem()
 # meetpunten <- import_meetpunten()
 # parameters <- import_parameters()
