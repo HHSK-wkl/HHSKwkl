@@ -2,7 +2,8 @@
 #' 
 #' Deze functie is bedoeld om data van een centrale locatie te synchroniseren met een projectmap.
 #'
-#' @param filenames Vector of lijst met bestanden
+#' @param filenames Vector of lijst met bestanden. Als deze leeg blijft worden 
+#' alle bestanden uit `origin` gekopieerd.
 #' @param origin Bronlocatie. Default is `"P:/Dawaco/FME"`
 #' @param destination Doellocatie. Default is `"data"`
 #'
@@ -13,13 +14,14 @@
 #' 
 #' \dontrun{
 #' 
+#' copy_data()
 #' copy_data("fys_chem.csv")
 #' copy_data("fys_chem.csv", origin = "P:/Dawaco/FME", destination = "data")
 #' }
 #' 
 #' 
 #' 
-copy_data <- function(filenames, origin = "P:/Dawaco/FME", destination = "data") {
+copy_data <- function(filenames = NULL, origin = "//hhsk.local/dfs/Project/Dawaco/FME", destination = "data") {
   
   dest_trunc <- stringr::str_trunc(destination, width = 50, side = "center")
   
@@ -39,6 +41,8 @@ copy_data <- function(filenames, origin = "P:/Dawaco/FME", destination = "data")
     } else {message(paste0(filename, " staat reeds in /", dest_trunc)) }
     
   }
+  
+  if (is.null(filenames)) filenames <- list.files(origin)
   
   purrr::walk(filenames, copy_fun, origin = origin, destination = destination)
   

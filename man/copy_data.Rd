@@ -4,10 +4,12 @@
 \alias{copy_data}
 \title{Synchroniseer bestanden met een bronlocatie}
 \usage{
-copy_data(filenames, origin = "P:/Dawaco/FME", destination = "data")
+copy_data(filenames = NULL,
+  origin = "//hhsk.local/dfs/Project/Dawaco/FME", destination = "data")
 }
 \arguments{
-\item{filenames}{Vector of lijst met bestanden}
+\item{filenames}{Vector of lijst met bestanden. Als deze leeg blijft worden
+alle bestanden uit \code{origin} gekopieerd.}
 
 \item{origin}{Bronlocatie. Default is \code{"P:/Dawaco/FME"}}
 
@@ -23,6 +25,7 @@ Deze functie is bedoeld om data van een centrale locatie te synchroniseren met e
 
 \dontrun{
 
+copy_data()
 copy_data("fys_chem.csv")
 copy_data("fys_chem.csv", origin = "P:/Dawaco/FME", destination = "data")
 }
