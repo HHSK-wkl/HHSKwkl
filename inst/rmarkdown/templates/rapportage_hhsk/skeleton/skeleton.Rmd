@@ -1,27 +1,20 @@
 ---
 title: "Rapportage"
-author: "Johan van Tent"
-#date: "`r format(Sys.time(), '%d %B %Y')`"
+#author: "Johan van Tent"
+#date: "**Gemaakt op:** `r format(Sys.time(), '%d %B %Y')`"
 output:
   html_document:
     css: markdown_JT.css
-    toc: TRUE
+    #toc: TRUE
     toc_float:
       collapsed: FALSE
     code_folding: "hide"
+    includes:
+      before_body: "header_hhsk.html"
+      after_body: "footer_hhsk.html"
 
   
 ---
-
-
-\br
-\br
-
-![](logo_website.png)
-
-\br
-\br
-
 
 **Gemaakt op:** `r format(Sys.time(), "%A %e %B %Y")`
 
