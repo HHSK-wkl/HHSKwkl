@@ -4,14 +4,14 @@ title: "Rapportage"
 #date: "**Gemaakt op:** `r format(Sys.time(), '%d %B %Y')`"
 output:
   html_document:
-    css: markdown_JT.css
+    css: CSS/markdown_JT.css
     #toc: TRUE
     toc_float:
       collapsed: FALSE
     code_folding: "hide"
     includes:
-      before_body: "header_hhsk.html"
-      after_body: "footer_hhsk.html"
+      #before_body: "html/header_hhsk.html"
+      after_body: "html/footer_hhsk.html"
 
   
 ---
@@ -53,4 +53,8 @@ options(OutDec = ",")
 ```
 
 
+
+```{r}
+plot(pressure)
+```
 
