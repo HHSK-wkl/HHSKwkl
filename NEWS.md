@@ -7,11 +7,12 @@
 - functie `copy_data()` toegevoegd.
 - `import_fys_chem` en `import_meetpunten` zijn aangepast aan het FME-export formaat.
 - Een functie voor Nederlandse DT-labels toegevoegd.
-- Rmarkdown-skeleton toegevoegd voor HHSK-rapportages
+- Rmarkdown-skeleton toegevoegd voor HHSK-rapportages, inclusief header en footer.
 - Diverse monsterinfo functies gemaakt samen met een overkoepelende summary functie
+- `render_server()` toegevoegd om Rmarkdown documenten op de server te laten uitvoeren.
 
 ## Deprecated
-- `fun_twn_*`- en `get_twn_*`-functies verplaatst naar package autecodata.
+- `fun_twn_*`- en `get_twn_*`-functies verplaatst naar package twn.
 
 ## Bugfixes
 - Bugfix in de functie `import_normen_rivm()`

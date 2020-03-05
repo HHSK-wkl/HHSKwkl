@@ -26,7 +26,8 @@ Imports:
     tibble,
     stringr,
     forcats,
-    sf
+    sf,
+    rmarkdown
 Suggests: 
     testthat,
     covr,
