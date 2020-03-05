@@ -32,6 +32,9 @@
 
 <meta property="og:title" content="Changelog" />
 
+<meta property="og:image" content="/logo.png" />
+<meta name="twitter:card" content="summary" />
+
 
 
 <!-- mathjax -->
@@ -60,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">Package voor waterkwaliteit - HHSKwkl</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -103,6 +106,56 @@
       <small>Source: <a href='https://github.com/RedTent/HHSKwkl/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="hhskwkl-020" class="section level1">
+<h1 class="page-header">
+<a href="#hhskwkl-020" class="anchor"></a>HHSKwkl 0.2.0</h1>
+<div id="new-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features" class="anchor"></a>New features</h2>
+<ul>
+<li>Thema’s en grafiekkleuren aangepast - meer grijs, minder groen.</li>
+<li>Titel toegevoegd aan pdf in <code><a href="../reference/grafieken_internet.html">grafieken_internet()</a></code>
+</li>
+<li>functie <code><a href="../reference/link_grafiek.html">link_grafiek()</a></code> toegevoegd om makkelijk te verwijzen naar grafieken op de website.</li>
+<li>functie <code><a href="../reference/copy_data.html">copy_data()</a></code> toegevoegd.</li>
+<li>
+<code>import_fys_chem</code> en <code>import_meetpunten</code> zijn aangepast aan het FME-export formaat.</li>
+<li>Een functie voor Nederlandse DT-labels toegevoegd.</li>
+<li>Rmarkdown-skeleton toegevoegd voor HHSK-rapportages, inclusief header en footer.</li>
+<li>Diverse monsterinfo functies gemaakt samen met een overkoepelende summary functie</li>
+<li>
+<code><a href="../reference/render_server.html">render_server()</a></code> toegevoegd om Rmarkdown documenten op de server te laten uitvoeren.</li>
+</ul>
+</div>
+<div id="deprecated" class="section level2">
+<h2 class="hasAnchor">
+<a href="#deprecated" class="anchor"></a>Deprecated</h2>
+<ul>
+<li>
+<code>fun_twn_*</code>- en <code>get_twn_*</code>-functies verplaatst naar package twn.</li>
+</ul>
+</div>
+<div id="bugfixes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bugfixes" class="anchor"></a>Bugfixes</h2>
+<ul>
+<li>Bugfix in de functie <code><a href="../reference/import_normen_rivm.html">import_normen_rivm()</a></code>
+</li>
+</ul>
+</div>
+<div id="bugs" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bugs" class="anchor"></a>Bugs</h2>
+</div>
+<div id="wensen" class="section level2">
+<h2 class="hasAnchor">
+<a href="#wensen" class="anchor"></a>Wensen</h2>
+<ul>
+<li>Wens voor monsterdiagnostiek</li>
+<li>Wens voor diagnostiek TWN-lijst</li>
+</ul>
+</div>
+</div>
     <div id="hhskwkl-010" class="section level1">
 <h1 class="page-header">
 <a href="#hhskwkl-010" class="anchor"></a>HHSKwkl 0.1.0</h1>
@@ -116,6 +169,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#hhskwkl-020">0.2.0</a></li>
         <li><a href="#hhskwkl-010">0.1.0</a></li>
       </ul>
     </div>
