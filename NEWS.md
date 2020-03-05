@@ -1,4 +1,4 @@
-# HHSKwkl (development version)
+# HHSKwkl 0.2.0
 
 ## New features 
 - Thema's en grafiekkleuren aangepast - meer grijs, minder groen.
