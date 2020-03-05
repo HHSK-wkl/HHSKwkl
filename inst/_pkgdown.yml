@@ -40,7 +40,6 @@ reference:
     contents:
       - '`mon_summary`'
       - '`mon_info`'
-      - '`twn_info`'
   - title: Overig
     desc: ~
     contents:
@@ -51,3 +50,12 @@ reference:
       - '`maak_opzoeker`'
       - '`add_twn_voorkeurnaam`'
       - '`basiskaart`'
+      - '`dt_labels_nederlands`'
+      - '`link_grafiek`'
+      - '`copy_data`'
+      - '`render_server`'
+  - title: HHSKwkl
+    desc: ~
+    contents:
+      - '`HHSKwkl`'
+      

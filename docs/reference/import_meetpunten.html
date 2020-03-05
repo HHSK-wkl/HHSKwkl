@@ -33,6 +33,8 @@
 <meta property="og:title" content="Importeren van meetpunten — import_meetpunten" />
 
 <meta property="og:description" content="De functie helpt bij het importeren van meetpunt-data en bijbehorende meetpuntinformatie." />
+
+<meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -63,7 +65,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">Package voor waterkwaliteit - HHSKwkl</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -113,7 +115,8 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>import_meetpunten</span>(<span class='kw'>meetpunten_csv</span> <span class='kw'>=</span> <span class='st'>"data/meetpunten.csv"</span>)</pre>
+    <pre class="usage"><span class='fu'>import_meetpunten</span>(<span class='kw'>meetpunten_csv</span> <span class='kw'>=</span> <span class='st'>"data/meetpunten.csv"</span>, <span class='kw'>wide</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>code</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>tolower</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -124,6 +127,19 @@
 csv-formaat zijn met <code>;</code> als scheidingsteken en <code>,</code> als scheidingsteken. Default is <code>"data/meetpunten.csv"</code>.
 Het is ook mogelijk om een zip-bestand in te lezen waar het csv-bestand in zit.</p></td>
     </tr>
+    <tr>
+      <th>wide</th>
+      <td><p>Logical. Bepaalt of meetpunten in wijd of lang format worden ingelezen. Wide = <code>TRUE</code> is default
+en resulteert in één regel per meetpunt</p></td>
+    </tr>
+    <tr>
+      <th>code</th>
+      <td><p>Logical. Code of omschrijving gebruiken als kolomnamen.</p></td>
+    </tr>
+    <tr>
+      <th>tolower</th>
+      <td><p>Logical. Bepaald of alle kolomnamen worden omgezet naar lowercase</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -132,7 +148,8 @@ Het is ook mogelijk om een zip-bestand in te lezen waar het csv-bestand in zit.<
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>De functie zet alle kolomkoppen om in lowercase. Er is enige vrijheid t.a.v. de inhoud van het bestand. Een standaard bestand heeft minimaal de kolommen:</p><ul>
+    <p>De functie zet alle kolomkoppen om in lowercase. Er is enige vrijheid t.a.v. de inhoud van het bestand.
+Een standaard bestand heeft minimaal de kolommen:</p><ul>
 <li><p><code>mp</code> - Code met de aanduiding van het meetpunt</p></li>
 <li><p><code>mpomsch</code> - Omschrijving van het meetpunt</p></li>
 <li><p><code>x</code> - X-coordinaat in het RD-stelsel</p></li>

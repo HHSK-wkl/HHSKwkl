@@ -1,27 +1,20 @@
 ---
 title: "Rapportage"
-author: "Johan van Tent"
-#date: "`r format(Sys.time(), '%d %B %Y')`"
+#author: "Johan van Tent"
+#date: "**Gemaakt op:** `r format(Sys.time(), '%d %B %Y')`"
 output:
   html_document:
-    css: markdown_JT.css
-    toc: TRUE
+    css: CSS/markdown_JT.css
+    #toc: TRUE
     toc_float:
       collapsed: FALSE
     code_folding: "hide"
+    includes:
+      #before_body: "html/header_hhsk.html"
+      after_body: "html/footer_hhsk.html"
 
   
 ---
-
-
-\br
-\br
-
-![](logo_website.png)
-
-\br
-\br
-
 
 **Gemaakt op:** `r format(Sys.time(), "%A %e %B %Y")`
 
@@ -39,15 +32,7 @@ library(readxl)
 library(lubridate)
 
 # Other options
-options(DT.options = list(
-  language = list(
-    paginate = list(previous = 'Vorige', `next` = 'Volgende'),
-    search = "Zoeken",
-    decimal = ",",
-    info = 'Rijen _START_ tot _END_ Totaal: _TOTAL_ rijen',
-    lengthMenu = "Toon _MENU_ rijen"
-  )
-))
+dt_labels_nederlands()
 
 options(OutDec = ",")
 
@@ -57,11 +42,10 @@ options(OutDec = ",")
 # }
 
 
-# source("R/copy_data.R")
-
 ```
 
 ```{r load_data, include = FALSE}
+# copy_data()
 # fys_chem <- import_fys_chem()
 # meetpunten <- import_meetpunten()
 # parameters <- import_parameters()
@@ -69,4 +53,8 @@ options(OutDec = ",")
 ```
 
 
+
+```{r}
+plot(pressure)
+```
 

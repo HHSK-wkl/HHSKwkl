@@ -60,5 +60,10 @@ if (getRversion() >= "2.15.1")  utils::globalVariables(c(".",
                                                          "taxonlevel",
                                                          "taxonname",
                                                          "waarde",
-                                                         "waarde_det_half"
+                                                         "waarde_det_half",
+                                                         "kenmerk_type",
+                                                         "kenmerk_code",
+                                                         "kenmerk_naam",
+                                                         "kenmerk_waarde",
+                                                         "temp_var"
                                                          ))

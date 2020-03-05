@@ -19,20 +19,20 @@ hhskthema <- function(){
   #require(ggplot2)
   hhskthema <- ggplot2::theme_light() + ggplot2::theme(
         
-        plot.title =    ggplot2::element_text(color = hhskgroen, face = "bold", hjust = 0.5),
-        plot.subtitle = ggplot2::element_text(color = hhskgroen, face = "bold", hjust = 0.5, size = ggplot2::rel(1.1)),
-        plot.caption =  ggplot2::element_text(color = hhskgroen, face = "italic"),
+        plot.title =    ggplot2::element_text(color = "grey60", face = "bold", hjust = 0.5),
+        plot.subtitle = ggplot2::element_text(color = "grey60", face = "bold", hjust = 0.5, size = ggplot2::rel(1.1)),
+        plot.caption =  ggplot2::element_text(color = "grey60", face = "italic"),
           
-        axis.title =  ggplot2::element_text(color = hhskblauw, face = "bold"),
-        axis.text =   ggplot2::element_text(color = hhskblauw),
-        axis.ticks =  ggplot2::element_line(color = hhskblauw),
-        axis.line.x = ggplot2::element_line(color = hhskblauw, size = 0.5),
+        axis.title =  ggplot2::element_text(color = "grey60", face = "bold"),
+        axis.text =   ggplot2::element_text(color = "grey60"),
+        axis.ticks =  ggplot2::element_line(color = "grey60"),
+        axis.line = ggplot2::element_line(color = "grey60", size = 0.5),
         
-        panel.border =     ggplot2::element_rect(color = hhskblauw, size = 1),
-        panel.grid.major = ggplot2::element_line(color = hhskgroen, linetype = "dotted", size = 0.5),
-        panel.grid.minor = ggplot2::element_line(color = hhskgroen, linetype = "dotted", size = 0.5),
+        panel.border =     ggplot2::element_blank(),#ggplot2::element_rect(color = hhskblauw, size = 1),
+        panel.grid.major = ggplot2::element_line(color = "grey90", linetype = "dotted", size = 0.5),
+        panel.grid.minor = ggplot2::element_blank(),#ggplot2::element_line(color = "grey60", linetype = "dotted", size = 0.5),
         
-        legend.title = ggplot2::element_text(color = hhskgroen, face = "bold", hjust = 0.5),
+        legend.title = ggplot2::element_text(color = "grey60", face = "bold", hjust = 0.5),
         legend.text =  ggplot2::element_text(color = hhskblauw),
         
         strip.background = ggplot2::element_blank(),
@@ -74,11 +74,19 @@ grafiek_basis <- function(data, mp = NULL, mpomsch = NULL, parnaam = NULL, eenhe
   if (range_y[1] * 2 > range_y[2] & range_y[1] != range_y[2]) {ylimieten <- range_y * c(0.95, 1.05)}
   
   #grafiek
-  grafiek <- ggplot2::ggplot(data, ggplot2::aes(x = datum, y = waarde)) +
+  grafiek <- ggplot2::ggplot(data, ggplot2::aes(x = datum, y = waarde))
+  
+  if (plot_loess) {
+    grafiek <- grafiek + 
+      ggplot2::geom_smooth(se = TRUE, col = "grey80", linetype = "dashed", 
+                           fill = "grey60", alpha = 0.08, fullrange = TRUE)
+  }
+  
+  grafiek <- grafiek +
     ggplot2::geom_line(col = hhskblauw) +
     ggplot2::geom_point(col = hhskblauw) +
-    ggplot2::geom_point(data = dplyr::filter(data, detectiegrens == "<"), pch = 21, col = hhskblauw, fill = "white") + # detectiegrenswaarden
-    
+    ggplot2::geom_point(data = dplyr::filter(data, detectiegrens == "<"), 
+                        pch = 21, col = hhskblauw, fill = "white") + # detectiegrenswaarden
     ggplot2::labs(title = paste0("Meetpunt: ", mp," - ", mpomsch), 
                   subtitle = paste0("Parameter: ", parnaam),
                   x = "", 
@@ -86,12 +94,7 @@ grafiek_basis <- function(data, mp = NULL, mpomsch = NULL, parnaam = NULL, eenhe
     ggplot2::scale_y_continuous(limits = ylimieten, expand = c(0,0), oob = scales::rescale_none ) +
     ggplot2::scale_x_date(date_breaks = "years", labels = lubridate::year) + 
     hhskthema()
-  
-  if (plot_loess) {
-    grafiek <- grafiek + 
-      ggplot2::geom_smooth(se = TRUE, col = hhskgroen, linetype = "dashed", fill = hhskblauw, alpha = 0.08, fullrange = TRUE)
-  }
-  
+
   grafiek
   
 }# end of function
@@ -192,8 +195,8 @@ titelpagina_internet <- function(inclusief_normen = TRUE){
   grid.text("Meetwaarde onder rapportagegrens", x = 0.22, y = 0.55, just = "left")
   
   # Trendlijn ----
-  grid.lines(x = c(0.1,0.2),y = c(0.49,0.49), gp = gpar(lty = 2, col = hhskgroen, lwd = 3))
-  grid.polygon(x = c(0.1,0.2,0.2,0.1), y = c(0.47,0.47,0.51,0.51), gp = gpar(fill = hhskblauw, alpha = 0.08))
+  grid.lines(x = c(0.1,0.2),y = c(0.49,0.49), gp = gpar(lty = 2, col = "grey80", lwd = 3))
+  grid.polygon(x = c(0.1,0.2,0.2,0.1), y = c(0.47,0.47,0.51,0.51), gp = gpar(fill = "grey60", alpha = 0.08, col = NA))
   grid.text("Trendlijn d.m.v. locale regressie (LOESS). De blauwe band geeft de onzekerheid van de trendlijn weer.\nN.B. De trendlijn geeft het algemene verloop van de getoonde periode weer. De trendlijn heeft geen voorspellende waarde.", x = 0.22, y = 0.49, just = c("left"))
   #grid.text("N.B. De trendlijn geeft het algemene verloop van de getoonde periode weer.De trendlijn heeft geen voorspellende waarde.", x = 0.22, y = 0.47, just = c("left"))
   
@@ -339,15 +342,19 @@ grafieken_internet <- function(data,
     dplyr::select(mp, parnr, datum, detectiegrens, waarde) %>%
     dplyr::ungroup()
   
+  
+  
   # loops om grafieken te maken
   for (meetpunt in sort(unique(data$mp))) {
     print(meetpunt)
     data_mp <- data %>% dplyr::filter(mp == meetpunt)
     
     filename <- paste0(export_pad, "/", meetpunt, ".pdf")
-    grDevices::pdf(file = filename, width = 16, height = 8)
+    grDevices::pdf(file = filename, width = 16, height = 8,
+                   title = paste("HHSK waterkwaliteit | meetpunt", meetpunt))
     
-    titelpagina_internet(inclusief_normen = plot_normen)    
+    normen_titel <- (plot_normen & any(data_mp$parnr %in% c(1000:1999)))
+    titelpagina_internet(inclusief_normen = normen_titel)    
     
     for (parameternr in sort(unique(data_mp$parnr))) {
       

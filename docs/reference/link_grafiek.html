@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Importeren van fysisch-chemische data — import_fys_chem • Package voor waterkwaliteit - HHSKwkl</title>
+<title>HTML link naar grafiek van een meetpunt — link_grafiek • Package voor waterkwaliteit - HHSKwkl</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Importeren van fysisch-chemische data — import_fys_chem" />
+<meta property="og:title" content="HTML link naar grafiek van een meetpunt — link_grafiek" />
 
-<meta property="og:description" content="De functie helpt bij het importeren van fysische chemische data. Rijen zonder waarde worden verwijderd." />
+<meta property="og:description" content="HTML link naar grafiek van een meetpunt" />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -104,57 +104,41 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Importeren van fysisch-chemische data</h1>
-    <small class="dont-index">Source: <a href='https://github.com/RedTent/HHSKwkl/blob/master/R/01_import_data.R'><code>R/01_import_data.R</code></a></small>
-    <div class="hidden name"><code>import_fys_chem.Rd</code></div>
+    <h1>HTML link naar grafiek van een meetpunt</h1>
+    <small class="dont-index">Source: <a href='https://github.com/RedTent/HHSKwkl/blob/master/R/90_rapportage_utils.R'><code>R/90_rapportage_utils.R</code></a></small>
+    <div class="hidden name"><code>link_grafiek.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>De functie helpt bij het importeren van fysische chemische data. Rijen zonder <code>waarde</code> worden verwijderd.</p>
+    <p>HTML link naar grafiek van een meetpunt</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>import_fys_chem</span>(<span class='kw'>fys_chem_csv</span> <span class='kw'>=</span> <span class='st'>"data/fys_chem.csv"</span>, <span class='kw'>datumtijd</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>link_grafiek</span>(<span class='no'>mp</span>, <span class='kw'>link_tekst</span> <span class='kw'>=</span> <span class='st'>"Grafiek"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>fys_chem_csv</th>
-      <td><p>Een characterstring met het pad naar het te importeren bestand.
-Het bestand moet in csv-formaat zijn met <code>;</code> als scheidingsteken en <code>,</code> als decimaalteken.
-Default is <code>"data/fys_chem.csv"</code>. Het is ook mogelijk om een zip-bestand in te lezen
-waar het csv-bestand in zit.</p></td>
+      <th>mp</th>
+      <td><p>De meetpuntcode</p></td>
     </tr>
     <tr>
-      <th>datumtijd</th>
-      <td><p>Logical. Of de kolom datum wordt geimporteerd als datum of als datum-tijd.
-Default is <code>FALSE</code></p></td>
+      <th>link_tekst</th>
+      <td><p>Optionele tekst</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Een dataframe met fysisch-chemische meetgegevens.</p>
-    
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>Er is enige vrijheid t.a.v. de inhoud van het bestand. De functie verwacht
-ten minste een kolom <code>datum</code> en <code>waarde</code>. Een standaard bestand heeft gewoonlijk de kolommen:</p><ul>
-<li><p><code>mp</code> Code met de aanduiding van het meetpunt</p></li>
-<li><p><code>datum</code> Datum in het format yyyy-mm-dd hh:mm</p></li>
-<li><p><code>parnr</code> Unieke nummer van de parameter</p></li>
-<li><p><code>par</code> Parametercode, voor de leesbaarheid</p></li>
-<li><p><code>eenheid</code> Eenheid, voor de leesbaarheid</p></li>
-<li><p><code>detectiegrens</code> Aanduiding als &lt; of &gt;. Bij geen aanduidng krijgt het veld <code>NA</code></p></li>
-<li><p><code>waarde</code> Waarde van de meting</p></li>
-</ul>
+    <p>HTML-tekst met een link naar een grafiek</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'>import_fys_chem</span>()
+    <pre class="examples"><div class='input'>
+</div><span class='co'># NOT RUN {</span>
+<span class='fu'>link_grafiek</span>(<span class='st'>"S_0067"</span>, <span class='st'>"onzintekst"</span>)
 
 <span class='co'># }</span></pre>
   </div>
@@ -164,8 +148,6 @@ ten minste een kolom <code>datum</code> en <code>waarde</code>. Een standaard be
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-
-      <li><a href="#details">Details</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

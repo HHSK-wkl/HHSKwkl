@@ -1,26 +1,28 @@
+# import_fys_chem ---------------------------------------------------------------
+
 #' Importeren van fysisch-chemische data
 #' 
-#' De functie helpt bij het importeren van fysische chemische data. De functie leest de kolom \code{datum} als \code{Date}.
-#' Verder worden rijen zonder \code{waarde} verwijderd.
+#' De functie helpt bij het importeren van fysische chemische data. Rijen zonder `waarde` worden verwijderd.
 #' 
-#' @param fys_chem_csv Een characterstring met het pad naar het te importeren bestand. Het bestand moet in 
-#' csv-formaat zijn met \code{;} als scheidingsteken en \code{,} als scheidingsteken. Default is \code{"data/fys_chem.csv"}. 
-#' Het is ook mogelijk om een zip-bestand in te lezen waar het csv-bestand in zit.
+#' @param fys_chem_csv Een characterstring met het pad naar het te importeren bestand. 
+#' Het bestand moet in csv-formaat zijn met `;` als scheidingsteken en `,` als decimaalteken. 
+#' Default is `"data/fys_chem.csv"`. Het is ook mogelijk om een zip-bestand in te lezen 
+#' waar het csv-bestand in zit.
+#' @param datumtijd Logical. Of de kolom datum wordt geimporteerd als datum of als datum-tijd. 
+#' Default is `FALSE`
 #'
 #' @return Een dataframe met fysisch-chemische meetgegevens.
 #' 
-#' @details Er is enige vrijheid t.a.v. de inhoud van het bestand. De functie verwacht ten minste een kolom 
-#' \code{datum} en \code{waarde}. Een standaard bestand heeft gewoonlijk de kolommen:
-#'  \itemize{
-#'  \item \code{mp} Code met de aanduiding van het meetpunt
-#'  \item \code{datum} Datum in het format dd-mm-yyyy hh:mm:ss
-#'  \item \code{parnr} Unieke nummer van de parameter 
-#'  \item \code{par} Parametercode, voor de leesbaarheid
-#'  \item \code{eenheid} Eenheid, voor de leesbaarheid
-#'  \item \code{detectiegrens} Aanduiding als < of >. Bij geen aanduidng krijgt het veld \code{NA}
-#'  \item \code{waarde} Waarde van de meting 
+#' @details Er is enige vrijheid t.a.v. de inhoud van het bestand. De functie verwacht 
+#' ten minste een kolom `datum` en `waarde`. Een standaard bestand heeft gewoonlijk de kolommen:
 #'  
-#'  }
+#'  - `mp` Code met de aanduiding van het meetpunt
+#'  - `datum` Datum in het format yyyy-mm-dd hh:mm
+#'  - `parnr` Unieke nummer van de parameter 
+#'  - `par` Parametercode, voor de leesbaarheid
+#'  - `eenheid` Eenheid, voor de leesbaarheid
+#'  - `detectiegrens` Aanduiding als < of >. Bij geen aanduidng krijgt het veld `NA`
+#'  - `waarde` Waarde van de meting 
 #' 
 #' @export
 #'
@@ -30,33 +32,47 @@
 #' data <- import_fys_chem()
 #' 
 #' }
-import_fys_chem <- function(fys_chem_csv = "data/fys_chem.csv"){
+import_fys_chem <- function(fys_chem_csv = "data/fys_chem.csv", datumtijd = FALSE){
   
-  df <- readr::read_csv2(file = fys_chem_csv, col_types = readr::cols(datum = readr::col_date(format = "%d-%m-%Y %H:%M:%S")))
-  df <- dplyr::filter(df, !is.na(waarde)) # alle metingen moeten een meetwaarde hebben
+  if (datumtijd) {
+    df <- readr::read_csv2(file = fys_chem_csv, locale = readr::locale(tz = "CET"), 
+                           col_types = readr::cols(datum = readr::col_datetime()))
+  } else {
+    df <- readr::read_csv2(file = fys_chem_csv, 
+                           col_types = readr::cols(datum = readr::col_date(format = "%Y-%m-%d %H:%M")))
+  }
+  
+  # alle metingen moeten een meetwaarde hebben
+  df <- dplyr::filter(df, !is.na(waarde)) 
   
   #info zodat je weet wat je importeert
   message(paste("Laatste meetdatum is",max(df$datum, na.rm = TRUE)))
   df
 }
 
+# import_meetpunten -------------------------------------------------------------
+
 #' Importeren van meetpunten
 #'
 #' De functie helpt bij het importeren van meetpunt-data en bijbehorende meetpuntinformatie. 
 #'
 #' @param meetpunten_csv Een characterstring met het pad naar het te importeren bestand. Het bestand moet in 
-#' csv-formaat zijn met \code{;} als scheidingsteken en \code{,} als scheidingsteken. Default is \code{"data/meetpunten.csv"}. 
+#' csv-formaat zijn met `;` als scheidingsteken en `,` als scheidingsteken. Default is `"data/meetpunten.csv"`. 
 #' Het is ook mogelijk om een zip-bestand in te lezen waar het csv-bestand in zit.
+#' @param wide Logical. Bepaalt of meetpunten in wijd of lang format worden ingelezen. Wide = `TRUE` is default
+#' en resulteert in één regel per meetpunt
+#' @param code Logical. Code of omschrijving gebruiken als kolomnamen.
+#' @param tolower Logical. Bepaald of alle kolomnamen worden omgezet naar lowercase
 #'
 #' @return Een dataframe met meetpuntinformatie
 #' 
-#' @details De functie zet alle kolomkoppen om in lowercase. Er is enige vrijheid t.a.v. de inhoud van het bestand. Een standaard bestand heeft minimaal de kolommen:
-#'  \itemize{
-#'  \item \code{mp} - Code met de aanduiding van het meetpunt
-#'  \item \code{mpomsch} - Omschrijving van het meetpunt
-#'  \item \code{x} - X-coordinaat in het RD-stelsel
-#'  \item \code{y} - Y-coordinaat in het RD-stelsel
-#'  }
+#' @details De functie zet alle kolomkoppen om in lowercase. Er is enige vrijheid t.a.v. de inhoud van het bestand. 
+#' Een standaard bestand heeft minimaal de kolommen:
+#'  
+#'  -  `mp` - Code met de aanduiding van het meetpunt
+#'  -  `mpomsch` - Omschrijving van het meetpunt
+#'  -  `x` - X-coordinaat in het RD-stelsel
+#'  -  `y` - Y-coordinaat in het RD-stelsel
 #' 
 #' @export
 #'
@@ -66,32 +82,46 @@ import_fys_chem <- function(fys_chem_csv = "data/fys_chem.csv"){
 #' meetpunten <- import_meetpunten()
 #' 
 #' }
-import_meetpunten <- function(meetpunten_csv = "data/meetpunten.csv"){
+import_meetpunten <- function(meetpunten_csv = "data/meetpunten.csv", wide = TRUE, code = FALSE, tolower = TRUE){
   
-  meetpuntendf <- readr::read_csv2(meetpunten_csv, col_types = readr::cols())
-  names(meetpuntendf) <- tolower(names(meetpuntendf))
-  meetpuntendf
+  kenmerk <- ifelse(code, rlang::sym("kenmerk_code"), rlang::sym("kenmerk_naam"))
+  
+  meetpunten <- readr::read_csv2(meetpunten_csv,
+                                 col_types = readr::cols(),
+                                 locale = readr::locale(decimal_mark = ","))
+  
+  if (wide) {
+    meetpunten <- meetpunten %>%
+      dplyr::mutate(temp_var = paste0(!!kenmerk, "_", kenmerk_type)) %>%
+      dplyr::select(-kenmerk_type, -kenmerk_code, -kenmerk_naam) %>%
+      tidyr::pivot_wider(names_from = temp_var, values_from = kenmerk_waarde) %>%
+      dplyr::mutate_at(dplyr::vars(dplyr::matches("_G$")), as.numeric) %>%
+      dplyr::rename_at(dplyr::vars(dplyr::matches("_.")), ~stringr::str_remove(., "_.$"))
+  }
+  
+  if (tolower) {names(meetpunten) <- tolower(names(meetpunten))}
+  meetpunten
 }
 
+# import_parameters -------------------------------------------------------------
 
 #' Importeren van parameters
 #'
 #' De functie helpt bij het importeren van parameter-data en bijbehorende parameterinformatie. 
 #'
 #' @param parameter_csv Een characterstring met het pad naar het te importeren bestand. Het bestand moet in 
-#' csv-formaat zijn met \code{;} als scheidingsteken en \code{,} als scheidingsteken. Default is \code{"data/parameters.csv"}. 
+#' csv-formaat zijn met `;` als scheidingsteken en `,` als scheidingsteken. Default is `"data/parameters.csv"`. 
 #' Het is ook mogelijk om een zip-bestand in te lezen waar het csv-bestand in zit.
 #'
 #' @return Een dataframe met parameterinformatie
 #' 
 #' #' @details Er is enige vrijheid t.a.v. de inhoud van het bestand. Een standaard bestand heeft minimaal 
 #' de onderstaande kolommen, maar de aquo_kolommen zijn wel wenselijk.
-#'  \itemize{
-#'  \item \code{parnr} Het parameternummer
-#'  \item \code{par} Code voor de parameter, veelal aquo-conform
-#'  \item \code{parnaamlang} Uitgebreide naam van de parameter. Geschikt voor weergave
-#'  \item \code{eenheid} Eenheid van de parameter
-#'  }
+#'
+#'  - `parnr` Het parameternummer
+#'  - `par` Code voor de parameter, veelal aquo-conform
+#'  - `parnaamlang` Uitgebreide naam van de parameter. Geschikt voor weergave
+#'  - `eenheid` Eenheid van de parameter
 #' 
 #' @export
 #'
@@ -105,6 +135,8 @@ import_parameters <- function(parameter_csv = "data/parameters.csv"){
   parameterdf <- readr::read_csv2(parameter_csv, col_types = readr::cols())
   parameterdf
 }
+
+# import_biologie ---------------------------------------------------------------
 
 #' Importeer biologie-meetwaarden
 #' 
@@ -163,6 +195,7 @@ import_biologie_stadia <- function(biologie_csv = "data/biologie.csv"){
   biodf
 }
 
+# import_biologie_kenmerken -----------------------------------------------------
 
 #' Importeer biologische monsterkenmerken
 #' 
@@ -205,6 +238,7 @@ import_biologie_kenmerken <- function(kenmerken_csv = "data/biologie_kenmerken.c
   bio_km_df
 }
 
+# import_normen_rivm ------------------------------------------------------------
 
 #' Importeren RIVM normen
 #' 

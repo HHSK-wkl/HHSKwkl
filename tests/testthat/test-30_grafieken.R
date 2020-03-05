@@ -5,12 +5,13 @@ test_that("hhsk_thema works", {
 })
 
 test_data <- import_fys_chem(fys_chem_csv = system.file("extdata", "test_fys_chem.csv", package = "HHSKwkl")) %>% 
-  dplyr::filter(mp == "00007", parnr == 1)
+  dplyr::filter(mp == "S_0007", parnr == 1)
 
 test_data_imd <- import_fys_chem(fys_chem_csv = system.file("extdata", "test_fys_chem.csv", package = "HHSKwkl")) %>% 
-  dplyr::filter(mp == "00633", parnr == 1198)
+  dplyr::filter(mp == "S_0010", parnr == 1198)
 
 parameters <- import_parameters(parameter_csv = system.file("extdata", "test_parameters.csv", package = "HHSKwkl"))
+meetpunten <- import_meetpunten(system.file("extdata", "test_meetpunten.csv", package = "HHSKwkl"))
 
 normen <- import_normen_rivm(normen = system.file("extdata", "test_normen.txt", package = "HHSKwkl"), parameterdf = parameters)
 
@@ -18,13 +19,13 @@ normen <- import_normen_rivm(normen = system.file("extdata", "test_normen.txt", 
 test_that("grafiek_basis works", {
   
   expect_is(grafiek_basis(test_data), "ggplot")
-  expect_is(grafiek_basis(test_data, mp = "00007", mpomsch = "omschrijving", parnaam = "chloride", eenheid = "mg/l"), "ggplot")
+  expect_is(grafiek_basis(test_data, mp = "meetpuntcode", mpomsch = "omschrijving", parnaam = "chloride", eenheid = "mg/l"), "ggplot")
   })
 
 test_that("boxplot_basis works", {
   
   expect_is(boxplot_basis(test_data), "ggplot")
-  expect_is(boxplot_basis(test_data, mp = "00007", mpomsch = "omschrijving", parnaam = "chloride", eenheid = "mg/l"), "ggplot")
+  expect_is(boxplot_basis(test_data, mp = "meetpuntcode", mpomsch = "omschrijving", parnaam = "chloride", eenheid = "mg/l"), "ggplot")
   })
 
 test_that("titelpagina_internet works", {
