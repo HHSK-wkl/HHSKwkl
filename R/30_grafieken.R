@@ -19,24 +19,24 @@ hhskthema <- function(){
   #require(ggplot2)
   hhskthema <- ggplot2::theme_light() + ggplot2::theme(
         
-        plot.title =    ggplot2::element_text(color = "grey60", face = "bold", hjust = 0.5),
-        plot.subtitle = ggplot2::element_text(color = "grey60", face = "bold", hjust = 0.5, size = ggplot2::rel(1.1)),
-        plot.caption =  ggplot2::element_text(color = "grey60", face = "italic"),
+        plot.title =    ggplot2::element_text(color = "grey50", face = "bold", hjust = 0),
+        plot.subtitle = ggplot2::element_text(color = "grey50", face = "bold", hjust = 0, size = ggplot2::rel(1.1)),
+        plot.caption =  ggplot2::element_text(color = "grey40", face = "italic"),
           
-        axis.title =  ggplot2::element_text(color = "grey60", face = "bold"),
-        axis.text =   ggplot2::element_text(color = "grey60"),
-        axis.ticks =  ggplot2::element_line(color = "grey60"),
-        axis.line = ggplot2::element_line(color = "grey60", size = 0.5),
+        axis.title =  ggplot2::element_text(color = "grey40"),
+        axis.text =   ggplot2::element_text(color = "grey40"),
+        axis.ticks =  ggplot2::element_line(color = "grey40"),
+        axis.line = ggplot2::element_line(color = "grey40", size = 0.5),
         
         panel.border =     ggplot2::element_blank(),#ggplot2::element_rect(color = hhskblauw, size = 1),
-        panel.grid.major = ggplot2::element_line(color = "grey90", linetype = "dotted", size = 0.5),
+        panel.grid.major = ggplot2::element_line(color = "grey80", linetype = "dotted", size = 0.5),
         panel.grid.minor = ggplot2::element_blank(),#ggplot2::element_line(color = "grey60", linetype = "dotted", size = 0.5),
         
-        legend.title = ggplot2::element_text(color = "grey60", face = "bold", hjust = 0.5),
-        legend.text =  ggplot2::element_text(color = hhskblauw),
+        legend.title = ggplot2::element_text(color = "grey50", face = "bold", hjust = 0),
+        legend.text =  ggplot2::element_text(color = "grey40"),
         
-        strip.background = ggplot2::element_blank(),
-        strip.text =       ggplot2::element_text(face = "bold", color = hhskblauw)
+        strip.background = ggplot2::element_rect(fill = NA, colour = "grey50"),
+        strip.text =       ggplot2::element_text(face = "bold", color = "grey50")
     )
   hhskthema
 }
@@ -79,7 +79,7 @@ grafiek_basis <- function(data, mp = NULL, mpomsch = NULL, parnaam = NULL, eenhe
   if (plot_loess) {
     grafiek <- grafiek + 
       ggplot2::geom_smooth(se = TRUE, col = "grey80", linetype = "dashed", 
-                           fill = "grey60", alpha = 0.08, fullrange = TRUE)
+                           fill = "grey40", alpha = 0.08, fullrange = TRUE)
   }
   
   grafiek <- grafiek +
@@ -87,10 +87,11 @@ grafiek_basis <- function(data, mp = NULL, mpomsch = NULL, parnaam = NULL, eenhe
     ggplot2::geom_point(col = hhskblauw) +
     ggplot2::geom_point(data = dplyr::filter(data, detectiegrens == "<"), 
                         pch = 21, col = hhskblauw, fill = "white") + # detectiegrenswaarden
-    ggplot2::labs(title = paste0("Meetpunt: ", mp," - ", mpomsch), 
+    ggplot2::labs(title = paste0("Meetpunt: ", mp), 
                   subtitle = paste0("Parameter: ", parnaam),
-                  x = "", 
-                  y = eenheid) +
+                  x = "datum", 
+                  y = eenheid,
+                  caption = mpomsch) +
     ggplot2::scale_y_continuous(limits = ylimieten, expand = c(0,0), oob = scales::rescale_none ) +
     ggplot2::scale_x_date(date_breaks = "years", labels = lubridate::year) + 
     hhskthema()
@@ -196,7 +197,7 @@ titelpagina_internet <- function(inclusief_normen = TRUE){
   
   # Trendlijn ----
   grid.lines(x = c(0.1,0.2),y = c(0.49,0.49), gp = gpar(lty = 2, col = "grey80", lwd = 3))
-  grid.polygon(x = c(0.1,0.2,0.2,0.1), y = c(0.47,0.47,0.51,0.51), gp = gpar(fill = "grey60", alpha = 0.08, col = NA))
+  grid.polygon(x = c(0.1,0.2,0.2,0.1), y = c(0.47,0.47,0.51,0.51), gp = gpar(fill = "grey40", alpha = 0.08, col = NA))
   grid.text("Trendlijn d.m.v. locale regressie (LOESS). De blauwe band geeft de onzekerheid van de trendlijn weer.\nN.B. De trendlijn geeft het algemene verloop van de getoonde periode weer. De trendlijn heeft geen voorspellende waarde.", x = 0.22, y = 0.49, just = c("left"))
   #grid.text("N.B. De trendlijn geeft het algemene verloop van de getoonde periode weer.De trendlijn heeft geen voorspellende waarde.", x = 0.22, y = 0.47, just = c("left"))
   
