@@ -1,3 +1,7 @@
+# HHSKwkl (development version)
+
+- Kleuren van hhskthema iets verbeterd en grafiek_basis iets gewijzigd.
+
 # HHSKwkl 0.2.0
 
 ## New features 
