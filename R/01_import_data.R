@@ -43,7 +43,7 @@ import_fys_chem <- function(fys_chem_csv = "data/fys_chem.csv", datumtijd = FALS
   }
   
   # alle metingen moeten een meetwaarde hebben
-  df <- dplyr::filter(df, !is.na(waarde)) 
+  df <- dplyr::filter(df, !is.na(waarde)) %>% dplyr::arrange(mp, parnr, datum, waarde)
   
   #info zodat je weet wat je importeert
   message(paste("Laatste meetdatum is",max(df$datum, na.rm = TRUE)))
