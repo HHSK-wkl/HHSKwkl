@@ -1,0 +1,45 @@
+---
+title: "Rapportage"
+#author: "Johan van Tent"
+#date: "**Gemaakt op:** `r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    css: CSS/markdown_JT.css
+    #toc: TRUE
+    toc_float:
+      collapsed: FALSE
+    code_folding: "hide"
+    includes:
+      #before_body: "html/header_hhsk.html"
+      after_body: "html/footer_hhsk.html"
+
+  
+---
+
+**Gemaakt op:** `r format(Sys.time(), "%A %e %B %Y")`
+
+```{r setup, include=FALSE}
+# Knit options
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+knitr::read_chunk("R/CODE_markdown.R")
+
+
+
+```
+
+```{r libs-funs}
+
+```
+
+
+```{r load-data, include = FALSE}
+
+
+```
+
+
+
+```{r}
+plot(pressure)
+```
+
