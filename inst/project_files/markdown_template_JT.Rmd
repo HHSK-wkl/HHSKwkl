@@ -22,6 +22,7 @@ output:
 # Knit options
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 knitr::read_chunk("R/CODE_markdown.R")
+ggplot2::theme_set(HHSKwkl::hhskthema())
 
 
 

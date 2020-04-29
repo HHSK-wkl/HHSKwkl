@@ -3,6 +3,8 @@ library(tidyverse)
 library(lubridate)
 library(HHSKwkl)
 
+theme_set(hhskthema())
+
 copy_data("fys_chem.csv", "meetpunten.csv", "parameters.csv", "normen.txt")
 fys_chem <- import_fys_chem()
 meetpunten <- import_meetpunten()

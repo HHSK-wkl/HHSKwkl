@@ -13,15 +13,21 @@ library(readxl)
 library(lubridate)
 
 # Other options
-dt_labels_nederlands()
 
 options(OutDec = ",")
+
+# ggplot2
+
+theme_set(hhskthema())
+
+# DT
+
+dt_labels_nederlands()
 
 # my_datatable <- function(df, ...) {
 #   DT::datatable(data = df, extensions = 'Buttons', 
 #             options = list(dom = 'lfirtpB', buttons = c('csv', 'excel', 'pdf')), ...)
 # }
-
 
 ## ---- load-data ----
 
