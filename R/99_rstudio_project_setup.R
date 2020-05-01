@@ -13,6 +13,9 @@ rstudio_project_setup <- function(path, ...) {
   
   
   dir.create(file.path(path, "data"))
+  file.copy(from = system.file("project_files/data/ws_grens.gpkg", package = "HHSKwkl"),
+            to = file.path(path, "data"))
+  
   
   dir.create(file.path(path, "images"))
   file.copy(from = system.file("project_files/images/logo_website.png", package = "HHSKwkl"),
