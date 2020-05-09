@@ -208,7 +208,7 @@ add_lat_long <- function(df, x_coord = "x", y_coord = "y",
 
 
 
-#' Bepaal welk aandee; voldoet aan een voorwaarde
+#' Bepaal welk aandeel voldoet aan een voorwaarde
 #'
 #' Deze functie kan binnen [summarise][dplyr::summarise()] worden gebruikt om te bepalen welk 
 #' aandeel voldoet aan een bepaalde voorwaarde.
