@@ -3,6 +3,7 @@
 - Kleuren van hhskthema iets verbeterd en grafiek_basis iets gewijzigd.
 - Interne functies voor testdata toegevoegd.
 - Import_fys_chem sorteert op mp, parnr, datum en waarde
+- deprecated the my_c function
 
 # HHSKwkl 0.2.0
 

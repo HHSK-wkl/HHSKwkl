@@ -128,7 +128,7 @@ grafiek_basis <- function(data, mp = NULL, mpomsch = NULL, parnaam = NULL, eenhe
 boxplot_basis <- function(data, mp = NULL, mpomsch = NULL, parnaam = NULL, eenheid = NULL, ...){
   
   data <- data %>% add_jaar()
-  xlabels <- data %>% dplyr::select(jaar) %>% dplyr::distinct() %>% my_c()
+  xlabels <- data %>% dplyr::select(jaar) %>% dplyr::distinct() %>% c(use.names = FALSE, recursive = TRUE)
   
   #limieten
   range_y <- range(data$waarde, na.rm = TRUE)

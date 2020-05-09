@@ -217,9 +217,9 @@ add_lat_long <- function(df, x_coord = "x", y_coord = "y",
 #'
 #' @export
 #'
-my_c <- function(vector){
-  c(vector, use.names = FALSE, recursive = TRUE)
-}
+# my_c <- function(vector){
+#   c(vector, use.names = FALSE, recursive = TRUE)
+# }
 
 
 
