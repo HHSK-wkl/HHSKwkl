@@ -178,7 +178,6 @@ randomize <- function(data) {
 #' @param goal_crs Coordinaten Referentie Systeem van de doelcoordinaten: als integer met EPSG-code of als proj4string.
 #'
 #' @return Geeft hetzelfde dataframe met een kolom long en lat toegevoegd.
-#' @export
 #'
 #' @examples
 #' 
@@ -204,25 +203,49 @@ add_lat_long <- function(df, x_coord = "x", y_coord = "y",
 
   
 
-# my_c --------------------------------------------------------------------
 
-#' Create a single clean vector
+# Fractions ---------------------------------------------------------------------
+
+
+
+#' Bepaal welk aandee; voldoet aan een voorwaarde
 #'
-#'@description A helper function for the basic \code{c()} function to remove names and create a singular vector.
-#' This can be useful if you select a single column from a tibble.
+#' Deze functie kan binnen [summarise][dplyr::summarise()] worden gebruikt om te bepalen welk 
+#' aandeel voldoet aan een bepaalde voorwaarde.
 #'
-#' @param vector A vector that needs 'cleaning'
+#' @param condition Logical. Een voorwaarde waarvan wordt bepaald welk aandeel eraan voldoet.
 #'
-#' @return Returns a single clean vector without names
-#'
+#' @return Fractie of percentage dat voldoet aan de voorwaarde
 #' @export
 #'
-# my_c <- function(vector){
-#   c(vector, use.names = FALSE, recursive = TRUE)
-# }
+#' @name fracties
+#'
+#' @examples
+#' 
+#' dplyr::summarise(mtcars, 
+#'                  frac_4_cyls = frac(cyl == 4),
+#'                  perc_6_cyls = perc(cyl == 6))
 
 
 
+#' @rdname fracties
+#' @export
+frac <- function(condition) {
+  
+  if (!is.logical(condition)) stop("`condition` must be a logical vector")
+  
+  sum(condition, na.rm = TRUE) / dplyr::n()
+  
+}
 
+#' @rdname fracties
+#' @export
+perc <- function(condition) {
+  
+  if (!is.logical(condition)) stop("`condition` must be a logical vector")
+  
+  100 * sum(condition, na.rm = TRUE) / dplyr::n()
+  
+}
 
   
