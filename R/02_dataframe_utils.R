@@ -248,4 +248,26 @@ perc <- function(condition) {
   
 }
 
+
+#' Relative count - fractions
+#'
+#' @param x a `tbl()` to count.
+#' @param ... Variables to group by.
+#' @param sort if TRUE will sort output in descending order of n
+#' @param name The output column name. If omitted, it will be n.
+#'
+#' @return A tbl with fractions, grouped the same way as x.
+#' 
+#' @export
+#'
+#' @examples
+#' 
+#' count_rel(mtcars, cyl, sort = TRUE)
+#' count_rel(mtcars, cyl)
+#' 
+count_rel <- function(x, ..., sort = FALSE, name = "n") {
+  name_ens <- rlang::ensym(name)
+  dplyr::count(x = x, ..., sort = sort, name = name) %>% 
+    dplyr::mutate(!!name_ens := !!name_ens / nrow(x))
+}
   

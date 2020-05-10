@@ -4,7 +4,7 @@
 \alias{fracties}
 \alias{frac}
 \alias{perc}
-\title{Bepaal welk aandee; voldoet aan een voorwaarde}
+\title{Bepaal welk aandeel voldoet aan een voorwaarde}
 \usage{
 frac(condition)
 
