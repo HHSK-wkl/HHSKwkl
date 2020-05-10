@@ -5,6 +5,7 @@
 - Import_fys_chem sorteert op mp, parnr, datum en waarde
 - deprecated the `my_c` function
 - `frac()` en `perc()` toegevoegd om snel fracties in summarise te kunnen maken.
+- reexporting `%>%`
 
 # HHSKwkl 0.2.0
 
