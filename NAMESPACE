@@ -3,6 +3,7 @@
 export("%>%")
 export(add_jaar)
 export(add_jaar_maand)
+export(add_lat_long)
 export(add_maand)
 export(add_maandnaam)
 export(add_norm_lijnen)

@@ -179,6 +179,8 @@ randomize <- function(data) {
 #'
 #' @return Geeft hetzelfde dataframe met een kolom long en lat toegevoegd.
 #'
+#' @export
+#'
 #' @examples
 #' 
 #' \dontrun{
