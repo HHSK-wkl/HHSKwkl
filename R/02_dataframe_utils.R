@@ -267,7 +267,7 @@ perc <- function(condition) {
 #' count_rel(mtcars, cyl, sort = TRUE)
 #' count_rel(mtcars, cyl)
 #' 
-count_rel <- function(x, ..., sort = FALSE, name = "n") {
+count_rel <- function(x, ..., sort = FALSE, name = "frac") {
   name_ens <- rlang::ensym(name)
   dplyr::count(x = x, ..., sort = sort, name = name) %>% 
     dplyr::mutate(!!name_ens := !!name_ens / nrow(x))
