@@ -4,7 +4,7 @@
 \alias{count_rel}
 \title{Relative count - fractions}
 \usage{
-count_rel(x, ..., sort = FALSE, name = "n")
+count_rel(x, ..., sort = FALSE, name = "frac")
 }
 \arguments{
 \item{x}{a \code{tbl()} to count.}

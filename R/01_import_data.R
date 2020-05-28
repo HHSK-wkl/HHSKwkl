@@ -253,7 +253,7 @@ import_biologie_kenmerken <- function(kenmerken_csv = "data/biologie_kenmerken.c
 #' \code{aquo_eenheid} en \code{aquo_compartiment} noodzakelijk. Default wordt een nieuw parameterbestand ingelezen met 
 #' \code{import_parameters()}
 #'
-#' @return Een dataframe met de kolommen \code{parnr}, \code{norm_JGM}, \code{norm_MAX} en \code{norm_P90}
+#' @return Een dataframe met de kolommen `parnr`, `norm_JGM`, `norm_MAX`, `norm_P90`, `min_norm`
 #' @export
 #'
 #' @examples
@@ -274,11 +274,13 @@ import_normen_rivm <- function(normen = "data/normen.txt", parameterdf = import_
     dplyr::filter(!is.na(Eenheid), !is.na(`Aquo-code`), !is.na(Compartiment), !(Norm.code %in% c("AC","Kp","VR")) ) %>% 
     dplyr::left_join(parameterdf, by = koppeling) %>%
     dplyr::filter(!is.na(parnr), parnr > 999) %>%
-    dplyr::group_by(parnr,Waardebewerkingsmethode.code) %>%
+    dplyr::group_by(parnr, parnaamlang, Waardebewerkingsmethode.code) %>%
     dplyr::summarise(normwaarde = min(Waarde)) %>%
     dplyr::ungroup() %>%
     tidyr::spread(key = "Waardebewerkingsmethode.code",value = "normwaarde") %>%
-    dplyr::rename(norm_JGM = JGM, norm_MAX = MAX, norm_P90 = P90)
+    dplyr::rename(naam = parnaamlang, norm_JGM = JGM, norm_MAX = MAX, norm_P90 = P90) %>% 
+    dplyr::rowwise() %>% 
+    dplyr::mutate(min_norm = min(norm_JGM, norm_MAX, norm_P90, na.rm = TRUE))
 
   normen
 }

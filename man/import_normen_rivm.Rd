@@ -15,7 +15,7 @@ import_normen_rivm(normen = "data/normen.txt",
 \code{import_parameters()}}
 }
 \value{
-Een dataframe met de kolommen \code{parnr}, \code{norm_JGM}, \code{norm_MAX} en \code{norm_P90}
+Een dataframe met de kolommen \code{parnr}, \code{norm_JGM}, \code{norm_MAX}, \code{norm_P90}, \code{min_norm}
 }
 \description{
 Het rivm stelt via de website \url{https://rvs.rivm.nl/zoeksysteem/} normen beschikbaar voor stoffen. Via deze website kunnen de
