@@ -281,7 +281,8 @@ import_normen_rivm <- function(normen = "data/normen.txt", parameterdf = import_
     tidyr::spread(key = "Waardebewerkingsmethode.code",value = "normwaarde") %>%
     dplyr::rename(naam = parnaamlang, wns_code = wns, norm_JGM = JGM, norm_MAX = MAX, norm_P90 = P90) %>% 
     dplyr::rowwise() %>% 
-    dplyr::mutate(min_norm = min(norm_JGM, norm_MAX, norm_P90, na.rm = TRUE))
+    dplyr::mutate(min_norm = min(norm_JGM, norm_MAX, norm_P90, na.rm = TRUE)) %>% 
+    dplyr::ungroup()
 
   normen
 }

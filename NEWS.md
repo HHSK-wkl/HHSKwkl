@@ -1,5 +1,7 @@
 # HHSKwkl (development version)
 
+- `import_normen_rivm()` bijgewerkt
+
 # HHSKwkl 0.2.1
 
 - Kleuren van hhskthema iets verbeterd en grafiek_basis iets gewijzigd.
