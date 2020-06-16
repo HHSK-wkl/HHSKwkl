@@ -272,4 +272,31 @@ count_rel <- function(x, ..., sort = FALSE, name = "frac") {
   dplyr::count(x = x, ..., sort = sort, name = name) %>% 
     dplyr::mutate(!!name_ens := !!name_ens / nrow(x))
 }
+
+#' Maak een dataframe een simple feature
+#'
+#' Deze functie zet een dataframe om in een Simple Feature. De functie maakt gebruik van [sf::st_as_sf()], maar 
+#' heeft defaults die het dagelijks gebruik eenvoudiger maken. De functie gaat uit van RD-coordinaten en 
+#' een x-kolom "x" en een y-kolom "y".
+#'
+#' @param df Een dataframe
+#' @param x Naam van de x-kolom. Default is `"x"`
+#' @param y Naam van de y-kolom. Default is `"y"`
+#' @param remove logical; when coords or wkt is given, remove these columns from data.frame? Default is `FALSE`
+#'
+#' @return Een simple feaure dataframe
+#' @export
+#'
+#' @examples
+#' 
+#' \dontrun{
+#' 
+#' meetpunten %>% make_sf()
+#' 
+#' }
+#' 
+make_sf <- function(df, x = "x", y = "y", remove = FALSE){
   
+  sf::st_as_sf(df, coords = c(x, y), crs = 28992, remove = remove)
+  
+}

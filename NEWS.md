@@ -1,6 +1,8 @@
 # HHSKwkl (development version)
 
-- `import_normen_rivm()` bijgewerkt
+- `import_normen_rivm()` bijgewerkt met meer info
+- `hhskthema_kaart()` toegevoegd
+- `make_sf()` toegevoegd.
 
 # HHSKwkl 0.2.1
 
