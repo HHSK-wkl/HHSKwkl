@@ -137,6 +137,9 @@ titelpagina_internet <- function(inclusief_normen = TRUE){
   grid.raster(image = logo, x = 0.05, y = 0.87, width = 0.3, just = "left")
   grid.raster(image = schonevoeten, x = 0.5, y = 0.08, width = 0.2)
   
+  # Datum
+  grid.text(format(Sys.Date(), "%Y-%m-%d"), x = 0.05, y = 0.08, just = "left", gp = gpar(fontface = "italic", cex = 0.8))
+  
   # Intro ----
   grid.text("Dit document bevat grafieken van de chemische metingen van een meetpunt in het beheergebied van HHSK. \nIn de grafieken zijn de metingen van de afgelopen  10 jaar opgenomen, mits er voldoende metingen beschikbaar waren.\n\nLegenda bij de grafieken:",
             x = 0.1, y = 0.75, just = c("left","top"), gp = gpar())
