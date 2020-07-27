@@ -112,7 +112,7 @@ mon_summary <- function(df, naam = naam, waarde = waarde) {
 #' @name mon_info
 #'
 #' @examples
-#'
+#' \dontrun{
 #' mon_taxa_missing(c("Bufo calamita", "Bufo", NA, "Bufo"))
 #' mon_taxa_n(c("Bufo calamita", "Bufo", NA, "Bufo"))
 #' mon_taxa_n_uniek(c("Bufo calamita", "Bufo", NA, "Bufo"))
@@ -128,6 +128,7 @@ mon_summary <- function(df, naam = naam, waarde = waarde) {
 #' mon_waarde_nul(c(0, 1, 5, 20, 50, NA, NA))
 #' mon_waarde_som(c(0, 1, 5, 20, 50, NA, NA))
 #' mon_waarde_max(c(0, 1, 5, 20, 50, NA, NA))
+#' }
 NULL
 
 # Monster taxa-info -------------------------------------------------------
@@ -166,31 +167,31 @@ mon_taxa_n_dubbel <- function(naam) {
 #' @export
 #' @rdname mon_info
 mon_twn_niet_in_twn <- function(naam) {
-  sum(!(naam %in% autecodata::twn_lijst$taxonname))
+  sum(!(naam %in% twn::twn_lijst$taxonname))
 }
 
 #' @export
 #' @rdname mon_info
 mon_twn_status_afwijkend <- function(naam){
-  sum(autecodata::get_twn_status(naam) != "10", na.rm = TRUE)
+  sum(twn::twn_status(naam) != "10", na.rm = TRUE)
 }
 
 #' @export
 #' @rdname mon_info
 mon_twn_synoniem <- function(naam){
-  sum(autecodata::get_twn_status(naam) == "20", na.rm = TRUE)
+  sum(twn::twn_status(naam) == "20", na.rm = TRUE)
 }
 
 #' @export
 #' @rdname mon_info
 mon_twn_fout <- function(naam){
-  sum(autecodata::get_twn_status(naam) %in% c("30", "91", "92"), na.rm = TRUE)
+  sum(twn::twn_status(naam) %in% c("30", "91", "92"), na.rm = TRUE)
 }
 
 #' @export
 #' @rdname mon_info
 mon_twn_aggregaat <- function(naam){
-  sum(autecodata::get_twn_status(naam) == "80", na.rm = TRUE)
+  sum(twn::twn_status(naam) == "80", na.rm = TRUE)
 }
 
 
@@ -227,7 +228,7 @@ mon_waarde_max <- function(waarde) {
 #' @rdname mon_info
 mon_level_kd_species <- function(naam) {
   # Cultivars, Subspecies, Varietas en Forma
-  sum(autecodata::get_twn_taxonlevel(naam) < "Species", na.rm = TRUE)
+  sum(twn::twn_taxonlevel(naam) < "Species", na.rm = TRUE)
   #length(get_twn_taxonlevel(.naam))
 }
 
@@ -235,6 +236,6 @@ mon_level_kd_species <- function(naam) {
 #' @rdname mon_info
 mon_level_gd_species <- function(naam) {
   # Alles behalve Nothospecies, Species, Cultivars, Subspecies, Varietas en Forma
-  sum(autecodata::get_twn_taxonlevel(naam) >= "Species combi", na.rm = TRUE)
+  sum(twn::twn_taxonlevel(naam) >= "Species combi", na.rm = TRUE)
 }
 

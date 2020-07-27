@@ -4,8 +4,14 @@
 \alias{grafiek_basis}
 \title{Tijdreeksgrafiek}
 \usage{
-grafiek_basis(data, mp = NULL, mpomsch = NULL, parnaam = NULL,
-  eenheid = NULL, plot_loess = TRUE)
+grafiek_basis(
+  data,
+  mp = NULL,
+  mpomsch = NULL,
+  parnaam = NULL,
+  eenheid = NULL,
+  plot_loess = TRUE
+)
 }
 \arguments{
 \item{data}{Een dataframe met de gegevens van 1 tijdreeks, dus van 1 meetpunt en 1 parameter.

@@ -8,7 +8,7 @@ import_parameters(parameter_csv = "data/parameters.csv")
 }
 \arguments{
 \item{parameter_csv}{Een characterstring met het pad naar het te importeren bestand. Het bestand moet in
-csv-formaat zijn met \code{;} als scheidingsteken en \code{,} als scheidingsteken. Default is \code{"data/parameters.csv"}.
+csv-formaat zijn met \verb{;} als scheidingsteken en \verb{,} als scheidingsteken. Default is \code{"data/parameters.csv"}.
 Het is ook mogelijk om een zip-bestand in te lezen waar het csv-bestand in zit.}
 }
 \value{

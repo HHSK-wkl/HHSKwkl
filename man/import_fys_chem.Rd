@@ -8,7 +8,7 @@ import_fys_chem(fys_chem_csv = "data/fys_chem.csv", datumtijd = FALSE)
 }
 \arguments{
 \item{fys_chem_csv}{Een characterstring met het pad naar het te importeren bestand.
-Het bestand moet in csv-formaat zijn met \code{;} als scheidingsteken en \code{,} als decimaalteken.
+Het bestand moet in csv-formaat zijn met \verb{;} als scheidingsteken en \verb{,} als decimaalteken.
 Default is \code{"data/fys_chem.csv"}. Het is ook mogelijk om een zip-bestand in te lezen
 waar het csv-bestand in zit.}
 

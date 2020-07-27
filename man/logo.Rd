@@ -4,7 +4,9 @@
 \name{logo}
 \alias{logo}
 \title{HHSK logo}
-\format{An object of class \code{array} of dimension 126 x 526 x 4.}
+\format{
+An object of class \code{array} of dimension 126 x 526 x 4.
+}
 \usage{
 logo
 }

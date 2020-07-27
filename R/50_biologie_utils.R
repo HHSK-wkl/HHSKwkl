@@ -1,21 +1,21 @@
-### These functions depend on the package autecodata which can be found on
-### https://github.com/RedTent/autecodata
+### These functions depend on the package twn which can be found on
+### https://github.com/RedTent/twn
 
-# Check autecodata --------------------------------------------------------
+# Check twn --------------------------------------------------------
 
-#' Check autecodata
+#' Check twn
 #'
-#' Deze functie checkt of autecodata is geinstalleerd en geeft een foutmelding
+#' Deze functie checkt of twn is geinstalleerd en geeft een foutmelding
 #' als dat niet zo is. Dit is een interne functie.
 #'
-#' @return Niets of een foutmelding als auteocdata niet is geinstalleerd.
+#' @return Niets of een foutmelding als twn niet is geinstalleerd.
 #' @keywords internal
 #'
 check_autecodata <- function(){
-  if (!requireNamespace("autecodata", quietly = TRUE)) {
-    stop('Deze functie werkt alleen als het package autecodata is geinstalleerd.
-         Dit package kan worden gedownload op https://github.com/RedTent/autecodata 
-         of direct worden geinstalleerd met `devtools::install_github("RedTent/autecodata")`')}}
+  if (!requireNamespace("twn", quietly = TRUE)) {
+    stop('Deze functie werkt alleen als het package twn is geinstalleerd.
+         Dit package kan worden gedownload op https://github.com/RedTent/twn 
+         of direct worden geinstalleerd met `devtools::install_github("RedTent/twn")`')}}
 
 
 # Toevoegen TWN-voorkeurnamen ---------------------------------------------
@@ -26,7 +26,7 @@ check_autecodata <- function(){
 #' dataframe. Deze functie maakt gebruik van de dataset twn_lijst uit het
 #' package autecodata.
 #'
-#' @details Deze functie maakt gebruik van de functie [autecodata::get_twn_voorkeurnaam] om de
+#' @details Deze functie maakt gebruik van de functie [twn::twn_voorkeurnaam] om de
 #'   voorkeurnaam op te zoeken indien deze beschikbaar is.
 #'
 #' @param df Een dataframe met biologische data
@@ -46,7 +46,7 @@ check_autecodata <- function(){
 #' @return Een dataframe met daaraan de voorkeurnamen toegevoegd.
 #' @export
 #'
-#' @seealso [autecodata::twn_lijst]
+#' @seealso [twn::twn_lijst]
 #'
 #' @examples
 #' \dontrun{
@@ -61,7 +61,7 @@ add_twn_voorkeurnaam <- function(df, naam_orig = naam, naam_doel = naam_voorkeur
   naam_orig <- dplyr::enquo(naam_orig)
   naam_doel <- dplyr::enquo(naam_doel)
   
-  df <- df %>% dplyr::mutate(!!naam_doel := autecodata::get_twn_voorkeurnaam(!!naam_orig))
+  df <- df %>% dplyr::mutate(!!naam_doel := twn::twn_voorkeurnaam(!!naam_orig))
   df
 }
 

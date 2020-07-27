@@ -4,7 +4,9 @@
 \name{hhskblauw}
 \alias{hhskblauw}
 \title{HHSK-blauw}
-\format{An object of class \code{character} of length 1.}
+\format{
+An object of class \code{character} of length 1.
+}
 \usage{
 hhskblauw
 }

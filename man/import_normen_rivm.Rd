@@ -4,8 +4,10 @@
 \alias{import_normen_rivm}
 \title{Importeren RIVM normen}
 \usage{
-import_normen_rivm(normen = "data/normen.txt",
-  parameterdf = import_parameters())
+import_normen_rivm(
+  normen = "data/normen.txt",
+  parameterdf = import_parameters()
+)
 }
 \arguments{
 \item{normen}{Het normenbestand zoals dit van de RIVM website gedownload kan worden. Default is \code{"data/normen.txt"}}
@@ -23,7 +25,7 @@ Het rivm stelt via de website \url{https://rvs.rivm.nl/zoeksysteem/} normen besc
 normen voor zoet oppervlaktewater worden gedownload. Deze functie leest een bestand met de normen zoals
 de website deze beschikbaar stelt en koppelt deze aan Dawaco-parameternummers. De koppeling is op basis van parametercode,
 eenheid en compartiment. Hoedanigheid wordt niet meegenomen. Veel normen hebben als hoedanigheid nf. Dit verschil levert echter
-slechts een geringe afwijking (< 5 \%) en is voor de toetsing niet echt relevant. Alleen gewasbeschermingsmiddelen worden meegenomen.
+slechts een geringe afwijking (< 5 \\%) en is voor de toetsing niet echt relevant. Alleen gewasbeschermingsmiddelen worden meegenomen.
 }
 \examples{
 \dontrun{

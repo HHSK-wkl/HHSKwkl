@@ -11,7 +11,7 @@ Depends: R (>= 2.10)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 Imports: 
     dplyr,
@@ -28,10 +28,10 @@ Imports:
     forcats,
     sf,
     rmarkdown,
-    magrittr
+    magrittr,
+    twn
 Suggests: 
     testthat,
-    covr,
-    autecodata
+    covr
 URL: https://github.com/RedTent/HHSKwkl
 BugReports: https://github.com/RedTent/HHSKwkl/issues

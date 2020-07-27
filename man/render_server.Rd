@@ -4,8 +4,14 @@
 \alias{render_server}
 \title{Render R-markdown documenten op de server}
 \usage{
-render_server(rmd_bestand, rmd_map, output_bestand, output_map = rmd_map,
-  temp_dir = "C:/JT", ...)
+render_server(
+  rmd_bestand,
+  rmd_map,
+  output_bestand,
+  output_map = rmd_map,
+  temp_dir = "C:/JT",
+  ...
+)
 }
 \arguments{
 \item{rmd_bestand}{Naam van het R-markdownbestand}

@@ -4,8 +4,11 @@
 \alias{copy_data}
 \title{Synchroniseer bestanden met een bronlocatie}
 \usage{
-copy_data(filenames = NULL,
-  origin = "//hhsk.local/dfs/Project/Dawaco/FME", destination = "data")
+copy_data(
+  filenames = NULL,
+  origin = "//hhsk.local/dfs/Project/Dawaco/FME",
+  destination = "data"
+)
 }
 \arguments{
 \item{filenames}{Vector of lijst met bestanden. Als deze leeg blijft worden

@@ -2,15 +2,15 @@
 % Please edit documentation in R/50_biologie_utils.R
 \name{check_autecodata}
 \alias{check_autecodata}
-\title{Check autecodata}
+\title{Check twn}
 \usage{
 check_autecodata()
 }
 \value{
-Niets of een foutmelding als auteocdata niet is geinstalleerd.
+Niets of een foutmelding als twn niet is geinstalleerd.
 }
 \description{
-Deze functie checkt of autecodata is geinstalleerd en geeft een foutmelding
+Deze functie checkt of twn is geinstalleerd en geeft een foutmelding
 als dat niet zo is. Dit is een interne functie.
 }
 \keyword{internal}

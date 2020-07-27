@@ -4,8 +4,13 @@
 \alias{add_lat_long}
 \title{Toevoegen van latidute en longitude}
 \usage{
-add_lat_long(df, x_coord = "x", y_coord = "y", source_crs = 28992,
-  goal_crs = 4326)
+add_lat_long(
+  df,
+  x_coord = "x",
+  y_coord = "y",
+  source_crs = 28992,
+  goal_crs = 4326
+)
 }
 \arguments{
 \item{df}{Dataframe met coordinaten}

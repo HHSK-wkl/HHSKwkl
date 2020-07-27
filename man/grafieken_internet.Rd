@@ -4,10 +4,17 @@
 \alias{grafieken_internet}
 \title{Maak grafieken voor het internet}
 \usage{
-grafieken_internet(data, meetpuntendf, parameterdf, normen,
-  plot_normen = TRUE, export_pad = "export/grafieken",
-  lijst_parnrs = NULL, min_aantal_waarden = 12,
-  grafiekenfunctie = grafiek_basis)
+grafieken_internet(
+  data,
+  meetpuntendf,
+  parameterdf,
+  normen,
+  plot_normen = TRUE,
+  export_pad = "export/grafieken",
+  lijst_parnrs = NULL,
+  min_aantal_waarden = 12,
+  grafiekenfunctie = grafiek_basis
+)
 }
 \arguments{
 \item{data}{Een dataframe met ruwe gegevens om grafieken van te maken. Deze moet tenminste de kolommen

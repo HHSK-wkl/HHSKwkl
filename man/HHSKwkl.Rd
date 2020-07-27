@@ -3,7 +3,6 @@
 \docType{package}
 \name{HHSKwkl}
 \alias{HHSKwkl}
-\alias{HHSKwkl-package}
 \title{HHSKwkl: Een package voor waterkwaliteit}
 \description{
 Functies voor waterkwaliteitsanalyse. Zie verder: \url{https://redtent.github.io/HHSKwkl/}

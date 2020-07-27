@@ -4,8 +4,14 @@
 \alias{boxplot_basis}
 \title{Boxplots per jaar}
 \usage{
-boxplot_basis(data, mp = NULL, mpomsch = NULL, parnaam = NULL,
-  eenheid = NULL, ...)
+boxplot_basis(
+  data,
+  mp = NULL,
+  mpomsch = NULL,
+  parnaam = NULL,
+  eenheid = NULL,
+  ...
+)
 }
 \arguments{
 \item{data}{Een dataframe met de gegevens van 1 tijdreeks, dus van 1 meetpunt en 1 parameter.

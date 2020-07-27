@@ -83,11 +83,11 @@ taxonnamen van het monster.
 }
 }
 \note{
-Als taxa meerdere keren in het monster voorkomen dan worden deze in de \code{mon_twn_*}-functies
+Als taxa meerdere keren in het monster voorkomen dan worden deze in de \verb{mon_twn_*}-functies
 ook meerdere malen geteld.
 }
 \examples{
-
+\dontrun{
 mon_taxa_missing(c("Bufo calamita", "Bufo", NA, "Bufo"))
 mon_taxa_n(c("Bufo calamita", "Bufo", NA, "Bufo"))
 mon_taxa_n_uniek(c("Bufo calamita", "Bufo", NA, "Bufo"))
@@ -103,4 +103,5 @@ mon_waarde_missing(c(0, 1, 5, 20, 50, NA, NA))
 mon_waarde_nul(c(0, 1, 5, 20, 50, NA, NA))
 mon_waarde_som(c(0, 1, 5, 20, 50, NA, NA))
 mon_waarde_max(c(0, 1, 5, 20, 50, NA, NA))
+}
 }

@@ -4,7 +4,9 @@
 \name{schonevoeten}
 \alias{schonevoeten}
 \title{Droge voeten en schoon water}
-\format{An object of class \code{raster} with 148 rows and 627 columns.}
+\format{
+An object of class \code{raster} with 148 rows and 627 columns.
+}
 \usage{
 schonevoeten
 }

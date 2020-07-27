@@ -4,12 +4,16 @@
 \alias{import_meetpunten}
 \title{Importeren van meetpunten}
 \usage{
-import_meetpunten(meetpunten_csv = "data/meetpunten.csv", wide = TRUE,
-  code = FALSE, tolower = TRUE)
+import_meetpunten(
+  meetpunten_csv = "data/meetpunten.csv",
+  wide = TRUE,
+  code = FALSE,
+  tolower = TRUE
+)
 }
 \arguments{
 \item{meetpunten_csv}{Een characterstring met het pad naar het te importeren bestand. Het bestand moet in
-csv-formaat zijn met \code{;} als scheidingsteken en \code{,} als scheidingsteken. Default is \code{"data/meetpunten.csv"}.
+csv-formaat zijn met \verb{;} als scheidingsteken en \verb{,} als scheidingsteken. Default is \code{"data/meetpunten.csv"}.
 Het is ook mogelijk om een zip-bestand in te lezen waar het csv-bestand in zit.}
 
 \item{wide}{Logical. Bepaalt of meetpunten in wijd of lang format worden ingelezen. Wide = \code{TRUE} is default
