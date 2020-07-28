@@ -28,8 +28,7 @@ Imports:
     forcats,
     sf,
     rmarkdown,
-    magrittr,
-    
+    magrittr
 Suggests: 
     testthat,
     covr,
