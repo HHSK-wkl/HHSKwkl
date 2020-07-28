@@ -29,9 +29,10 @@ Imports:
     sf,
     rmarkdown,
     magrittr,
-    twn
+    
 Suggests: 
     testthat,
-    covr
+    covr,
+    twn
 URL: https://github.com/RedTent/HHSKwkl
 BugReports: https://github.com/RedTent/HHSKwkl/issues
