@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Importeren van fysisch-chemische data — import_fys_chem • Package voor waterkwaliteit - HHSKwkl</title>
+<title>Maak een dataframe een simple feature — make_sf • Package voor waterkwaliteit - HHSKwkl</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,10 @@
 
 
 
-<meta property="og:title" content="Importeren van fysisch-chemische data — import_fys_chem" />
-<meta property="og:description" content="De functie helpt bij het importeren van fysische chemische data. Rijen zonder waarde worden verwijderd." />
+<meta property="og:title" content="Maak een dataframe een simple feature — make_sf" />
+<meta property="og:description" content="Deze functie zet een dataframe om in een Simple Feature. De functie maakt gebruik van sf::st_as_sf(), maar
+heeft defaults die het dagelijks gebruik eenvoudiger maken. De functie gaat uit van RD-coordinaten en
+een x-kolom &quot;x&quot; en een y-kolom &quot;y&quot;." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -112,55 +114,49 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Importeren van fysisch-chemische data</h1>
-    <small class="dont-index">Source: <a href='https://github.com/RedTent/HHSKwkl/blob/master/R/01_import_data.R'><code>R/01_import_data.R</code></a></small>
-    <div class="hidden name"><code>import_fys_chem.Rd</code></div>
+    <h1>Maak een dataframe een simple feature</h1>
+    <small class="dont-index">Source: <a href='https://github.com/RedTent/HHSKwkl/blob/master/R/02_dataframe_utils.R'><code>R/02_dataframe_utils.R</code></a></small>
+    <div class="hidden name"><code>make_sf.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>De functie helpt bij het importeren van fysische chemische data. Rijen zonder <code>waarde</code> worden verwijderd.</p>
+    <p>Deze functie zet een dataframe om in een Simple Feature. De functie maakt gebruik van <code><a href='https://rdrr.io/pkg/sf/man/st_as_sf.html'>sf::st_as_sf()</a></code>, maar
+heeft defaults die het dagelijks gebruik eenvoudiger maken. De functie gaat uit van RD-coordinaten en
+een x-kolom "x" en een y-kolom "y".</p>
     </div>
 
-    <pre class="usage"><span class='fu'>import_fys_chem</span>(<span class='kw'>fys_chem_csv</span> <span class='kw'>=</span> <span class='st'>"data/fys_chem.csv"</span>, <span class='kw'>datumtijd</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>make_sf</span>(<span class='no'>df</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"x"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"y"</span>, <span class='kw'>remove</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>fys_chem_csv</th>
-      <td><p>Een characterstring met het pad naar het te importeren bestand.
-Het bestand moet in csv-formaat zijn met <code>;</code> als scheidingsteken en <code>,</code> als decimaalteken.
-Default is <code>"data/fys_chem.csv"</code>. Het is ook mogelijk om een zip-bestand in te lezen
-waar het csv-bestand in zit.</p></td>
+      <th>df</th>
+      <td><p>Een dataframe</p></td>
     </tr>
     <tr>
-      <th>datumtijd</th>
-      <td><p>Logical. Of de kolom datum wordt geimporteerd als datum of als datum-tijd.
-Default is <code>FALSE</code></p></td>
+      <th>x</th>
+      <td><p>Naam van de x-kolom. Default is <code>"x"</code></p></td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td><p>Naam van de y-kolom. Default is <code>"y"</code></p></td>
+    </tr>
+    <tr>
+      <th>remove</th>
+      <td><p>logical; when coords or wkt is given, remove these columns from data.frame? Default is <code>FALSE</code></p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Een dataframe met fysisch-chemische meetgegevens.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>Er is enige vrijheid t.a.v. de inhoud van het bestand. De functie verwacht
-ten minste een kolom <code>datum</code> en <code>waarde</code>. Een standaard bestand heeft gewoonlijk de kolommen:</p><ul>
-<li><p><code>mp</code> Code met de aanduiding van het meetpunt</p></li>
-<li><p><code>datum</code> Datum in het format yyyy-mm-dd hh:mm</p></li>
-<li><p><code>parnr</code> Unieke nummer van de parameter</p></li>
-<li><p><code>par</code> Parametercode, voor de leesbaarheid</p></li>
-<li><p><code>eenheid</code> Eenheid, voor de leesbaarheid</p></li>
-<li><p><code>detectiegrens</code> Aanduiding als &lt; of &gt;. Bij geen aanduidng krijgt het veld <code>NA</code></p></li>
-<li><p><code>waarde</code> Waarde van de meting</p></li>
-</ul>
-
+    <p>Een simple feaure dataframe</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'>
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 
-<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'>import_fys_chem</span>()
+<span class='no'>meetpunten</span> <span class='kw'>%&gt;%</span> <span class='fu'>make_sf</span>()
 
 }</div></pre>
   </div>

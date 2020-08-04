@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Importeren van fysisch-chemische data — import_fys_chem • Package voor waterkwaliteit - HHSKwkl</title>
+<title>Bepaal welk aandeel voldoet aan een voorwaarde — fracties • Package voor waterkwaliteit - HHSKwkl</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,9 @@
 
 
 
-<meta property="og:title" content="Importeren van fysisch-chemische data — import_fys_chem" />
-<meta property="og:description" content="De functie helpt bij het importeren van fysische chemische data. Rijen zonder waarde worden verwijderd." />
+<meta property="og:title" content="Bepaal welk aandeel voldoet aan een voorwaarde — fracties" />
+<meta property="og:description" content="Deze functie kan binnen summarise worden gebruikt om te bepalen welk
+aandeel voldoet aan een bepaalde voorwaarde." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -112,57 +113,39 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Importeren van fysisch-chemische data</h1>
-    <small class="dont-index">Source: <a href='https://github.com/RedTent/HHSKwkl/blob/master/R/01_import_data.R'><code>R/01_import_data.R</code></a></small>
-    <div class="hidden name"><code>import_fys_chem.Rd</code></div>
+    <h1>Bepaal welk aandeel voldoet aan een voorwaarde</h1>
+    <small class="dont-index">Source: <a href='https://github.com/RedTent/HHSKwkl/blob/master/R/02_dataframe_utils.R'><code>R/02_dataframe_utils.R</code></a></small>
+    <div class="hidden name"><code>fracties.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>De functie helpt bij het importeren van fysische chemische data. Rijen zonder <code>waarde</code> worden verwijderd.</p>
+    <p>Deze functie kan binnen <a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a> worden gebruikt om te bepalen welk
+aandeel voldoet aan een bepaalde voorwaarde.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>import_fys_chem</span>(<span class='kw'>fys_chem_csv</span> <span class='kw'>=</span> <span class='st'>"data/fys_chem.csv"</span>, <span class='kw'>datumtijd</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/r/grDevices/plotmath.html'>frac</a></span>(<span class='no'>condition</span>)
+
+<span class='fu'>perc</span>(<span class='no'>condition</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>fys_chem_csv</th>
-      <td><p>Een characterstring met het pad naar het te importeren bestand.
-Het bestand moet in csv-formaat zijn met <code>;</code> als scheidingsteken en <code>,</code> als decimaalteken.
-Default is <code>"data/fys_chem.csv"</code>. Het is ook mogelijk om een zip-bestand in te lezen
-waar het csv-bestand in zit.</p></td>
-    </tr>
-    <tr>
-      <th>datumtijd</th>
-      <td><p>Logical. Of de kolom datum wordt geimporteerd als datum of als datum-tijd.
-Default is <code>FALSE</code></p></td>
+      <th>condition</th>
+      <td><p>Logical. Een voorwaarde waarvan wordt bepaald welk aandeel eraan voldoet.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Een dataframe met fysisch-chemische meetgegevens.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>Er is enige vrijheid t.a.v. de inhoud van het bestand. De functie verwacht
-ten minste een kolom <code>datum</code> en <code>waarde</code>. Een standaard bestand heeft gewoonlijk de kolommen:</p><ul>
-<li><p><code>mp</code> Code met de aanduiding van het meetpunt</p></li>
-<li><p><code>datum</code> Datum in het format yyyy-mm-dd hh:mm</p></li>
-<li><p><code>parnr</code> Unieke nummer van de parameter</p></li>
-<li><p><code>par</code> Parametercode, voor de leesbaarheid</p></li>
-<li><p><code>eenheid</code> Eenheid, voor de leesbaarheid</p></li>
-<li><p><code>detectiegrens</code> Aanduiding als &lt; of &gt;. Bij geen aanduidng krijgt het veld <code>NA</code></p></li>
-<li><p><code>waarde</code> Waarde van de meting</p></li>
-</ul>
-
+    <p>Fractie of percentage dat voldoet aan de voorwaarde</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-
-<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'>import_fys_chem</span>()
-
-}</div></pre>
+    <pre class="examples"><div class='input'>
+<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span>(<span class='no'>mtcars</span>,
+                 <span class='kw'>frac_4_cyls</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/plotmath.html'>frac</a></span>(<span class='no'>cyl</span> <span class='kw'>==</span> <span class='fl'>4</span>),
+                 <span class='kw'>perc_6_cyls</span> <span class='kw'>=</span> <span class='fu'>perc</span>(<span class='no'>cyl</span> <span class='kw'>==</span> <span class='fl'>6</span>))</div><div class='output co'>#&gt;   frac_4_cyls perc_6_cyls
+#&gt; 1     0.34375      21.875</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

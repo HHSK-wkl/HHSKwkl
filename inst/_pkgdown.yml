@@ -44,7 +44,6 @@ reference:
     desc: ~
     contents:
       - '`maand_namen`'
-      - '`my_c`'
       - '`randomize`'
       - '`opzoeken_waarde`'
       - '`maak_opzoeker`'
@@ -54,6 +53,9 @@ reference:
       - '`link_grafiek`'
       - '`copy_data`'
       - '`render_server`'
+      - '`count_rel`'
+      - '`fracties`'
+      - '`make_sf`'
   - title: HHSKwkl
     desc: ~
     contents:
