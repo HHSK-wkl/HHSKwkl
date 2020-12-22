@@ -1,5 +1,6 @@
 # import_fys_chem ---------------------------------------------------------------
 
+
 #' Importeren van fysisch-chemische data
 #' 
 #' De functie helpt bij het importeren van fysische chemische data. Rijen zonder `waarde` worden verwijderd.
