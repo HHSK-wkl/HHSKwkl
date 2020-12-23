@@ -2,6 +2,7 @@ library(readr)
 library(dplyr)
 library(stringr)
 library(png)
+library(colorspace)
 
 
 hhskgroen <- "#8dc63f"
@@ -22,5 +23,19 @@ maand_namen <- dplyr::tibble(maand = c(1:12), maand_namen, Maand_namen)}
 
 
 
-devtools::use_data(my_CRS, hhskgroen, hhskblauw, logo, schonevoeten)
-devtools::use_data(maand_namen)
+usethis::use_data(my_CRS, hhskgroen, hhskblauw, logo, schonevoeten)
+usethis::use_data(maand_namen)
+
+blauw    <- hex(HLS(202.5, 0.38, 1))
+blauw_m  <- hex(HLS(202.5, 0.60, 1))
+blauw_l  <- hex(HLS(202.5, 0.80, 1))
+oranje   <- hex(HLS(25   , 0.38, 1))
+oranje_m <- hex(HLS(25   , 0.60, 1))
+oranje_l <- hex(HLS(25   , 0.80, 1))
+grijs    <- "grey38"
+grijs_m  <- "grey60"
+grijs_l  <- "grey80"
+
+# c(blauw, blauw_m, blauw_l, oranje, oranje_m, oranje_l, grijs, grijs_m, grijs_l)
+
+usethis::use_data(blauw, blauw_m, blauw_l, oranje, oranje_m, oranje_l, grijs, grijs_m, grijs_l, overwrite = TRUE)

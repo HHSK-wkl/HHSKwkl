@@ -1,0 +1,17 @@
+bookdown::gitbook:
+  css: ["CSS/style.css", "CSS/markdown_JT.css"]
+  fig_caption: yes
+  config:
+    toc:
+      collapse: section
+      before: |
+        <li><a href="./">TITEL</a></li>
+      after: |
+        <li><a href="https://www.schielandendekrimpenerwaard.nl/" target="blank">hhsk.nl</a></li>
+    sharing:
+      twitter: yes
+      linkedin: yes
+      facebook: no
+      all: []
+
+

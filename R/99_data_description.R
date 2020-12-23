@@ -26,3 +26,37 @@
 #' * `maand_namen` - Geordende factor met maandnamen, lowercase
 #' * `Maand_namen` - Geordende factor met maandnamen, titlecase
 "maand_namen"
+
+#' Kleuren
+#' 
+#' Diverse kleurentinten blauw (positief), oranje (negatief), en grijs (neutraal). Toevoeging _m of _l voor 
+#' midden of lichte variant.
+#' 
+#' @name kleuren
+
+#' @rdname kleuren
+"blauw"
+
+#' @rdname kleuren
+"blauw_m"
+
+#' @rdname kleuren
+"blauw_l"
+
+#' @rdname kleuren
+"oranje"
+
+#' @rdname kleuren
+"oranje_m"
+
+#' @rdname kleuren
+"oranje_l"
+
+#' @rdname kleuren
+"grijs"
+
+#' @rdname kleuren
+"grijs_m"
+
+#' @rdname kleuren
+"grijs_l"

@@ -2,7 +2,14 @@
 
 - `import_normen_rivm()` bijgewerkt met meer info
 - `hhskthema_kaart()` toegevoegd
-- `make_sf()` toegevoegd.
+- `basiskaart()` uitgebreid met argument `type` voor het type achtergrondkaart.
+- `thema_hor_bar`, `thema_vert_bar`, `thema_facet_lines` toegevoegd.
+- `fys_chem()` toegevoegd om snel fysisch-chemische data in te lezen uit een .rds-bestand.
+- Diverse kleuren toegevoegd als object: zie `?kleuren`
+- `dawaco_connect()` opgenomen om makkelijk verbinding te kunnen leggen met de Dawaco-database
+- Een custom bookdown-template opgenomen.
+
+- `make_sf()` toegevoegd en weer verwijderd. Gebruik snippets.
 
 # HHSKwkl 0.2.1
 
