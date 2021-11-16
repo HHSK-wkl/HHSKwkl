@@ -1,5 +1,7 @@
 # HHSKwkl (development version)
 
+- `fys_chem()` is `fys_chem_rds()` geworden ivm naamconflicten.
+
 # HHSKwkl 0.3.0
 
 - `import_normen_rivm()` bijgewerkt met meer info
