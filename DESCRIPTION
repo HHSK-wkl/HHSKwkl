@@ -1,7 +1,7 @@
 Package: HHSKwkl
 Type: Package
 Title: Functies HHSK Waterkwaliteit
-Version: 0.3.0.9000
+Version: 0.4.0
 Authors@R: person("Johan", "van Tent", email = "j.van.tent@hhsk.nl", 
     role = c("aut", "cre"))
 Description: Functies voor waterkwaliteit.
@@ -28,7 +28,8 @@ Imports:
     forcats,
     sf,
     rmarkdown,
-    magrittr
+    magrittr,
+    stats
 Suggests: 
     testthat,
     covr,
