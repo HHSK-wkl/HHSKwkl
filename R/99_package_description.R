@@ -66,5 +66,9 @@ if (getRversion() >= "2.15.1")  utils::globalVariables(c(".",
                                                          "kenmerk_naam",
                                                          "kenmerk_waarde",
                                                          "temp_var",
-                                                         "wns"
+                                                         "wns",
+                                                         "log10AvgAcute",
+                                                         "Devlog10Acute",
+                                                         "log10AvgChronic",
+                                                         "Devlog10Chronic"
                                                          ))

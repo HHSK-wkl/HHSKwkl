@@ -56,3 +56,87 @@ toetsing <-
 toetsing  
   
 }
+
+#' Bereken PAF voor bestrijdingsmiddelen
+#'
+#' Functie voor het berekenen van potentieel aangetaste fractie obv de data van de 
+#' toxiciteitstool van ESF 8 Toxiciteit versie 2.
+#'
+#' @param aquo_par Parameternaam volgens de aquonaamgeving
+#' @param concentratie Concentratie in ug/l
+#' @param detectiegrens Detectiegrens. NA als geen detectiegrens (NB TRUE FALSE zou logischer zijn)
+#' @param ssd_data SSD data volgens het format van de toxiciteitstool
+#' @param type_paf `"acuut"` of `"chronisch"`
+#' @param digits `NULL` of het aantal decimalen om de paf af te ronden
+#'
+#' @return Een vector met PAF waarden
+#' @export
+#' 
+#' @source 
+#' De toxiciteitsdata komen uit de [toxiciteitstool](https://rivm.shinyapps.io/chemie-tool-in-shiny/).
+#' Documentatie is te vinden op de 
+#' [website van ESF 8 Toxiciteit](https://kiwk-tox.netlify.app/nl/chemie-tool-rekentool/)
+#'
+#' @examples
+#' 
+#' \dontrun{
+#' testdata %>% 
+#' mutate(paf_acuut = paf_gbm(aquo_par = f_aquopar(parnr), 
+#'                            concentratie = waarde, 
+#'                            detectiegrens = detectiegrens,
+#'                            ssd_data = tox, type_paf = "acuut"),
+#'        paf_chronisch = paf_gbm(aquo_par = f_aquopar(parnr), 
+#'                                concentratie = waarde, 
+#'                                detectiegrens = detectiegrens,
+#'                                ssd_data = tox, type_paf = "chronisch", digits = 5))
+#' 
+#' }
+paf_gbm <- function(aquo_par, 
+                    concentratie, 
+                    detectiegrens, 
+                    ssd_data, 
+                    type_paf = c("acuut", "chronisch"), 
+                    digits = NULL){
+  
+  type_paf <- type_paf[[1]]
+  type_paf <- rlang::arg_match(type_paf, c("acuut", "chronisch"))
+  
+  paf_calc <- function(concentratie, log10avg, log10dev){
+    stats::pnorm(log(concentratie, base = 10), mean = log10avg, sd = log10dev)
+  }
+  
+  data <- tibble::tibble(aquo_par, concentratie, detectiegrens) %>% 
+    dplyr::left_join(ssd_data, c("aquo_par" = "AquoCode"))
+  
+  if(type_paf == "acuut"){
+    paf <- 
+      data %>% 
+      dplyr::mutate(paf = purrr::pmap_dbl(.l = list(concentratie, 
+                                                    log10avg = log10AvgAcute, 
+                                                    log10dev = Devlog10Acute), 
+                                          .f = paf_calc)) %>% 
+      dplyr::mutate(paf = ifelse(is.na(detectiegrens), paf, NA_real_)) %>% 
+      dplyr::pull(paf)
+    
+    paf <- if (is.null(digits)) paf else round(paf, digits)
+    
+    return(paf)
+    
+  }
+  
+  if(type_paf == "chronisch") {
+    paf <- 
+      data %>% 
+      dplyr::mutate(paf = purrr::pmap_dbl(.l = list(concentratie, 
+                                                    log10avg = log10AvgChronic, 
+                                                    log10dev = Devlog10Chronic), 
+                                          .f = paf_calc)) %>% 
+      dplyr::mutate(paf = ifelse(is.na(detectiegrens), paf, NA_real_)) %>% 
+      dplyr::pull(paf)
+    
+    paf <- if (is.null(digits)) paf else round(paf, digits)
+    
+    return(paf)
+  }
+  
+}
