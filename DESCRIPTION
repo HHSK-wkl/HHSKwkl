@@ -1,7 +1,7 @@
 Package: HHSKwkl
 Type: Package
 Title: Functies HHSK Waterkwaliteit
-Version: 0.4.0
+Version: 0.4.0.9000
 Authors@R: person("Johan", "van Tent", email = "j.van.tent@hhsk.nl", 
     role = c("aut", "cre"))
 Description: Functies voor waterkwaliteit.
@@ -11,7 +11,7 @@ Depends: R (>= 2.10)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Roxygen: list(markdown = TRUE)
 Imports: 
     dplyr,
