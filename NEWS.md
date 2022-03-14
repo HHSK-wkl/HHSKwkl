@@ -1,8 +1,11 @@
 # HHSKwkl (development version)
 
+- `mspaf()` Voorde berekening van msPAF uit PAF-waarden
+
 # HHSKwkl 0.4.0
 
 - `fys_chem()` is `fys_chem_rds()` geworden ivm naamconflicten.
+- `paf_gbm()` voor de berekening van de PAF-waarden
 
 # HHSKwkl 0.3.0
 
