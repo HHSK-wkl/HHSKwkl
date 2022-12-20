@@ -32,9 +32,9 @@ blauw_l  <- hex(HLS(202.5, 0.80, 1))
 oranje   <- hex(HLS(25   , 0.38, 1))
 oranje_m <- hex(HLS(25   , 0.60, 1))
 oranje_l <- hex(HLS(25   , 0.80, 1))
-grijs    <- "grey38"
-grijs_m  <- "grey60"
-grijs_l  <- "grey80"
+grijs    <- "#616161"
+grijs_m  <- "#999999"
+grijs_l  <- "#cccccc"
 
 # c(blauw, blauw_m, blauw_l, oranje, oranje_m, oranje_l, grijs, grijs_m, grijs_l)
 
