@@ -39,11 +39,11 @@ Er is enige vrijheid t.a.v. de inhoud van het bestand. De functie verwacht ten m
 }
 \section{Functions}{
 \itemize{
-\item \code{import_biologie}: Importeer biologische meetwaarden zonder stadiumwaarden
+\item \code{import_biologie()}: Importeer biologische meetwaarden zonder stadiumwaarden
 
-\item \code{import_biologie_stadia}: Importeer biologische meetwaarden met stadium informatie
+\item \code{import_biologie_stadia()}: Importeer biologische meetwaarden met stadium informatie
+
 }}
-
 \examples{
 \dontrun{
 

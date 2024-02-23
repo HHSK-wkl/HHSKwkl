@@ -150,7 +150,8 @@ paf_gbm <- function(aquo_par,
 #'
 #' @param paf_vector Een vector met PAF-waarden (tussen de 0 en 1).
 #'
-#' @return 
+#' @return De msPAF
+#' 
 #' @export
 #'
 #' @examples

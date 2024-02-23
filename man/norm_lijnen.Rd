@@ -25,11 +25,11 @@ een plot. De functie \code{add_norm_lijnen} voegt ze toe aan het plot.
 }
 \section{Functions}{
 \itemize{
-\item \code{norm_lijnen}: Creeer normlijnen die aan een plot toegevoegd kunnen worden
+\item \code{norm_lijnen()}: Creeer normlijnen die aan een plot toegevoegd kunnen worden
 
-\item \code{add_norm_lijnen}: Voeg normlijnen toe aan een bestaand plot
+\item \code{add_norm_lijnen()}: Voeg normlijnen toe aan een bestaand plot
+
 }}
-
 \examples{
 
 \dontrun{

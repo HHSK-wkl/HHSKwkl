@@ -10,7 +10,7 @@ mspaf(paf_vector)
 \item{paf_vector}{Een vector met PAF-waarden (tussen de 0 en 1).}
 }
 \value{
-
+De msPAF
 }
 \description{
 Berekent de msPAF door het effect van afzonderlijke PAF-waarden samen te nemen.

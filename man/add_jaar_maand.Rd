@@ -25,13 +25,13 @@ Voeg kolommen toe met het jaar en/of de maand op basis van de datum. De datumkol
 }
 \section{Functions}{
 \itemize{
-\item \code{add_jaar_maand}: Voeg twee kolommen toe met het jaar en de maand.
+\item \code{add_jaar_maand()}: Voeg twee kolommen toe met het jaar en de maand.
 
-\item \code{add_jaar}: Voeg een kolom toe met het jaar.
+\item \code{add_jaar()}: Voeg een kolom toe met het jaar.
 
-\item \code{add_maand}: Voeg een kolom toe met de maand.
+\item \code{add_maand()}: Voeg een kolom toe met de maand.
+
 }}
-
 \examples{
 
 \dontrun{
