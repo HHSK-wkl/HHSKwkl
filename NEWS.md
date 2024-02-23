@@ -1,6 +1,7 @@
-# HHSKwkl (development version)
+# HHSKwkl 0.4.1
 
 - `mspaf()` Voorde berekening van msPAF uit PAF-waarden
+- `download_data()` en `data_online()` toegevoegd voor online data
 
 # HHSKwkl 0.4.0
 
