@@ -365,6 +365,6 @@ download_data <- function(files, destination = "data",
   
   for(filename in files) {
     url_full <- file.path(url, filename)
-    utils::download.file(url_full, file.path(destination, filename))
+    suppressMessages(utils::download.file(url_full, file.path(destination, filename), method = "curl"))
   }
 }
