@@ -1,5 +1,8 @@
 # HHSKwkl 0.4.2
 
+- aanpassing aan toetsing_gbm voor wisselende detectiegrenzen
+- kleine aanpassingen (linewidth en nieuwe versie roxygen)
+
 # HHSKwkl 0.4.1
 
 - `mspaf()` Voorde berekening van msPAF uit PAF-waarden
