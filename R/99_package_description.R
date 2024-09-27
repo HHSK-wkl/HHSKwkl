@@ -3,9 +3,7 @@
 #' Functies voor waterkwaliteitsanalyse. Zie verder: [https://redtent.github.io/HHSKwkl/](https://redtent.github.io/HHSKwkl/)
 #' 
 #'
-#' @docType package
-#' @name HHSKwkl
-NULL
+"_PACKAGE"
 
 
 
