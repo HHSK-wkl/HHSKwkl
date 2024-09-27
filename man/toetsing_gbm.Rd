@@ -26,6 +26,7 @@ Een dataframe met per meetpunt, parameter en jaar een toetsing. De toetsing best
 }
 \description{
 Deze functie toetst per jaar per gewasbeschermingsmiddel of er een overschrijding is en hoe groot deze is.
+Als er in een jaar meerdere detectiegrenzen zijn wordt de laagste detectiegrens gebruikt.
 }
 \examples{
 \dontrun{

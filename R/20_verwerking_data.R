@@ -1,6 +1,7 @@
 #' Toetsing gewasbeschermingsmiddelen
 #'
-#' Deze functie toetst per jaar per gewasbeschermingsmiddel of er een overschrijding is en hoe groot deze is.
+#' Deze functie toetst per jaar per gewasbeschermingsmiddel of er een overschrijding is en hoe groot deze is. 
+#' Als er in een jaar meerdere detectiegrenzen zijn wordt de laagste detectiegrens gebruikt.
 #'
 #' @param data Een dataframe met data zoals wordt gemaakt met [import_fys_chem()]
 #' @param normen Een dataframe met normen zoals wordt gemaakt met [import_normen_rivm()]
@@ -27,13 +28,23 @@
 #' 
 toetsing_gbm <- function(data, normen, factor_detectiegrens = 0.5){
   
+  # Om wisselende grenzen te kunnen hanteren
+  detec_min <- 
+    data %>% 
+    dplyr::filter(parnr > 999, parnr < 2000,
+                  detectiegrens == "<") %>% 
+    dplyr::group_by(parnr, jaar) %>% 
+    dplyr::summarise(detec_min = min(waarde, na.rm = TRUE))
+    
+  
 toetsing <- 
   data %>% 
   dplyr::filter(parnr > 999, parnr < 2000) %>% 
   dplyr::semi_join(normen, by = "parnr") %>%
+  dplyr::left_join(detec_min, by = c("parnr", "jaar")) %>% 
   
   dplyr::mutate(detectiegrens = dplyr::if_else(is.na(detectiegrens), "", detectiegrens), 
-                waarde_det_half = dplyr::if_else(detectiegrens == "<", waarde * factor_detectiegrens, waarde) ) %>%
+                waarde_det_half = dplyr::if_else(detectiegrens == "<", waarde * factor_detectiegrens, waarde) ) %>% 
   
   dplyr::group_by(mp, parnr, par, jaar) %>%
   dplyr::summarise(aantal = dplyr::n(), 
