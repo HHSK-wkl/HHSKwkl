@@ -9,11 +9,11 @@
 \alias{thema_line_facet}
 \title{HHSK thema}
 \format{
-An object of class \code{theme} (inherits from \code{gg}) of length 97.
+An object of class \code{theme} (inherits from \code{gg}) of length 136.
 
-An object of class \code{theme} (inherits from \code{gg}) of length 97.
+An object of class \code{theme} (inherits from \code{gg}) of length 136.
 
-An object of class \code{theme} (inherits from \code{gg}) of length 97.
+An object of class \code{theme} (inherits from \code{gg}) of length 136.
 }
 \usage{
 hhskthema()

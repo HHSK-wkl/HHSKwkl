@@ -33,10 +33,10 @@ hhskthema <- function(){
     axis.title =  ggplot2::element_text(color = "grey40"),
     axis.text =   ggplot2::element_text(color = "grey40"),
     axis.ticks =  ggplot2::element_line(color = "grey40"),
-    axis.line = ggplot2::element_line(color = "grey40", size = 0.5),
+    axis.line = ggplot2::element_line(color = "grey40", linewidth = 0.5),
     
     panel.border =     ggplot2::element_blank(),#ggplot2::element_rect(color = hhskblauw, size = 1),
-    panel.grid.major = ggplot2::element_line(color = "grey80", linetype = "dotted", size = 0.5),
+    panel.grid.major = ggplot2::element_line(color = "grey80", linetype = "dotted", linewidth = 0.5),
     panel.grid.minor = ggplot2::element_blank(),#ggplot2::element_line(color = "grey60", linetype = "dotted", size = 0.5),
     
     legend.title = ggplot2::element_text(color = "grey50", face = "bold", hjust = 0),
