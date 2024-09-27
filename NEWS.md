@@ -1,3 +1,5 @@
+# HHSKwkl 0.4.2
+
 # HHSKwkl 0.4.1
 
 - `mspaf()` Voorde berekening van msPAF uit PAF-waarden
