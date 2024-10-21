@@ -1,5 +1,7 @@
 # HHSKwkl 0.4.2
 
+1-10-2024
+
 - aanpassing aan toetsing_gbm voor wisselende detectiegrenzen
 - kleine aanpassingen (linewidth en nieuwe versie roxygen)
 
