@@ -44,7 +44,7 @@ toetsing <-
   dplyr::left_join(detec_min, by = c("parnr", "jaar")) %>% 
   
   dplyr::mutate(detectiegrens = dplyr::if_else(is.na(detectiegrens), "", detectiegrens), 
-                waarde_det_half = dplyr::if_else(detectiegrens == "<", waarde * factor_detectiegrens, waarde) ) %>% 
+                waarde_det_half = dplyr::if_else(detectiegrens == "<", detec_min * factor_detectiegrens, waarde) ) %>% 
   
   dplyr::group_by(mp, parnr, par, jaar) %>%
   dplyr::summarise(aantal = dplyr::n(), 
