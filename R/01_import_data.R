@@ -51,30 +51,7 @@ import_fys_chem <- function(fys_chem_csv = "data/fys_chem.csv", datumtijd = FALS
 }
 
 
-#' Laad fys_chem.rds
-#'
-#' Deze functie leest fys_chem.rds om fysisch chemische metingen sneller in te kunnen lezen.
-#'
-#' @param fys_chem_rds Pad naar de locatie van het .rds-bestand met fysisch-chemische metingen. 
-#' Indien `NULL` wordt achtereenvolgens gezocht naar fys_chem.rds in de map data en in de map
-#' P:/Dawaco/FME
-#'
-#' @return Het ingelezen object uit fys_chem.rds
-#' @export
-#'
-#' @examples
-#' 
-#' \dontrun{
-#' 
-#' data <- fys_chem_rds()
-#' }
-fys_chem_rds <- function (fys_chem_rds = NULL) {
-  if (is.null(fys_chem_rds)) {
-    if (file.exists("data/fys_chem.rds")) {fys_chem_rds <- "data/fys_chem.rds"}
-    if (file.exists("P:/Dawaco/FME/fys_chem.rds")) {fys_chem_rds <- "P:/Dawaco/FME/fys_chem.rds"}
-  }
-  readRDS(fys_chem_rds)
-  }
+
 
 # import_meetpunten -------------------------------------------------------------
 
