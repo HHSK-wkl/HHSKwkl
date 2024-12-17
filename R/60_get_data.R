@@ -1,4 +1,6 @@
 
+# Waterschapsgrens --------------------------------------------------------
+
 #' Waterschapsgrens
 #' 
 #' Waterschapsgrens als dataframe of als bestand
@@ -40,6 +42,9 @@ get_ws_grens <- function(pad = "data"){
   file.copy(from = bestandsnaam, to = pad, overwrite = TRUE)
   
 }
+
+
+# Brand -------------------------------------------------------------------
 
 
 
