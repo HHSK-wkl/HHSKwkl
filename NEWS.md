@@ -1,3 +1,23 @@
+# HHSKwkl (development version)
+
+17-12-2024
+
+*Toegevoegd*
+- `ws_grens()` en `get_ws_grens()`
+- Voorbereiding voor toevoeging van _brand.yml
+
+*Acties*
+- _brand.yml en bijbehorende bestanden maken
+- biologie uitfaseren
+- render_server() uitfaseren
+- bookdown_setup uitfaseren
+- code voor snippets opnemen??
+
+
+*Verwijderd*
+- `fys_chem_rds()`
+- `dawaco_connect()`
+
 # HHSKwkl 0.4.2
 
 1-10-2024
