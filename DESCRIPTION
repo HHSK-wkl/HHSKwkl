@@ -29,7 +29,8 @@ Imports:
     sf,
     rmarkdown,
     magrittr,
-    stats
+    stats,
+    httr2
 Suggests: 
     testthat,
     covr,

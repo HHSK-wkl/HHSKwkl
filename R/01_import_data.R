@@ -342,6 +342,7 @@ download_data <- function(files, destination = "data",
   
   for(filename in files) {
     url_full <- file.path(url, filename)
-    utils::download.file(url_full, file.path(destination, filename))
+    httr2::request(url_full) %>% 
+      httr2::req_perform(path = file.path(destination, filename))
   }
 }
