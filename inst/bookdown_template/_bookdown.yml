@@ -1,8 +1,0 @@
-book_filename: "my_bookdown"
-delete_merged_file: true
-language:
-  label:
-    fig: 'Figuur '
-    tab: 'Tabel '
-  ui:
-    chapter_name: "Hoofdstuk "
