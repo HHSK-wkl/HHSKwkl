@@ -22,6 +22,8 @@
 - Tests bijwerken
 - get_data functies uitbreiden en updaten
 - rapportage_utils updaten
+- gebruik nieuwere versie van Github actions en verwijder Travis CI
+
 
 *Over na denken*
 - Diverse functies (bijv. `count_rel()`) zijn nuttig, maar worden vergeten. Wat te doen met deze functies?
