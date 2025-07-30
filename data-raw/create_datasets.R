@@ -15,16 +15,7 @@ schonevoeten <- readPNG("data-raw/schonevoeten.png") %>% as.raster()
 
 my_CRS <- "+init=EPSG:28992"
 
-
-
-{maand_namen <- factor(x = c(1:12), labels = c('januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'), ordered = TRUE)
-Maand_namen <- factor(x = c(1:12), labels = c("Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"), ordered = TRUE)
-maand_namen <- dplyr::tibble(maand = c(1:12), maand_namen, Maand_namen)}
-
-
-
 usethis::use_data(my_CRS, hhskgroen, hhskblauw, logo, schonevoeten)
-usethis::use_data(maand_namen)
 
 blauw    <- hex(HLS(202.5, 0.38, 1))
 blauw_m  <- hex(HLS(202.5, 0.60, 1))
