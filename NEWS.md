@@ -5,6 +5,9 @@
 - Oude templates voor R-studioprojecten en rmarkdown verwijderd
 - maandnamen verwijderd
 - `randomize()` verwijderd
+- `add_twn_voorkeurnaam()` verwijderd
+- `render_server()` verwijderd - onnodig met nieuwe server
+
 
 *To Do*
 
@@ -17,9 +20,13 @@
 - functie `copy_data()`
 - `titelpagina_internet()` en `grafieken_internet()` verwijderen als Actuele metingen geupdate is
 - Tests bijwerken
+- get_data functies uitbreiden en updaten
+- rapportage_utils updaten
 
 *Over na denken*
 - Diverse functies (bijv. `count_rel()`) zijn nuttig, maar worden vergeten. Wat te doen met deze functies?
+- Wat te doen met monster_info functies
+- gebruik van interne functies?
 
 
 
