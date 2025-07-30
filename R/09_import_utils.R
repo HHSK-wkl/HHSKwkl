@@ -4,7 +4,7 @@
 #'
 #' @param filenames Vector of lijst met bestanden. Als deze leeg blijft worden 
 #' alle bestanden uit `origin` gekopieerd.
-#' @param origin Bronlocatie. Default is `"P:/Dawaco/FME"`
+#' @param origin Bronlocatie. 
 #' @param destination Doellocatie. Default is `"data"`
 #'
 #' @return Synchronisatie van bestanden van de bronlocatie met de doellocatie.
@@ -21,7 +21,7 @@
 #' 
 #' 
 #' 
-copy_data <- function(filenames = NULL, origin = "//hhsk.local/dfs/Project/Dawaco/FME", destination = "data") {
+copy_data <- function(filenames = NULL, origin, destination = "data") {
   
   dest_trunc <- stringr::str_trunc(destination, width = 50, side = "center")
   
