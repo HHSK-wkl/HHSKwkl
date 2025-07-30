@@ -1,5 +1,10 @@
 # HHSKwkl (development version)
 
+30-7-2025
+
+- gebruik van `httr2` voor `download_data()` en `data_online()`
+- laatste versie voor opschonen
+
 17-12-2024
 
 *Toegevoegd*
