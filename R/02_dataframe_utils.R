@@ -141,29 +141,6 @@ opzoeken_waarde <- function(sleutel, df, attribuut, sleutelkolom = 1){
     
 }
 
-
-# Randomize ---------------------------------------------------------------
-
-
-#' Randomize
-#' 
-#' Verandert de rijen in willekeurige volgorde
-#'
-#' @param data Een dataframe
-#'
-#' @return Hetzelfde dataframe als de input in willekeurige volgorde
-#' @export
-#'
-#' @examples
-#' \dontrun{
-#' 
-#' randomize(mtcars)
-#' }
-randomize <- function(data) {
-  data[sample(nrow(data)),]
-  }
-
-
 # Latitude en longitude ---------------------------------------------------
 
 #' Toevoegen van latidute en longitude
