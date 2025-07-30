@@ -1,3 +1,28 @@
+# HHSKwkl (development version)
+
+*Verwijderd*
+
+- Oude templates voor R-studioprojecten en rmarkdown verwijderd
+- maandnamen verwijderd
+- `randomize()` verwijderd
+
+*To Do*
+
+- oude kleuren vervangen voor nieuwe
+- brand.yml en nieuwe logo's opnemen
+- nieuwe pipe?
+- oude importfuncties o.b.v. csv's verwijderen
+- import_normen_rivm updaten voor nieuwe excelversie
+- ggplot thema's updaten
+- functie `copy_data()`
+- `titelpagina_internet()` en `grafieken_internet()` verwijderen als Actuele metingen geupdate is
+- Tests bijwerken
+
+*Over na denken*
+- Diverse functies (bijv. `count_rel()`) zijn nuttig, maar worden vergeten. Wat te doen met deze functies?
+
+
+
 # HHSKwkl 0.4.3
 
 30-7-2025
@@ -8,10 +33,12 @@
 17-12-2024
 
 *Toegevoegd*
+
 - `ws_grens()` en `get_ws_grens()`
 - Voorbereiding voor toevoeging van _brand.yml
 
 *Acties*
+
 - _brand.yml en bijbehorende bestanden maken
 - biologie uitfaseren
 - render_server() uitfaseren
@@ -20,6 +47,7 @@
 
 
 *Verwijderd*
+
 - `fys_chem_rds()`
 - `dawaco_connect()`
 
