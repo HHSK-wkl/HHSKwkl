@@ -1,5 +1,9 @@
 # HHSKwkl (development version)
 
+*Vernieuwd*
+
+- Github Action voor package-check versimpeld en geupdate
+
 *Verwijderd*
 
 - Oude templates voor R-studioprojecten en rmarkdown verwijderd
@@ -7,6 +11,7 @@
 - `randomize()` verwijderd
 - `add_twn_voorkeurnaam()` verwijderd
 - `render_server()` verwijderd - onnodig met nieuwe server
+- overbodige badges in de README weggehaald
 
 
 *To Do*
