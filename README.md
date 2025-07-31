@@ -1,7 +1,5 @@
 <!-- badges: start -->
-  [![R-CMD-check](https://github.com/RedTent/HHSKwkl/workflows/R-CMD-check/badge.svg)](https://github.com/RedTent/HHSKwkl/actions)
-[![Build Status](https://travis-ci.org/RedTent/HHSKwkl.svg?branch=master)](https://travis-ci.org/RedTent/HHSKwkl)
-[![Coverage status](https://codecov.io/gh/RedTent/HHSKwkl/branch/master/graph/badge.svg)](https://codecov.io/github/RedTent/HHSKwkl?branch=master)
+[![R-CMD-check](https://github.com/HHSK-wkl/HHSKwkl/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/HHSK-wkl/HHSKwkl/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 # Functies voor waterkwaliteitsanalyses - HHSKwkl
