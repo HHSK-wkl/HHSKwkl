@@ -12,6 +12,7 @@
 - `add_twn_voorkeurnaam()` verwijderd
 - `render_server()` verwijderd - onnodig met nieuwe server
 - overbodige badges in de README weggehaald
+- coverage check verwijderd
 
 
 *To Do*
