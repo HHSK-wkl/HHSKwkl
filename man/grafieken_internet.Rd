@@ -20,12 +20,11 @@ grafieken_internet(
 \item{data}{Een dataframe met ruwe gegevens om grafieken van te maken. Deze moet tenminste de kolommen
 mp, parnr, datum, detectiegrens en waarde hebben.}
 
-\item{meetpuntendf}{Een dataframe met mp en mpomsch voor de titel van de grafiek. Zie ook \code{\link[=import_meetpunten]{import_meetpunten()}}}
+\item{meetpuntendf}{Een dataframe met mp en mpomsch voor de titel van de grafiek.}
 
-\item{parameterdf}{Een dataframe met parnr eenheid en parnaamlang voor de titel van de grafiek.
-Zie ook \code{\link[=import_parameters]{import_parameters()}}}
+\item{parameterdf}{Een dataframe met parnr eenheid en parnaamlang voor de titel van de grafiek.}
 
-\item{normen}{Een dataframe met de normen. Zie ook \code{\link[=import_normen_rivm]{import_normen_rivm()}}}
+\item{normen}{Een dataframe met de normen.}
 
 \item{plot_normen}{Logical. Switch om wel geen normen te plotten. Default is \code{TRUE}}
 

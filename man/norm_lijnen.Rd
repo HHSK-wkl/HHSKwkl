@@ -12,7 +12,7 @@ add_norm_lijnen(plot, parnr, normen)
 \arguments{
 \item{parnr}{Het nummer van de parameter waar de normen van toegevoegd moeten worden}
 
-\item{normen}{Een dataframe met de normen zoals geimporteerd kan worden met de functie \code{\link{import_normen_rivm}}}
+\item{normen}{Een dataframe met de normen}
 
 \item{plot}{Het plot waar de normlijnen aan toegevoegd moeten worden}
 }

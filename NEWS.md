@@ -18,6 +18,7 @@
 - coverage check verwijderd
 - `hhskblauw` en `hhskgroen`
 - `myCRS`
+- verouderde importfuncties verwijderd
 
 
 *To Do*
@@ -25,7 +26,6 @@
 - oude kleuren vervangen voor nieuwe
 - brand.yml en nieuwe logo's opnemen
 - nieuwe pipe?
-- oude importfuncties o.b.v. csv's verwijderen
 - import_normen_rivm updaten voor nieuwe excelversie
 - ggplot thema's updaten
 - functie `copy_data()`

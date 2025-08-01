@@ -2,9 +2,7 @@
 % Please edit documentation in R/01_import_data.R
 \name{download_data}
 \alias{download_data}
-\title{Download data van FTP-server
-Download data van FTP-server
-Download data van FTP-server}
+\title{Download data van FTP-server}
 \usage{
 download_data(files, destination = "data", url = NULL)
 }
@@ -19,8 +17,6 @@ download_data(files, destination = "data", url = NULL)
 Databestanden op de gekozen locatie.
 }
 \description{
-Download data van FTP-server
-Download data van FTP-server
 Download data van FTP-server
 }
 \examples{
