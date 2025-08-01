@@ -37,11 +37,39 @@ dt_labels_nederlands <- function() {
 #'
 #' \dontrun{
 #'
-#' link_grafiek("S_0067", "onzintekst")
+#' link_grafiek("S_0067", "eigen_tekst")
 #'
 #' }
-link_grafiek <- function(mp, link_tekst = "Grafiek"){
+link_grafiek <- function(mp, link_tekst = NULL){
+  link_tekst <- link_tekst %||% paste("Grafieken van meetpunt", mp)
+  
   adres <- paste0("https://www.schielandendekrimpenerwaard.nl/kaart/waterkwaliteit/wkl_gegevens_op_kaart/grafieken/", mp, ".pdf")
+  paste0("<a  href=",
+         adres,
+         ' target="_blank" >',
+         link_tekst,
+         '</a>')
+}
+
+#' HTML-link naar meetpuntpagina met meetgegevens
+#'
+#' @param mp De meetpuntcode
+#' @param link_tekst Optionele tekst
+#'
+#' @return HTML-tekst met een link naar een grafiek
+#' @export
+#'
+#' @examples
+#'
+#' \dontrun{
+#' link_meetgegevens("S_0067")
+#' link_meetgegevens("S_0067", "eigen_tekst")
+#'
+#' }
+link_meetgegevens <- function(mp, link_tekst = NULL){
+  link_tekst <- link_tekst %||% paste("Meetgegevens van meetpunt", mp)
+  
+  adres <- paste0("https://www.schielandendekrimpenerwaard.nl/kaart/waterkwaliteit/wkl_gegevens_op_kaart/", mp, ".html")
   paste0("<a  href=",
          adres,
          ' target="_blank" >',
