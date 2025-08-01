@@ -57,8 +57,8 @@ usethis::use_data(ws_grens_rd, ws_grens_wgs, overwrite = TRUE)
 
 # hhskblauw <- "#0079c2"
 
-logo <- png::readPNG("data-raw/logo_kleur.png") %>% as.raster()
+logo <- png::readPNG("data-raw/logo_kleur.png") |> as.raster()
 
-schonevoeten <- png::readPNG("data-raw/schonevoeten.png") %>% as.raster()
+schonevoeten <- png::readPNG("data-raw/schonevoeten.png") |> as.raster()
 
 usethis::use_data(logo, schonevoeten, overwrite = TRUE)
