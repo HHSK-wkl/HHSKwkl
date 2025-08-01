@@ -27,7 +27,6 @@ Imports:
     stringr,
     forcats,
     sf,
-    rmarkdown,
     magrittr,
     stats,
     httr2
