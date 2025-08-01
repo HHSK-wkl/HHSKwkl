@@ -3,6 +3,7 @@
 *Vernieuwd*
 
 - Github Action voor package-check versimpeld en geupdate
+- `ws_grens_rd` en `ws_grens_wgs` opgenomen als data-object i.p.v. de functie `ws_grens()`
 
 *Verwijderd*
 

@@ -1,3 +1,15 @@
+#' Waterschapsgrens
+#' 
+#' Waterschapsgrens als sf-object in RD-stelstel (CRS 28992) en WGS84 (CRS 4326)
+#' 
+#' @name waterschapsgrens
+
+#' @rdname waterschapsgrens
+"ws_grens_rd"
+
+#' @rdname waterschapsgrens
+"ws_grens_wgs"
+
 #' HHSK-groen
 #' 
 #' De kleur groen die overeenkomt met het HHSK-logo
