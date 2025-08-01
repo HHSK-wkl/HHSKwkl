@@ -306,20 +306,20 @@ import_normen_rivm <- function(normen = "data/normen.txt", parameterdf = import_
 #' fys_chem <- data_online("fys_chem.rds")
 #' }
 data_online <- function(file, url = NULL){
+  if (tolower(tools::file_ext(file)) != "rds") stop("data_online() kan alleen RDS-bestanden inlezen.")
+  
   url <- url %||% "https://www.schielandendekrimpenerwaard.nl/kaart/waterkwaliteit/alle_wkl_metingen/data"
   
   url <- paste0(url, "/", file)
   
   temp <- tempfile() 
-  utils::download.file(url, temp)
+  httr2::request(url) |> httr2::req_perform(path = temp)
   res <- readRDS(temp)
   unlink(temp)
   res
 }
 
 
-#' Download data van FTP-server
-#' Download data van FTP-server
 #' Download data van FTP-server
 #'
 #' @param files Een character-vector met bestandsnamen
@@ -342,7 +342,7 @@ download_data <- function(files, destination = "data",
   
   for(filename in files) {
     url_full <- file.path(url, filename)
-    httr2::request(url_full) %>% 
+    httr2::request(url_full) |>
       httr2::req_perform(path = file.path(destination, filename))
   }
 }

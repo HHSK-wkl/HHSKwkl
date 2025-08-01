@@ -29,7 +29,8 @@ Imports:
     sf,
     magrittr,
     stats,
-    httr2
+    httr2,
+    tools
 Suggests: 
     testthat,
     covr,
