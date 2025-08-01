@@ -1,4 +1,4 @@
-# HHSKwkl (development version)
+# HHSKwkl 0.5.0
 
 *Vernieuwd*
 
@@ -28,11 +28,9 @@
 - nieuwe pipe?
 - import_normen_rivm updaten voor nieuwe excelversie
 - ggplot thema's updaten
-- functie `copy_data()`
 - `titelpagina_internet()` en `grafieken_internet()` verwijderen als Actuele metingen geupdate is
 - Tests bijwerken
 - get_data functies uitbreiden en updaten
-- rapportage_utils updaten
 
 
 *Over na denken*
