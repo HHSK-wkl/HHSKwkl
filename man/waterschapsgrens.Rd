@@ -17,6 +17,6 @@ ws_grens_rd
 ws_grens_wgs
 }
 \description{
-Waterschapsgrens als sf-object in RD-stelstel (CRS 28992) en WGS84 (CRS 4326)
+Waterschapsgrens als sf-object in RD-stelstel (CRS 28992) en WGS84 (CRS 4326).
 }
 \keyword{datasets}
