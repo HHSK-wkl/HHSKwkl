@@ -5,7 +5,7 @@
 \alias{logo}
 \title{HHSK logo}
 \format{
-An object of class \code{array} of dimension 126 x 526 x 4.
+An object of class \code{raster} with 184 rows and 893 columns.
 }
 \usage{
 logo
