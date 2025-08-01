@@ -3,17 +3,41 @@
 \docType{data}
 \name{kleuren}
 \alias{kleuren}
+\alias{kleuren_hhsk}
+\alias{blauw_d}
 \alias{blauw}
 \alias{blauw_m}
 \alias{blauw_l}
 \alias{oranje}
 \alias{oranje_m}
-\alias{oranje_l}
+\alias{grijs_d}
 \alias{grijs}
 \alias{grijs_m}
 \alias{grijs_l}
-\title{Kleuren}
+\alias{groen_d}
+\alias{groen}
+\alias{groen_m}
+\alias{groen_l}
+\alias{wit}
+\alias{tekstgrijs}
+\title{Kleuren HHSK}
 \format{
+character
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 1.
+
 An object of class \code{character} of length 1.
 
 An object of class \code{character} of length 1.
@@ -33,6 +57,10 @@ An object of class \code{character} of length 1.
 An object of class \code{character} of length 1.
 }
 \usage{
+kleuren_hhsk
+
+blauw_d
+
 blauw
 
 blauw_m
@@ -43,16 +71,27 @@ oranje
 
 oranje_m
 
-oranje_l
+grijs_d
 
 grijs
 
 grijs_m
 
 grijs_l
+
+groen_d
+
+groen
+
+groen_m
+
+groen_l
+
+wit
+
+tekstgrijs
 }
 \description{
-Diverse kleurentinten blauw (positief), oranje (negatief), en grijs (neutraal). Toevoeging _m of _l voor
-midden of lichte variant.
+De kleuren van de huisstijl van HHSK. Gebruik de toevoeging _d, _m of _l voor donkere, midden of lichte variant.
 }
 \keyword{datasets}
