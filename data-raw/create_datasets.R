@@ -1,38 +1,64 @@
-library(readr)
-library(dplyr)
-library(stringr)
-library(png)
-library(colorspace)
+# library(readr)
+# library(dplyr)
+# library(stringr)
+# library(png)
+# library(colorspace)
 
+blauw_d <-  "#293173"
+blauw   <-  "#0067C6"
+blauw_m <-  "#8ED4DA"
+blauw_l <-  "#D2EBEE"
+groen_d <-  "#015F03"
+groen   <-  "#76B900"
+groen_m <-  "#CBDF74"
+groen_l <-  "#E7F0C0"
+oranje  <-  "#F9651F"
+oranje_m <- "#FFBC80"
+grijs_d <-  "#4F4F4F"
+grijs   <-  "#636363"
+grijs_m <-  "#B5B5B5"
+grijs_l <-  "#E0E0E0"
+wit     <-  "#FFFFFF"
+tekstgrijs <- "#222222"
 
-hhskgroen <- "#8dc63f"
+kleuren_hhsk <- c(
+  blauw_d  = blauw_d , 
+  blauw    = blauw   ,
+  blauw_m  = blauw_m ,
+  blauw_l  = blauw_l ,
+  groen_d  = groen_d ,
+  groen    = groen   ,
+  groen_m  = groen_m ,
+  groen_l  = groen_l ,
+  oranje   = oranje  ,
+  oranje_m = oranje_m,
+  grijs_d  = grijs_d ,
+  grijs    = grijs   ,
+  grijs_m  = grijs_m ,
+  grijs_l  = grijs_l ,
+  wit      = wit     ,
+  tekstgrijs = tekstgrijs)
 
-hhskblauw <- "#0079c2"
-
-logo <- readPNG("data-raw/logo website.png") %>% as.raster()
-
-schonevoeten <- readPNG("data-raw/schonevoeten.png") %>% as.raster()
-
-my_CRS <- "+init=EPSG:28992"
-
-usethis::use_data(my_CRS, hhskgroen, hhskblauw, logo, schonevoeten)
-
-blauw    <- hex(HLS(202.5, 0.38, 1))
-blauw_m  <- hex(HLS(202.5, 0.60, 1))
-blauw_l  <- hex(HLS(202.5, 0.80, 1))
-oranje   <- hex(HLS(25   , 0.38, 1))
-oranje_m <- hex(HLS(25   , 0.60, 1))
-oranje_l <- hex(HLS(25   , 0.80, 1))
-grijs    <- "#616161"
-grijs_m  <- "#999999"
-grijs_l  <- "#cccccc"
-
-# c(blauw, blauw_m, blauw_l, oranje, oranje_m, oranje_l, grijs, grijs_m, grijs_l)
-
-usethis::use_data(blauw, blauw_m, blauw_l, oranje, oranje_m, oranje_l, grijs, grijs_m, grijs_l, overwrite = TRUE)
+usethis::use_data(blauw, groen, oranje, grijs, wit, 
+                  blauw_d, groen_d, grijs_d, 
+                  blauw_m, groen_m, oranje_m, grijs_m, 
+                  blauw_l, groen_l, grijs_l, 
+                  tekstgrijs,
+                  kleuren_hhsk,
+                  overwrite = TRUE)
 
 ws_grens_rd <- sf::st_read("data-raw/ws_grens.gpkg", crs = 28992, quiet = TRUE)
 ws_grens_wgs <- sf::st_read("data-raw/ws_grens.gpkg", crs = 28992, quiet = TRUE) |>
   sf::st_transform(crs = 4326)
 
-usethis::use_data(ws_grens_rd, ws_grens_wgs)
+usethis::use_data(ws_grens_rd, ws_grens_wgs, overwrite = TRUE)
+
+# hhskgroen <- "#8dc63f"
+
+# hhskblauw <- "#0079c2"
+
+logo <- png::readPNG("data-raw/logo_kleur.png") %>% as.raster()
+
+schonevoeten <- png::readPNG("data-raw/schonevoeten.png") %>% as.raster()
+
+usethis::use_data(logo, schonevoeten, overwrite = TRUE)
