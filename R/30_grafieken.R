@@ -39,10 +39,10 @@ grafiek_basis <- function(data, mp = NULL, mpomsch = NULL, parnaam = NULL, eenhe
   }
   
   grafiek <- grafiek +
-    ggplot2::geom_line(col = hhskblauw) +
-    ggplot2::geom_point(col = hhskblauw) +
+    ggplot2::geom_line(col = blauw) +
+    ggplot2::geom_point(col = blauw) +
     ggplot2::geom_point(data = dplyr::filter(data, detectiegrens == "<"), 
-                        pch = 21, col = hhskblauw, fill = "white") + # detectiegrenswaarden
+                        pch = 21, col = blauw, fill = "white") + # detectiegrenswaarden
     ggplot2::labs(title = paste0("Meetpunt: ", mp), 
                   subtitle = paste0("Parameter: ", parnaam),
                   x = "datum", 
@@ -94,7 +94,7 @@ boxplot_basis <- function(data, mp = NULL, mpomsch = NULL, parnaam = NULL, eenhe
   
   grafiek <- data %>% 
     ggplot2::ggplot(ggplot2::aes(x = jaar, y = waarde, group = jaar)) +
-    ggplot2::geom_boxplot(col = hhskblauw, fill = hhskgroen) +
+    ggplot2::geom_boxplot(col = blauw, fill = groen) +
     ggplot2::labs(title = paste0("Meetpunt: ", mp," - ", mpomsch), 
                   subtitle = paste0("Parameter: ", parnaam),
                   x = "",
@@ -145,13 +145,13 @@ titelpagina_internet <- function(inclusief_normen = TRUE){
             x = 0.1, y = 0.75, just = c("left","top"), gp = gpar())
   
   # Meetwaarden ----
-  grid.lines(x = c(0.1,0.2),y = c(0.6,0.6), gp = gpar(lty = 1, col = hhskblauw, lwd = 2))
-  grid.points(x = unit(c(0.125, 0.15, 0.175),"npc"), y = unit(c(0.6,0.6, 0.6),"npc"), gp = gpar(col = hhskblauw), pch = 20, size = unit(10, "pt"))
+  grid.lines(x = c(0.1,0.2),y = c(0.6,0.6), gp = gpar(lty = 1, col = blauw, lwd = 2))
+  grid.points(x = unit(c(0.125, 0.15, 0.175),"npc"), y = unit(c(0.6,0.6, 0.6),"npc"), gp = gpar(col = blauw), pch = 20, size = unit(10, "pt"))
   grid.text("Meetwaarden", x = 0.22, y = 0.6, just = "left")
   
   # Meetwaarden onder rapportagegrens ----
-  grid.lines(x = c(0.1,0.2),y = c(0.55,0.55), gp = gpar(lty = 1, col = hhskblauw, lwd = 2))
-  grid.points(x = unit(c(0.125, 0.15, 0.175),"npc"), y = unit(c(0.55,0.55, 0.55),"npc"), gp = gpar(col = hhskblauw, fill = "white"), pch = 21, size = unit(8, "pt"))
+  grid.lines(x = c(0.1,0.2),y = c(0.55,0.55), gp = gpar(lty = 1, col = blauw, lwd = 2))
+  grid.points(x = unit(c(0.125, 0.15, 0.175),"npc"), y = unit(c(0.55,0.55, 0.55),"npc"), gp = gpar(col = blauw, fill = "white"), pch = 21, size = unit(8, "pt"))
   grid.text("Meetwaarde onder rapportagegrens", x = 0.22, y = 0.55, just = "left")
   
   # Trendlijn ----
