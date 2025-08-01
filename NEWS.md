@@ -6,6 +6,7 @@
 - `ws_grens_rd` en `ws_grens_wgs` opgenomen als data-object i.p.v. de functie `ws_grens()`
 - nieuwe huisstijlkleuren opgenomen
 - logo vervangen en opgenomen in extdata
+- `get_logo()` functie toegevoegd
 
 *Verwijderd*
 
@@ -23,8 +24,7 @@
 
 *To Do*
 
-- oude kleuren vervangen voor nieuwe
-- brand.yml en nieuwe logo's opnemen
+- brand.yml
 - nieuwe pipe?
 - import_normen_rivm updaten voor nieuwe excelversie
 - ggplot thema's updaten

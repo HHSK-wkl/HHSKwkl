@@ -7,13 +7,14 @@
 get_ws_grens(pad = "data")
 }
 \arguments{
-\item{pad}{een string voor het pad op de ws_grens.gpkg op te slaan. Default is de map \emph{data}.}
+\item{pad}{een string voor het pad op de ws_grens.gpkg op te slaan. ordt aangemaakt als het nog niet bestaat.
+Default is de map \emph{data}.}
 }
 \value{
 \code{get_ws_grens()} slaat ws_grens.gpkg op de gekozen locatie.
 }
 \description{
-Waterschapsgrens als dataframe of als bestand
+Waterschapsgrens als bestand
 }
 \examples{
 
