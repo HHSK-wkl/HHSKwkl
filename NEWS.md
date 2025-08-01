@@ -4,6 +4,8 @@
 
 - Github Action voor package-check versimpeld en geupdate
 - `ws_grens_rd` en `ws_grens_wgs` opgenomen als data-object i.p.v. de functie `ws_grens()`
+- nieuwe huisstijlkleuren opgenomen
+- logo vervangen en opgenomen in extdata
 
 *Verwijderd*
 
@@ -14,6 +16,8 @@
 - `render_server()` verwijderd - onnodig met nieuwe server
 - overbodige badges in de README weggehaald
 - coverage check verwijderd
+- `hhskblauw` en `hhskgroen`
+- `myCRS`
 
 
 *To Do*
@@ -29,7 +33,6 @@
 - Tests bijwerken
 - get_data functies uitbreiden en updaten
 - rapportage_utils updaten
-- gebruik nieuwere versie van Github actions en verwijder Travis CI
 
 
 *Over na denken*
