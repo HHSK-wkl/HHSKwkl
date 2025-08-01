@@ -192,7 +192,7 @@ titelpagina_internet <- function(inclusief_normen = TRUE){
 #'
 #' @param plot Het plot waar de normlijnen aan toegevoegd moeten worden
 #' @param parnr Het nummer van de parameter waar de normen van toegevoegd moeten worden
-#' @param normen Een dataframe met de normen zoals geimporteerd kan worden met de functie \code{\link{import_normen_rivm}}
+#' @param normen Een dataframe met de normen
 #' 
 #' @return een geom-object met normen dat toegevoegd kan worden aan een plot, of een plot waar deze aan toegevoegd zijn.
 #' 
@@ -251,10 +251,9 @@ add_norm_lijnen <- function(plot, parnr, normen){
 #'
 #' @param data Een dataframe met ruwe gegevens om grafieken van te maken. Deze moet tenminste de kolommen 
 #' mp, parnr, datum, detectiegrens en waarde hebben.
-#' @param meetpuntendf Een dataframe met mp en mpomsch voor de titel van de grafiek. Zie ook [import_meetpunten()]
+#' @param meetpuntendf Een dataframe met mp en mpomsch voor de titel van de grafiek. 
 #' @param parameterdf Een dataframe met parnr eenheid en parnaamlang voor de titel van de grafiek. 
-#' Zie ook [import_parameters()]
-#' @param normen Een dataframe met de normen. Zie ook [import_normen_rivm()]
+#' @param normen Een dataframe met de normen. 
 #' @param plot_normen Logical. Switch om wel geen normen te plotten. Default is \code{TRUE}
 #' @param export_pad String. Locatie waar de pdf's geplaatst worden
 #' @param lijst_parnrs Een optionele vector met parameternummers die meegenomen worden.
