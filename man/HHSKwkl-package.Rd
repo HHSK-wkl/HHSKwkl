@@ -11,8 +11,8 @@ Functies voor waterkwaliteitsanalyse. Zie verder: \url{https://redtent.github.io
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/RedTent/HHSKwkl}
-  \item Report bugs at \url{https://github.com/RedTent/HHSKwkl/issues}
+  \item \url{https://github.com/HHSK-wkl/HHSKwkl}
+  \item Report bugs at \url{https://github.com/HHSK-wkl/HHSKwkl/issues}
 }
 
 }
