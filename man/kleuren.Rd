@@ -10,6 +10,7 @@
 \alias{blauw_l}
 \alias{oranje}
 \alias{oranje_m}
+\alias{oranje_l}
 \alias{grijs_d}
 \alias{grijs}
 \alias{grijs_m}
@@ -20,9 +21,29 @@
 \alias{groen_l}
 \alias{wit}
 \alias{tekstgrijs}
+\alias{blauw_m_orig}
+\alias{blauw_l_orig}
+\alias{groen_m_orig}
+\alias{groen_l_orig}
+\alias{oranje_orig}
+\alias{oranje_m_orig}
 \title{Kleuren HHSK}
 \format{
 character
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 1.
 
 An object of class \code{character} of length 1.
 
@@ -71,6 +92,8 @@ oranje
 
 oranje_m
 
+oranje_l
+
 grijs_d
 
 grijs
@@ -90,8 +113,22 @@ groen_l
 wit
 
 tekstgrijs
+
+blauw_m_orig
+
+blauw_l_orig
+
+groen_m_orig
+
+groen_l_orig
+
+oranje_orig
+
+oranje_m_orig
 }
 \description{
 De kleuren van de huisstijl van HHSK. Gebruik de toevoeging _d, _m of _l voor donkere, midden of lichte variant.
+De originele lichtere kleurvarianten zijn niet altijd geschikt voor visualisaties.
+Deze zijn opgenomen met de toevoeging _orig.
 }
 \keyword{datasets}

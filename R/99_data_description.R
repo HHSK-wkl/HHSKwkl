@@ -13,7 +13,9 @@
 
 #' Kleuren HHSK
 #' 
-#' De kleuren van de huisstijl van HHSK. Gebruik de toevoeging _d, _m of _l voor donkere, midden of lichte variant.
+#' De kleuren van de huisstijl van HHSK. Gebruik de toevoeging _d, _m of _l voor donkere, midden of lichte variant. 
+#' De originele lichtere kleurvarianten zijn niet altijd geschikt voor visualisaties. 
+#' Deze zijn opgenomen met de toevoeging _orig.
 #' 
 #' @name kleuren
 #' 
@@ -39,6 +41,9 @@
 
 #' @rdname kleuren
 "oranje_m"
+
+#' @rdname kleuren
+"oranje_l"
 
 #' @rdname kleuren
 "grijs_d"
@@ -69,6 +74,25 @@
 
 #' @rdname kleuren
 "tekstgrijs"
+
+#' @rdname kleuren
+"blauw_m_orig"
+
+#' @rdname kleuren
+"blauw_l_orig"
+
+#' @rdname kleuren
+"groen_m_orig"
+
+#' @rdname kleuren
+"groen_l_orig"
+
+#' @rdname kleuren
+"oranje_orig"
+
+#' @rdname kleuren
+"oranje_m_orig"
+
 
 #' Droge voeten en schoon water
 #' 
