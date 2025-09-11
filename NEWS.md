@@ -1,3 +1,9 @@
+# HHSKwkl (development version)
+
+*Nieuw*
+
+- Kleuren aangepast omdat originele huisstijlkleuren minder goed werken voor visualisaties
+
 # HHSKwkl 0.5.0
 
 *Vernieuwd*
