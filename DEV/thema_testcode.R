@@ -109,3 +109,17 @@ p3 + thema_test()
 
 p4 + thema_test()
 
+
+
+# Ruda install ------------------------------------------------------------
+
+ruda_afwezig <- 
+  systemfonts::system_fonts()  %>% 
+  dplyr::filter(name == "Ruda")  %>% 
+  nrow() %>% 
+  {. == 0}
+
+if (ruda_afwezig) message("Het thema maakt gebruik van het Google-font Ruda. Ruda  is niet geïnstalleerd. Ruda  is te installeren met xxx")
+
+
+
