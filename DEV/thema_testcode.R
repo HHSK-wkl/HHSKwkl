@@ -5,7 +5,8 @@ library(systemfonts)
 
 # Data en plots -----------------------------------------------------------
 
-fys_chem <- readRDS("C:/data/fys_chem.rds") %>% filter(mp %in% c("S_0010", "S_0007", "S_0005", "S_0016"), parnr == 1, year(datum) > 2018)
+# fys_chem <- readRDS("C:/data/fys_chem.rds") %>% filter(mp %in% c("S_0010", "S_0007", "S_0005", "S_0016"), parnr == 1, year(datum) > 2018)
+fys_chem <- data_online("fys_chem.rds") %>% filter(mp %in% c("S_0010", "S_0007", "S_0005", "S_0016"), parnr == 1, year(datum) > 2018)
 
 p <- 
   fys_chem %>% 
@@ -112,14 +113,31 @@ p4 + thema_test()
 
 
 # Ruda install ------------------------------------------------------------
+# 
+# ruda_afwezig <- 
+#   systemfonts::system_fonts()  %>% 
+#   dplyr::filter(name == "Ruda")  %>% 
+#   nrow() %>% 
+#   {. == 0}
+# 
+# if (ruda_afwezig) message("Het thema maakt gebruik van het Google-font Ruda. Ruda  is niet geïnstalleerd. Ruda  is te installeren met xxx")
+# 
 
-ruda_afwezig <- 
-  systemfonts::system_fonts()  %>% 
-  dplyr::filter(name == "Ruda")  %>% 
-  nrow() %>% 
-  {. == 0}
-
-if (ruda_afwezig) message("Het thema maakt gebruik van het Google-font Ruda. Ruda  is niet geïnstalleerd. Ruda  is te installeren met xxx")
-
-
+check_ruda_aanwezig <- function(){
+  
+  ruda_aanwezig <- 
+    systemfonts::system_fonts()  %>% 
+    dplyr::filter(family == "Ruda")  %>% 
+    nrow() %>% 
+    {. > 0}
+  
+  boodschap <- paste0(
+    "Het thema maakt gebruik van het Google-font Ruda: dit is niet geïnstalleerd.\n",
+    "Ruda is te installeren vanuit", system.file("extdata/fonts"), ".")
+  
+  if (!ruda_aanwezig) message(boodschap)
+  
+  ruda_aanwezig
+  
+}
 
