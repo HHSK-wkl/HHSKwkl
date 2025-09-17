@@ -68,5 +68,9 @@ if (getRversion() >= "2.15.1")  utils::globalVariables(c(".",
                                                          "log10AvgAcute",
                                                          "Devlog10Acute",
                                                          "log10AvgChronic",
-                                                         "Devlog10Chronic"
+                                                         "Devlog10Chronic",
+                                                         "family",
+                                                         "blauw_l",
+                                                         "oranje",
+                                                         "blauw_d"
                                                          ))

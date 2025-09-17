@@ -28,7 +28,8 @@ Imports:
     magrittr,
     stats,
     httr2,
-    tools
+    tools,
+    systemfonts
 Suggests: 
     testthat,
     covr,
