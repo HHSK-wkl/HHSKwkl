@@ -5,10 +5,14 @@
 #' 
 #' Dit is een HHSK-thema voor ggplot 
 #'
+#' # Fonts
+#' 
+#' Voor het correct weergeven van fonts in Rstudio of documenten moeten extra stappen 
+#' worden genomen. Zie <https://systemfonts.r-lib.org/articles/systemfonts.html> voor een
+#' toelichting.
 #'
 #' @return Een thema voor ggplot
-
-#'
+#' 
 #' @name hhskthema
 #'
 #' @examples

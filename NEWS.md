@@ -3,6 +3,7 @@
 *Nieuw*
 
 - Kleuren aangepast omdat originele huisstijlkleuren minder goed werken voor visualisaties
+- Eerste stappen voor vervanging hhskthema() met thema_test()
 
 # HHSKwkl 0.5.0
 

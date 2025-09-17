@@ -7,13 +7,14 @@
 \alias{thema_hor_bar}
 \alias{thema_vert_bar}
 \alias{thema_line_facet}
+\alias{thema_test}
 \title{HHSK thema}
 \format{
-An object of class \code{theme} (inherits from \code{gg}) of length 136.
+An object of class \code{theme} (inherits from \code{ggplot2::theme}, \code{gg}, \code{S7_object}) of length 144.
 
-An object of class \code{theme} (inherits from \code{gg}) of length 136.
+An object of class \code{theme} (inherits from \code{ggplot2::theme}, \code{gg}, \code{S7_object}) of length 144.
 
-An object of class \code{theme} (inherits from \code{gg}) of length 136.
+An object of class \code{theme} (inherits from \code{ggplot2::theme}, \code{gg}, \code{S7_object}) of length 144.
 }
 \usage{
 hhskthema()
@@ -25,6 +26,8 @@ thema_hor_bar
 thema_vert_bar
 
 thema_line_facet
+
+thema_test()
 }
 \value{
 Een thema voor ggplot
@@ -32,6 +35,12 @@ Een thema voor ggplot
 \description{
 Dit is een HHSK-thema voor ggplot
 }
+\section{Fonts}{
+Voor het correct weergeven van fonts in Rstudio of documenten moeten extra stappen
+worden genomen. Zie \url{https://systemfonts.r-lib.org/articles/systemfonts.html} voor een
+toelichting.
+}
+
 \examples{
 \dontrun{
 
