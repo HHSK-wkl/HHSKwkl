@@ -62,6 +62,8 @@ p4 <-
 
 thema_test <- function(){
   
+  check_ruda_aanwezig()
+  
   systemfonts::register_variant(
     name = "Ruda Title",
     family = "Ruda",
