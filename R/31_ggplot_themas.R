@@ -135,27 +135,28 @@ thema_test <- function(){
   }
   thema <-
     ggplot2::theme(
+      text = ggplot2::element_text(family = "Ruda Bold", color = "grey50"),
+      title = ggplot2::element_text(family = "Ruda Title"),
+      line = ggplot2::element_line(color = "grey50"),
       geom = ggplot2::element_geom(color = blauw, fill = blauw_l, accent = oranje),
-      text = ggplot2::element_text(family = "Ruda Bold"),
-      title = ggplot2::element_text(family = "Ruda Title", color = blauw_d),
       
-      plot.title =    ggplot2::element_text(color = blauw_d, size = ggplot2::rel(1.5)),
-      plot.subtitle = ggplot2::element_text(family = "Ruda Bold", color = "grey50", size = ggplot2::rel(1.1)),
-      plot.caption =  ggplot2::element_text(family = "Ruda", color = "grey40", size = ggplot2::rel(0.9)),
+      plot.title =    ggplot2::element_text(color = blauw_d,      size = ggplot2::rel(1.5)),
+      plot.subtitle = ggplot2::element_text(family = "Ruda Bold", size = ggplot2::rel(1.1)),
+      plot.caption =  ggplot2::element_text(family = "Ruda",      size = ggplot2::rel(0.9)),
       
-      axis.title =  ggplot2::element_text(color = "grey40"),
-      axis.text =   ggplot2::element_text(color = "grey40", size = ggplot2::rel(0.9)),
-      axis.ticks =  ggplot2::element_line(color = "grey40"),
-      axis.line = ggplot2::element_line(color = "grey40", linewidth = 0.3),
+      axis.title =  ggplot2::element_text(),
+      axis.text =   ggplot2::element_text(size = ggplot2::rel(0.9), color = "grey50"),# doesn't inherit
+      axis.ticks =  ggplot2::element_line(),
+      axis.line = ggplot2::element_line(linewidth = 0.3),
       
       panel.border =     ggplot2::element_blank(),
       panel.grid.major = ggplot2::element_line(color = "grey80", linetype = "dotted", linewidth = 0.3),
       panel.grid.minor = ggplot2::element_blank(),
       
-      legend.title = ggplot2::element_text(color = "grey50", face = "bold"),
-      legend.text =  ggplot2::element_text(color = "grey40"),
+      legend.title = ggplot2::element_text(face = "bold"),
+      legend.text =  ggplot2::element_text(size = ggplot2::rel(0.9)),
       
-      strip.background = ggplot2::element_rect(fill = "#E1FAFDFF", colour = NA),
+      strip.background = ggplot2::element_rect(fill = "#E1FAFDFF", colour = NA), # prismatic::clr_lighten(blauw_l_orig, 0.6)
       strip.text =       ggplot2::element_text(family = "Ruda Title", color = blauw_d, size = ggplot2::rel(0.9))
       
     ) |>
