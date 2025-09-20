@@ -133,8 +133,8 @@ thema_test <- function(){
       text = ggplot2::element_text(family = "Ruda"),
       title = ggplot2::element_text(family = "Ruda Title", color = blauw_d),
       
-      plot.title =    ggplot2::element_text(color = blauw_d, hjust = 0, size = ggplot2::rel(1.5)),
-      plot.subtitle = ggplot2::element_text(face = "bold", color = "grey50", hjust = 0, size = ggplot2::rel(1.1)),
+      plot.title =    ggplot2::element_text(color = blauw_d, size = ggplot2::rel(1.5)),
+      plot.subtitle = ggplot2::element_text(face = "bold", color = "grey50", size = ggplot2::rel(1.1)),
       plot.caption =  ggplot2::element_text(color = "grey40", size = ggplot2::rel(0.9)),
       
       axis.title =  ggplot2::element_text(color = "grey40"),
@@ -146,7 +146,7 @@ thema_test <- function(){
       panel.grid.major = ggplot2::element_line(color = "grey80", linetype = "dotted", linewidth = 0.3),
       panel.grid.minor = ggplot2::element_blank(),
       
-      legend.title = ggplot2::element_text(color = "grey50", face = "bold", hjust = 0),
+      legend.title = ggplot2::element_text(color = "grey50", face = "bold"),
       legend.text =  ggplot2::element_text(color = "grey40"),
       
       strip.background = ggplot2::element_rect(fill = "#E1FAFDFF", colour = NA),
