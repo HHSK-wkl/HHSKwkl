@@ -126,16 +126,22 @@ thema_test <- function(){
     family = "Ruda",
     weight = "heavy"
   )
+    
+    systemfonts::register_variant(
+      name = "Ruda Bold",
+      family = "Ruda",
+      weight = "bold"
+    )
   }
   thema <-
     ggplot2::theme(
       geom = ggplot2::element_geom(color = blauw, fill = blauw_l, accent = oranje),
-      text = ggplot2::element_text(family = "Ruda"),
+      text = ggplot2::element_text(family = "Ruda Bold"),
       title = ggplot2::element_text(family = "Ruda Title", color = blauw_d),
       
       plot.title =    ggplot2::element_text(color = blauw_d, size = ggplot2::rel(1.5)),
-      plot.subtitle = ggplot2::element_text(face = "bold", color = "grey50", size = ggplot2::rel(1.1)),
-      plot.caption =  ggplot2::element_text(color = "grey40", size = ggplot2::rel(0.9)),
+      plot.subtitle = ggplot2::element_text(family = "Ruda Bold", color = "grey50", size = ggplot2::rel(1.1)),
+      plot.caption =  ggplot2::element_text(family = "Ruda", color = "grey40", size = ggplot2::rel(0.9)),
       
       axis.title =  ggplot2::element_text(color = "grey40"),
       axis.text =   ggplot2::element_text(color = "grey40", size = ggplot2::rel(0.9)),
