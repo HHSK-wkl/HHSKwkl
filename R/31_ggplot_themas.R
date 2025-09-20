@@ -120,14 +120,13 @@ thema_line_facet <-
 #' @export
 thema_test <- function(){
   
-  check_ruda_aanwezig()
-  
-  systemfonts::register_variant(
+  if (check_ruda_aanwezig()) {
+    systemfonts::register_variant(
     name = "Ruda Title",
     family = "Ruda",
     weight = "heavy"
   )
-  
+  }
   thema <-
     ggplot2::theme(
       geom = ggplot2::element_geom(color = blauw, fill = blauw_l, accent = oranje),
@@ -170,7 +169,7 @@ check_ruda_aanwezig <- function(){
   
   boodschap <- paste0(
     "Het thema maakt gebruik van het Google-font Ruda: dit is niet geinstalleerd.\n",
-    "Ruda is te installeren vanuit", system.file("extdata/fonts"), ".")
+    "Ruda is te installeren vanuit ", system.file("extdata/fonts", package = "HHSKwkl"), " .")
   
   if (!ruda_aanwezig) message(boodschap)
   
