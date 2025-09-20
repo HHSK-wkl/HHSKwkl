@@ -32,7 +32,6 @@ Imports:
     systemfonts
 Suggests: 
     testthat,
-    covr,
     twn,
     odbc,
     DBI,
