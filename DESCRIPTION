@@ -1,7 +1,7 @@
 Package: HHSKwkl
 Type: Package
 Title: Functies HHSK Waterkwaliteit
-Version: 0.5.0.9000
+Version: 0.5.0.9001
 Authors@R: person("Johan", "van Tent", email = "j.van.tent@hhsk.nl", 
     role = c("aut", "cre"))
 Description: Functies voor waterkwaliteit.
