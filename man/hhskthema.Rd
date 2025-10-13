@@ -2,10 +2,15 @@
 % Please edit documentation in R/31_ggplot_themas.R
 \name{hhskthema}
 \alias{hhskthema}
+\alias{hhskthema_kaart}
 \alias{hhskthema_oud}
 \alias{hhskthema_kaart_oud}
 \title{HHSK thema}
 \usage{
+hhskthema()
+
+hhskthema_kaart()
+
 hhskthema_oud()
 
 hhskthema_kaart_oud()

@@ -24,6 +24,8 @@
 #' 
 NULL
 
+#' @rdname hhskthema
+#' @export
 hhskthema <- function(){
   
   if (check_ruda_aanwezig()) {
@@ -91,6 +93,8 @@ check_ruda_aanwezig <- function(){
   
 }
 
+#' @rdname hhskthema
+#' @export
 hhskthema_kaart <- function(){
   
   if (check_ruda_aanwezig()) {
