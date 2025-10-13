@@ -2,8 +2,9 @@
 
 *Nieuw*
 
-- Kleuren aangepast omdat originele huisstijlkleuren minder goed werken voor visualisaties
-- Eerste stappen voor vervanging hhskthema() met thema_test()
+- Kleuren aangepast omdat originele huisstijlkleuren minder goed werken voor visualisaties.
+- Eerste stappen voor vervanging `hhskthema()` vernieuwd, oude thema's te vinden onder `hhskthema_oud()`
+- brand en Ruda-font opgenomen in extdata
 
 # HHSKwkl 0.5.0
 
