@@ -46,7 +46,7 @@ get_ws_grens <- function(pad = "data"){
 get_logo <- function(pad = "images"){
   if (!dir.exists(pad)) dir.create(pad)
   
-  bestandsnamen <- system.file(c("extdata/logo_kleur.png", "extdata/logo_wit.png"), package = "HHSKwkl")
+  bestandsnamen <- system.file(c("extdata/logo_kleur.png", "extdata/logo_wit.png", "extdata/favicon.svg"), package = "HHSKwkl")
   file.copy(from = bestandsnamen, to = pad, overwrite = TRUE)
   
 }
