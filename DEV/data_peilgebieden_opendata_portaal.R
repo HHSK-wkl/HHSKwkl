@@ -14,7 +14,9 @@ peilgebieden <- st_read(url)
 head(peilgebieden)
 
 peilgebieden %>% 
-  mutate(opp = st_area(peilgebieden)) %>% 
+  mutate(opp = st_area(.),
+         opp_ha = round(opp / 10000, digits = 0)) %>% 
+  select(CODE, opp, opp_ha) %>% 
   as_tibble() %>% View()
   
 st_area(peilgebieden)
@@ -31,3 +33,9 @@ peilafwijkingen <-  st_read(url_peilafwijkingen)
 peilgebieden_rd <- st_read(geojson_rd_url)
 
 st_crs(peilgebieden_rd)  # Controleer of het EPSG:28992 is
+
+peilgebieden %>% 
+  mutate(opp = st_area(.))
+
+peilgebieden %>% 
+  mutate(opp = st_area(peilgebieden))
