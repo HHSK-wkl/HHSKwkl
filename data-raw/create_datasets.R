@@ -63,8 +63,8 @@ usethis::use_data(blauw, groen, oranje, grijs, wit,
                   kleuren_hhsk,
                   overwrite = TRUE)
 
-ws_grens_rd <- sf::st_read("data-raw/ws_grens.gpkg", crs = 28992, quiet = TRUE)
-ws_grens_wgs <- sf::st_read("data-raw/ws_grens.gpkg", crs = 28992, quiet = TRUE) |>
+ws_grens_rd <- sf::read_sf("data-raw/ws_grens.gpkg", crs = 28992)
+ws_grens_wgs <- sf::read_sf("data-raw/ws_grens.gpkg", crs = 28992) |>
   sf::st_transform(crs = 4326)
 
 usethis::use_data(ws_grens_rd, ws_grens_wgs, overwrite = TRUE)
