@@ -2,7 +2,7 @@
 
 *Nieuw*
 
-- aanpassing ws_grens_rd en ws_grens_wgs naar tibble ipv dataframe
+- aanpassing ws_grens_rd en ws_grens_wgs naar sf-tibble ipv sf-dataframe
 
 # HHSKwkl 0.5.1
 
