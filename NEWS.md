@@ -1,3 +1,9 @@
+# HHSKwkl (development version)
+
+*Nieuw*
+
+- aanpassing ws_grens_rd en ws_grens_wgs naar tibble ipv dataframe
+
 # HHSKwkl 0.5.1
 
 *Nieuw*
