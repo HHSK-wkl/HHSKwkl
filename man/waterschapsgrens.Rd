@@ -7,9 +7,9 @@
 \alias{ws_grens_wgs}
 \title{Waterschapsgrens}
 \format{
-An object of class \code{sf} (inherits from \code{data.frame}) with 5 rows and 3 columns.
+An object of class \code{sf} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 5 rows and 3 columns.
 
-An object of class \code{sf} (inherits from \code{data.frame}) with 5 rows and 3 columns.
+An object of class \code{sf} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 5 rows and 3 columns.
 }
 \usage{
 ws_grens_rd
