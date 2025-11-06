@@ -3,6 +3,7 @@
 *Nieuw*
 
 - aanpassing ws_grens_rd en ws_grens_wgs naar sf-tibble ipv sf-dataframe
+- `...` toegevoegd aan basiskaart voor leaflet elementId
 
 # HHSKwkl 0.5.1
 
