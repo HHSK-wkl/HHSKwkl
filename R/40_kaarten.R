@@ -4,6 +4,7 @@
 #'
 #' @param data Een optioneel dataframe. Zie ook het data-argument in de functie [leaflet::leaflet()]
 #' @param type Het type kaart. Opties zijn `"osm"` (default) en `"cartolight"`
+#' @param ... Named arguments voor `leaflet()`
 #'
 #' @return Een leaflet kaart
 #' @export
@@ -12,10 +13,10 @@
 #' 
 #' basiskaart()
 #' 
-basiskaart <- function(data = NULL, type = c("osm", "cartolight")) {
+basiskaart <- function(data = NULL, type = c("osm", "cartolight"), ...) {
   type <- rlang::arg_match(type, c("osm", "cartolight"))
   
-  leaflet::leaflet(data) %>% 
+  leaflet::leaflet(data, ...) %>% 
     {if (type == "osm") {leaflet::addProviderTiles(. ,"OpenStreetMap", group = "Kaart") } else {.}} %>%
     {if (type == "cartolight") {leaflet::addProviderTiles(., "CartoDB.Positron", group = "Kaart") } else {.}} %>%
     leaflet::addProviderTiles("Esri.WorldImagery", group = "Luchtfoto") %>% 
