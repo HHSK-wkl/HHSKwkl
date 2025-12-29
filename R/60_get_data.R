@@ -52,14 +52,18 @@ get_logo <- function(pad = "images"){
 }
 
 
+
+# Open GIS-data -----------------------------------------------------------
+
+
 #' Haal Open GIS-data van HHSK op
 #' 
 #' Met deze functie kan GIS-data van HHSK worden gedownload. Voor de beschikbare datasets zie
 #' `gisdata_info` of gebruik de interactieve versie van de functie met `dataset = NULL`.
 #'
-#' @param dataset Code voorde gewenste dataset. Zie ook `gisdata_info`. `NULL` geeft een keuze menu.
+#' @param dataset Code voor de gewenste dataset. Zie ook `gisdata_info`. `NULL` geeft een keuze menu.
 #'
-#' @returns Een geo-object met de gekozen dataset
+#' @returns Een geo-object met de gekozen dataset.
 #' @export
 #'
 #' @examples
@@ -85,4 +89,22 @@ get_open_gisdata <- function(dataset = NULL){
     sf::read_sf()
   
 }
+
+
+# Brand HHSK --------------------------------------------------------------
+
+#' De quarto brand-extensie en templates voor HHSK
+#'
+#' @returns Installeert de brand extensie in de working directory of installeert de templates
+#' @export
+#'
+#' @examples
+#' 
+#' \dontrun{
+#'  get_brand_hhsk()
+#' }
+get_brand_hhsk <- function(){
+  quarto::quarto_add_extension("HHSK-wkl/brand_hhsk", no_prompt = TRUE)
+}
+
 

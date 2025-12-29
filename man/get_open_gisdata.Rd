@@ -7,10 +7,10 @@
 get_open_gisdata(dataset = NULL)
 }
 \arguments{
-\item{dataset}{Code voorde gewenste dataset. Zie ook \code{gisdata_info}. \code{NULL} geeft een keuze menu.}
+\item{dataset}{Code voor de gewenste dataset. Zie ook \code{gisdata_info}. \code{NULL} geeft een keuze menu.}
 }
 \value{
-Een geo-object met de gekozen dataset
+Een geo-object met de gekozen dataset.
 }
 \description{
 Met deze functie kan GIS-data van HHSK worden gedownload. Voor de beschikbare datasets zie

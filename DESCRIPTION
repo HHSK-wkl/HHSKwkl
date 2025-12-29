@@ -31,7 +31,8 @@ Imports:
     httr2,
     tools,
     systemfonts,
-    utils
+    utils,
+    quarto
 Suggests: 
     testthat,
     twn,
