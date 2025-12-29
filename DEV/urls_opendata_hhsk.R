@@ -106,4 +106,6 @@ mp_reg %>%
 #   leaflet::addCircleMarkers(label = ~CODE)
 
 st_read(url_legger_bergingsgebied)
-st_read(url_legger_sluis)
+x <- st_read(url_krw_2022_2027)
+
+x %>% select(CODE, NAAM) %>% HHSKwkl::maak_opzoeker()

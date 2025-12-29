@@ -72,13 +72,24 @@ check_ruda_aanwezig <- function(){
 # Testcode ----------------------------------------------------------------
 p2 + thema_test()
 
+p + hhskthema()
 p + thema_test()
 
+p2 + hhskthema()
+p2 + thema_test()
 
+p3 + hhskthema()
 p3 + thema_test()
 
-p4 + thema_test()
 
+p4 + hhskthema()
+p3 + hhskthema_kaart() + theme(axis.title = element_blank())
+p4 + thema_test()
+p4 + hhskthema() +
+  theme(
+strip.background = ggplot2::element_rect(fill = "#EDF5FFFF", colour = NA)
+) 
+prismatic::clr_lighten(blauw_l, 0.7)
 
 
 # Ruda install ------------------------------------------------------------
