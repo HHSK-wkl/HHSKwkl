@@ -7,7 +7,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/HHSK-wkl/HHSKwkl/blob/master/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/HHSK-wkl/HHSKwkl/blob/v0.5.2/DESCRIPTION)
 
 van Tent J (2025). *HHSKwkl: Functies HHSK Waterkwaliteit*. R package
 version 0.5.2, <https://github.com/HHSK-wkl/HHSKwkl>.
