@@ -2,6 +2,7 @@
 
 *Nieuw*
 
+- `get_open_gisdata()` en `gisdata_info` toegevoegd voor gebruik open dataportaal van HHSK voor GIS-informatie.
 - aanpassing ws_grens_rd en ws_grens_wgs naar sf-tibble ipv sf-dataframe
 - `...` toegevoegd aan basiskaart voor leaflet elementId
 

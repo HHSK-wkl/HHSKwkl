@@ -103,3 +103,11 @@
 #' 
 #' Dit is het HHSK logo
 "logo"
+
+#' Informatie over Open GIS data van HHSK
+#' 
+#' Bevat een overzicht van een groot deel van de open GIS data van HHSK met de bijbehorende
+#' URL's om de online data op te halen.
+#'
+#'
+"gisdata_info"

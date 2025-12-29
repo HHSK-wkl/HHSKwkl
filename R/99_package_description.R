@@ -72,5 +72,7 @@ if (getRversion() >= "2.15.1")  utils::globalVariables(c(".",
                                                          "family",
                                                          "blauw_l",
                                                          "oranje",
-                                                         "blauw_d"
+                                                         "blauw_d",
+                                                         "gisdata_info",
+                                                         "code"
                                                          ))

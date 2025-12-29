@@ -79,3 +79,7 @@ schonevoeten <- png::readPNG("data-raw/schonevoeten.png") |> as.raster()
 
 usethis::use_data(logo, schonevoeten, overwrite = TRUE)
 
+gisdata_info <- readxl::read_excel("data-raw/open_gisdata_hhsk.xlsx")
+
+usethis::use_data(gisdata_info, overwrite = TRUE)
+

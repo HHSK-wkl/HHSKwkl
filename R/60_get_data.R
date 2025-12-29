@@ -51,7 +51,38 @@ get_logo <- function(pad = "images"){
   
 }
 
-# Brand -------------------------------------------------------------------
 
-
+#' Haal Open GIS-data van HHSK op
+#' 
+#' Met deze functie kan GIS-data van HHSK worden gedownload. Voor de beschikbare datasets zie
+#' `gisdata_info` of gebruik de interactieve versie van de functie met `dataset = NULL`.
+#'
+#' @param dataset Code voorde gewenste dataset. Zie ook `gisdata_info`. `NULL` geeft een keuze menu.
+#'
+#' @returns Een geo-object met de gekozen dataset
+#' @export
+#'
+#' @examples
+#' 
+#' \dontrun{
+#' get_open_gisdata("krw_2022_2027")
+#' }
+#' 
+get_open_gisdata <- function(dataset = NULL){
+  if (is.null(dataset)) {
+    dataset_nr <- utils::menu(gisdata_info$code)
+    
+    dataset <- gisdata_info[[dataset_nr, "code"]]
+    
+    message(paste0('Haal de data direct op met `get_open_gisdata("', 
+                   dataset, 
+                   '")`'))
+  }
+  
+  gisdata_info %>% 
+    dplyr::filter(code == dataset) %>% 
+    .[[1, "url_lang"]] %>% 
+    sf::read_sf()
+  
+}
 
