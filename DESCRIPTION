@@ -39,5 +39,5 @@ Suggests:
     odbc,
     DBI,
     rstudioapi
-URL: https://github.com/HHSK-wkl/HHSKwkl
+URL: https://github.com/HHSK-wkl/HHSKwkl, https://hhsk-wkl.github.io/HHSKwkl/
 BugReports: https://github.com/HHSK-wkl/HHSKwkl/issues

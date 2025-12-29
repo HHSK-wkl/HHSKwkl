@@ -2,15 +2,15 @@
 % Please edit documentation in R/60_get_data.R
 \name{get_brand_hhsk}
 \alias{get_brand_hhsk}
-\title{De quarto brand-extensie en templates voor HHSK}
+\title{De quarto brand-extensie voor HHSK}
 \usage{
 get_brand_hhsk()
 }
 \value{
-Installeert de brand extensie in de working directory of installeert de templates
+Installeert de brand extensie in de working directory
 }
 \description{
-De quarto brand-extensie en templates voor HHSK
+De quarto brand-extensie voor HHSK
 }
 \examples{
 

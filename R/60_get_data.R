@@ -93,9 +93,9 @@ get_open_gisdata <- function(dataset = NULL){
 
 # Brand HHSK --------------------------------------------------------------
 
-#' De quarto brand-extensie en templates voor HHSK
+#' De quarto brand-extensie voor HHSK
 #'
-#' @returns Installeert de brand extensie in de working directory of installeert de templates
+#' @returns Installeert de brand extensie in de working directory
 #' @export
 #'
 #' @examples
