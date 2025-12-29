@@ -26,6 +26,6 @@ dt_labels_nederlands
 #>         info = "Rijen _START_ tot _END_ | Totaal: _TOTAL_ rijen", 
 #>         lengthMenu = "Toon _MENU_ rijen")))
 #> }
-#> <bytecode: 0x55c095c37268>
+#> <bytecode: 0x563bf7e3a820>
 #> <environment: namespace:HHSKwkl>
 ```
