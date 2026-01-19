@@ -94,17 +94,32 @@ get_open_gisdata <- function(dataset = NULL){
 # Brand HHSK --------------------------------------------------------------
 
 #' De quarto brand-extensie voor HHSK
+#' 
+#' Installeert de brand-extensie van HHSK of geeft instructies voor het installeren
+#' van de templates
 #'
 #' @returns Installeert de brand extensie in de working directory
 #' @export
+#'
+#' @name brand_hhsk
 #'
 #' @examples
 #' 
 #' \dontrun{
 #'  get_brand_hhsk()
+#'  get_template_hhsk()
 #' }
+#' 
+
+#' @rdname brand_hhsk
+#' @export
 get_brand_hhsk <- function(){
   quarto::quarto_add_extension("HHSK-wkl/brand_hhsk", no_prompt = TRUE)
 }
 
 
+#' @rdname brand_hhsk
+#' @export
+get_template_hhsk <- function(){
+  message("Open de terminal en installeer de template met `quarto use template HHSKwkl/brand_hhsk`")
+}
