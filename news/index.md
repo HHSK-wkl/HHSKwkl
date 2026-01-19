@@ -6,7 +6,9 @@
 
 *Nieuw*
 
-- [`get_brand_hhsk()`](https://hhsk-wkl.github.io/HHSKwkl/reference/get_brand_hhsk.md)
+- [`get_brand_hhsk()`](https://hhsk-wkl.github.io/HHSKwkl/reference/brand_hhsk.md)
+  en
+  [`get_template_hhsk()`](https://hhsk-wkl.github.io/HHSKwkl/reference/brand_hhsk.md)
   toegevoegd voor vereenvoudigde installatie van brand_hhsk voor Quarto.
 - [`get_open_gisdata()`](https://hhsk-wkl.github.io/HHSKwkl/reference/get_open_gisdata.md)
   en `gisdata_info` toegevoegd voor gebruik open dataportaal van HHSK

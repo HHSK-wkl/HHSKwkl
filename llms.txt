@@ -52,6 +52,9 @@ het op prijs als je dat aan mij zou willen laten weten.
   : Leaflet basiskaart met topo en luchtfoto
 - [`boxplot_basis()`](https://hhsk-wkl.github.io/HHSKwkl/reference/boxplot_basis.md)
   : Boxplots per jaar
+- [`get_brand_hhsk()`](https://hhsk-wkl.github.io/HHSKwkl/reference/brand_hhsk.md)
+  [`get_template_hhsk()`](https://hhsk-wkl.github.io/HHSKwkl/reference/brand_hhsk.md)
+  : De quarto brand-extensie voor HHSK
 - [`copy_data()`](https://hhsk-wkl.github.io/HHSKwkl/reference/copy_data.md)
   : Synchroniseer bestanden met een bronlocatie
 - [`count_rel()`](https://hhsk-wkl.github.io/HHSKwkl/reference/count_rel.md)
@@ -65,8 +68,6 @@ het op prijs als je dat aan mij zou willen laten weten.
 - [`frac()`](https://hhsk-wkl.github.io/HHSKwkl/reference/fracties.md)
   [`perc()`](https://hhsk-wkl.github.io/HHSKwkl/reference/fracties.md) :
   Bepaal welk aandeel voldoet aan een voorwaarde
-- [`get_brand_hhsk()`](https://hhsk-wkl.github.io/HHSKwkl/reference/get_brand_hhsk.md)
-  : De quarto brand-extensie voor HHSK
 - [`get_logo()`](https://hhsk-wkl.github.io/HHSKwkl/reference/get_logo.md)
   : Logo's HHSK
 - [`get_open_gisdata()`](https://hhsk-wkl.github.io/HHSKwkl/reference/get_open_gisdata.md)
