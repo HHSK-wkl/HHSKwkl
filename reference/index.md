@@ -83,6 +83,8 @@
   logo
 - [`maak_opzoeker()`](https://hhsk-wkl.github.io/HHSKwkl/reference/maak_opzoeker.md)
   : Maak een opzoekfunctie
+- [`macev_groep()`](https://hhsk-wkl.github.io/HHSKwkl/reference/macev_groep.md)
+  : Bepaal macrofaunagroep
 - [`mon_taxa_n()`](https://hhsk-wkl.github.io/HHSKwkl/reference/mon_info.md)
   [`mon_taxa_missing()`](https://hhsk-wkl.github.io/HHSKwkl/reference/mon_info.md)
   [`mon_taxa_n_uniek()`](https://hhsk-wkl.github.io/HHSKwkl/reference/mon_info.md)

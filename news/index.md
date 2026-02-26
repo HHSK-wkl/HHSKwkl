@@ -2,6 +2,10 @@
 
 ## HHSKwkl (development version)
 
+- toevoeging van functie
+  [`macev_groep()`](https://hhsk-wkl.github.io/HHSKwkl/reference/macev_groep.md)
+  om de macrofaunagroep te bepalen.
+
 ## HHSKwkl 0.5.2
 
 *Nieuw*
