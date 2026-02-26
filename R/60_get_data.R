@@ -121,5 +121,5 @@ get_brand_hhsk <- function(){
 #' @rdname brand_hhsk
 #' @export
 get_template_hhsk <- function(){
-  message("Open de terminal en installeer de template met `quarto use template HHSKwkl/brand_hhsk`")
+  message("Open de terminal en installeer de template met `quarto use template HHSK-wkl/brand_hhsk`")
 }
