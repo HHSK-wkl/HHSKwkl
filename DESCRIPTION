@@ -32,10 +32,10 @@ Imports:
     tools,
     systemfonts,
     utils,
-    quarto
+    quarto,
+    twn
 Suggests: 
     testthat,
-    twn,
     odbc,
     DBI,
     rstudioapi
