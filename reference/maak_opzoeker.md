@@ -34,6 +34,7 @@ met opgezochte waarden.
 ## Examples
 
 ``` r
+
 x <- USArrests
 x$names <- rownames(x)
 

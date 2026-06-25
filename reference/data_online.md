@@ -26,6 +26,7 @@ Een R-object
 ## Examples
 
 ``` r
+
 if (FALSE) { # \dontrun{
 fys_chem <- data_online("fys_chem.rds")
 } # }

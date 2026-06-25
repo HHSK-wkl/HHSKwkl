@@ -57,6 +57,7 @@ Een vector met PAF waarden
 ## Examples
 
 ``` r
+
 if (FALSE) { # \dontrun{
 testdata %>% 
 mutate(paf_acuut = paf_gbm(aquo_par = f_aquopar(parnr), 

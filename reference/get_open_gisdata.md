@@ -24,6 +24,7 @@ Een geo-object met de gekozen dataset.
 ## Examples
 
 ``` r
+
 if (FALSE) { # \dontrun{
 get_open_gisdata("krw_2022_2027")
 } # }

@@ -26,6 +26,7 @@ Fractie of percentage dat voldoet aan de voorwaarde
 ## Examples
 
 ``` r
+
 dplyr::summarise(mtcars, 
                  frac_4_cyls = frac(cyl == 4),
                  perc_6_cyls = perc(cyl == 6))

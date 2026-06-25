@@ -33,6 +33,7 @@ A tbl with fractions, grouped the same way as x.
 ## Examples
 
 ``` r
+
 count_rel(mtcars, cyl, sort = TRUE)
 #>   cyl    frac
 #> 1   8 0.43750

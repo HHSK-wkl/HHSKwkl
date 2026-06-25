@@ -47,6 +47,7 @@ Geeft hetzelfde dataframe met een kolom long en lat toegevoegd.
 ## Examples
 
 ``` r
+
 if (FALSE) { # \dontrun{
 
 df %>% add_lat_long()

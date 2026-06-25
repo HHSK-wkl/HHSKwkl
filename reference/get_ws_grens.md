@@ -22,6 +22,7 @@ get_ws_grens(pad = "data")
 ## Examples
 
 ``` r
+
 if (FALSE) { # \dontrun{
 get_ws_grens("data")
 } # }

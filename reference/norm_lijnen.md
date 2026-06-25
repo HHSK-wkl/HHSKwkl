@@ -42,6 +42,7 @@ een plot waar deze aan toegevoegd zijn.
 ## Examples
 
 ``` r
+
 if (FALSE) { # \dontrun{
 
 norm_lijnen_object <- norm_lijnen(parnr = 1000, normen = normen)

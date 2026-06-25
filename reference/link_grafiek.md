@@ -25,6 +25,7 @@ HTML-tekst met een link naar een grafiek
 ## Examples
 
 ``` r
+
 if (FALSE) { # \dontrun{
 
 link_grafiek("S_0067", "eigen_tekst")

@@ -23,6 +23,7 @@ Een vector met de groepsnamen
 ## Examples
 
 ``` r
+
 macev_groep(c("Faxonius", "Procambarus", "TEST", NA))
 #> [1] "Tienpotigen (kreeften)" "Tienpotigen (kreeften)" "Overig"                
 #> [4] "Overig"                

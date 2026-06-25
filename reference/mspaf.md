@@ -22,6 +22,7 @@ De msPAF
 ## Examples
 
 ``` r
+
 # dobbelsteen voorbeeld
 mspaf(c(1/6, 1/6))
 #> [1] 0.3055556

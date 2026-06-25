@@ -31,6 +31,7 @@ Synchronisatie van bestanden van de bronlocatie met de doellocatie.
 ## Examples
 
 ``` r
+
 if (FALSE) { # \dontrun{
 
 copy_data()

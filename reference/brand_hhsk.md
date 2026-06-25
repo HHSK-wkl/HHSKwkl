@@ -18,6 +18,7 @@ Installeert de brand extensie in de working directory
 ## Examples
 
 ``` r
+
 if (FALSE) { # \dontrun{
  get_brand_hhsk()
  get_template_hhsk()

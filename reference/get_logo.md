@@ -22,6 +22,7 @@ slaat logo_kleur.png en logo_wit.png op op de gekozen locatie.
 ## Examples
 
 ``` r
+
 if (FALSE) { # \dontrun{
 get_logo("images")
 } # }
