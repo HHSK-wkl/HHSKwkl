@@ -16,3 +16,7 @@ Useful links:
 ## Author
 
 **Maintainer**: Johan van Tent <j.van.tent@hhsk.nl>
+
+Authors:
+
+- Johan van Tent <j.van.tent@hhsk.nl>

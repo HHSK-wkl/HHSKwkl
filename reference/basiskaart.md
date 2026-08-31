@@ -6,7 +6,7 @@ vervolgens vrij elementen worden toegevoegd
 ## Usage
 
 ``` r
-basiskaart(data = NULL, type = c("osm", "cartolight"), ...)
+basiskaart(data = NULL, type = c("osm", "cartolight"), api_key = NULL, ...)
 ```
 
 ## Arguments
@@ -19,6 +19,12 @@ basiskaart(data = NULL, type = c("osm", "cartolight"), ...)
 - type:
 
   Het type kaart. Opties zijn `"osm"` (default) en `"cartolight"`
+
+- api_key:
+
+  API key voor Carto achtergrond. Zonder key krijgt de achtergrond een
+  watermerk. Indien NULL wordt `Sys.getenv("API_KEY_CARTO")`
+  geraadpleegd.
 
 - ...:
 
