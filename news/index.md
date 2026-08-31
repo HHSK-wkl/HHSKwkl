@@ -5,6 +5,9 @@
 - toevoeging van functie
   [`macev_groep()`](https://hhsk-wkl.github.io/HHSKwkl/reference/macev_groep.md)
   om de macrofaunagroep te bepalen.
+- aanpassing van functie
+  [`basiskaart()`](https://hhsk-wkl.github.io/HHSKwkl/reference/basiskaart.md)
+  ivm API-key voor Carto-kaartlagen.
 
 ## HHSKwkl 0.5.2
 
