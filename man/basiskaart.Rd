@@ -4,12 +4,15 @@
 \alias{basiskaart}
 \title{Leaflet basiskaart met topo en luchtfoto}
 \usage{
-basiskaart(data = NULL, type = c("osm", "cartolight"), ...)
+basiskaart(data = NULL, type = c("osm", "cartolight"), api_key = NULL, ...)
 }
 \arguments{
 \item{data}{Een optioneel dataframe. Zie ook het data-argument in de functie \code{\link[leaflet:leaflet]{leaflet::leaflet()}}}
 
 \item{type}{Het type kaart. Opties zijn \code{"osm"} (default) en \code{"cartolight"}}
+
+\item{api_key}{API key voor Carto achtergrond. Zonder key krijgt de achtergrond een watermerk.
+Indien NULL wordt \code{Sys.getenv("API_KEY_CARTO")} geraadpleegd.}
 
 \item{...}{Named arguments voor \code{leaflet()}}
 }

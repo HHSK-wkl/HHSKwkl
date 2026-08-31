@@ -4,6 +4,8 @@
 #'
 #' @param data Een optioneel dataframe. Zie ook het data-argument in de functie [leaflet::leaflet()]
 #' @param type Het type kaart. Opties zijn `"osm"` (default) en `"cartolight"`
+#' @param api_key API key voor Carto achtergrond. Zonder key krijgt de achtergrond een watermerk.
+#'  Indien NULL wordt `Sys.getenv("API_KEY_CARTO")` geraadpleegd.
 #' @param ... Named arguments voor `leaflet()`
 #'
 #' @return Een leaflet kaart

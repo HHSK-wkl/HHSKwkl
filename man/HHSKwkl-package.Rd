@@ -20,4 +20,9 @@ Useful links:
 \author{
 \strong{Maintainer}: Johan van Tent \email{j.van.tent@hhsk.nl}
 
+Authors:
+\itemize{
+  \item Johan van Tent \email{j.van.tent@hhsk.nl}
+}
+
 }
