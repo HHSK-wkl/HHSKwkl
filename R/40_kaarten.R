@@ -13,14 +13,33 @@
 #' 
 #' basiskaart()
 #' 
-basiskaart <- function(data = NULL, type = c("osm", "cartolight"), ...) {
+basiskaart <- function(data = NULL, type = c("osm", "cartolight"), api_key = NULL, ...) {
   type <- rlang::arg_match(type, c("osm", "cartolight"))
   
+  kaartlaag <- function(kaart){
+    if (type == "osm") {
+      
+      leaflet::addProviderTiles(kaart, "OpenStreetMap", group = "Kaart")
+      
+    } else if (type == "cartolight") {
+      
+      api_key <- api_key %||% Sys.getenv("API_KEY_CARTO")
+      
+      if (api_key == "") {
+        message("Geen API KEY beschikbaar. Dit resulteert in meldingen op de kaart.\nVerkrijg een API KEY op https://carto.com/basemaps/apikey/ .\nVoor automatisch gebruik van de API KEY: gebruik `usethis::edit_r_environ()`\nen maak een variabele aan met de naam API_KEY_CARTO met als waarde de key (geen spaties).")
+        leaflet::addTiles(kaart, "https://basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png")
+        
+      } else {
+        leaflet::addTiles(kaart, paste0("https://basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png?key=", api_key))
+      }
+      
+    }
+  }
+  
   leaflet::leaflet(data, ...) %>% 
-    {if (type == "osm") {leaflet::addProviderTiles(. ,"OpenStreetMap", group = "Kaart") } else {.}} %>%
-    {if (type == "cartolight") {leaflet::addProviderTiles(., "CartoDB.Positron", group = "Kaart") } else {.}} %>%
+    kaartlaag() %>% 
     leaflet::addProviderTiles("Esri.WorldImagery", group = "Luchtfoto") %>% 
     leaflet::addLayersControl( baseGroups = c("Kaart", "Luchtfoto"), 
-                      options = leaflet::layersControlOptions(collapsed = FALSE),
-                      position = "topleft")
+                               options = leaflet::layersControlOptions(collapsed = FALSE),
+                               position = "topleft")
 }
