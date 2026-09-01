@@ -29,10 +29,10 @@ basiskaart <- function(data = NULL, type = c("osm", "cartolight"), api_key = NUL
       
       if (api_key == "") {
         message("Geen API KEY beschikbaar. Dit resulteert in meldingen op de kaart.\nVerkrijg een API KEY op https://carto.com/basemaps/apikey/ .\nVoor automatisch gebruik van de API KEY: gebruik `usethis::edit_r_environ()`\nen maak een variabele aan met de naam API_KEY_CARTO met als waarde de key (geen spaties).")
-        leaflet::addTiles(kaart, "https://basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png")
+        leaflet::addTiles(kaart, "https://basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png", group = "Kaart")
         
       } else {
-        leaflet::addTiles(kaart, paste0("https://basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png?key=", api_key))
+        leaflet::addTiles(kaart, paste0("https://basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png?key=", api_key), group = "Kaart")
       }
       
     }
