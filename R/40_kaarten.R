@@ -5,7 +5,7 @@
 #' @param data Een optioneel dataframe. Zie ook het data-argument in de functie [leaflet::leaflet()]
 #' @param type Het type kaart. Opties zijn `"osm"` (default) en `"cartolight"`
 #' @param api_key API key voor Carto achtergrond. Zonder key krijgt de achtergrond een watermerk.
-#'  Indien NULL wordt `Sys.getenv("API_KEY_CARTO")` geraadpleegd.
+#'  Indien NULL wordt `Sys.getenv("CARTO_API_KEY")` geraadpleegd.
 #' @param ... Named arguments voor `leaflet()`
 #'
 #' @return Een leaflet kaart
@@ -25,10 +25,10 @@ basiskaart <- function(data = NULL, type = c("osm", "cartolight"), api_key = NUL
       
     } else if (type == "cartolight") {
       
-      api_key <- api_key %||% Sys.getenv("API_KEY_CARTO")
+      api_key <- api_key %||% Sys.getenv("CARTO_API_KEY")
       
       if (api_key == "") {
-        message("Geen API KEY beschikbaar. Dit resulteert in meldingen op de kaart.\nVerkrijg een API KEY op https://carto.com/basemaps/apikey/ .\nVoor automatisch gebruik van de API KEY: gebruik `usethis::edit_r_environ()`\nen maak een variabele aan met de naam API_KEY_CARTO met als waarde de key (geen spaties).")
+        message("Geen API KEY beschikbaar. Dit resulteert in meldingen op de kaart.\nVerkrijg een API KEY op https://carto.com/basemaps/apikey/ .\nVoor automatisch gebruik van de API KEY: gebruik `usethis::edit_r_environ()`\nen maak een variabele aan met de naam CARTO_API_KEY met als waarde de key (geen spaties).")
         leaflet::addTiles(kaart, "https://basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png", group = "Kaart")
         
       } else {

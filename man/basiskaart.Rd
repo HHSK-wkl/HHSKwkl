@@ -12,7 +12,7 @@ basiskaart(data = NULL, type = c("osm", "cartolight"), api_key = NULL, ...)
 \item{type}{Het type kaart. Opties zijn \code{"osm"} (default) en \code{"cartolight"}}
 
 \item{api_key}{API key voor Carto achtergrond. Zonder key krijgt de achtergrond een watermerk.
-Indien NULL wordt \code{Sys.getenv("API_KEY_CARTO")} geraadpleegd.}
+Indien NULL wordt \code{Sys.getenv("CARTO_API_KEY")} geraadpleegd.}
 
 \item{...}{Named arguments voor \code{leaflet()}}
 }
