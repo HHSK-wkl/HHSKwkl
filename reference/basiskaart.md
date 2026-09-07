@@ -23,7 +23,7 @@ basiskaart(data = NULL, type = c("osm", "cartolight"), api_key = NULL, ...)
 - api_key:
 
   API key voor Carto achtergrond. Zonder key krijgt de achtergrond een
-  watermerk. Indien NULL wordt `Sys.getenv("API_KEY_CARTO")`
+  watermerk. Indien NULL wordt `Sys.getenv("CARTO_API_KEY")`
   geraadpleegd.
 
 - ...:

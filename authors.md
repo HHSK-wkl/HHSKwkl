@@ -10,12 +10,12 @@ Source:
 [`DESCRIPTION`](https://github.com/HHSK-wkl/HHSKwkl/blob/master/DESCRIPTION)
 
 van Tent J (2026). *HHSKwkl: Functies HHSK Waterkwaliteit*. R package
-version 0.5.2.9002, <https://github.com/HHSK-wkl/HHSKwkl>.
+version 0.5.2.9003, <https://github.com/HHSK-wkl/HHSKwkl>.
 
     @Manual{,
       title = {HHSKwkl: Functies HHSK Waterkwaliteit},
       author = {Johan {van Tent}},
       year = {2026},
-      note = {R package version 0.5.2.9002},
+      note = {R package version 0.5.2.9003},
       url = {https://github.com/HHSK-wkl/HHSKwkl},
     }
